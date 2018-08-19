@@ -8,10 +8,10 @@ int main(int argc, char** argv) {
     
     clock_t begin = clock();
     std::string in_file = "/Users/hao/Desktop/data/1964.json";
-    std::string out_file = "/Users/hao/Desktop/data/out.txt";
-    Parser parser(in_file, out_file);
+    Parser parser(in_file);
     
-    parser.StartWork();
+//    parser.StartWork();
+    parser.ConnectDB();
     
     clock_t end = clock();
     double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;

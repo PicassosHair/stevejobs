@@ -12,11 +12,11 @@ namespace idsguard {
     class Parser {
         private:
             std::string in_file_path_;
-            std::string out_file_path_;
         
         public:
-            Parser(std::string& in_file_path, std::string& out_file_path);
+            Parser(std::string& in_file_path);
             ~Parser();
         void StartWork();
+        void ConnectDB();
     };
 }
