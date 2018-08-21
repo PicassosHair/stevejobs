@@ -9,25 +9,31 @@
 /* Begin PBXBuildFile section */
 		3F44632D212690B500462912 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F44632C212690B500462912 /* main.cpp */; };
 		3F4463352126914500462912 /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F4463332126914500462912 /* parser.cpp */; };
+		3F87DA04212A7784001EFAF1 /* database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F87DA02212A7784001EFAF1 /* database.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3F446327212690B400462912 /* CopyFiles */ = {
+		3F446327212690B400462912 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F1111E12128F118001F8CB6 /* sample_record */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample_record; sourceTree = "<group>"; };
 		3F446329212690B500462912 /* pedsparser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pedsparser; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F44632C212690B500462912 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3F4463332126914500462912 /* parser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
 		3F4463342126914500462912 /* parser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = parser.hpp; sourceTree = "<group>"; };
+		3F44633621269B8A00462912 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3F87DA02212A7784001EFAF1 /* database.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = database.cpp; sourceTree = "<group>"; };
+		3F87DA03212A7784001EFAF1 /* database.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = database.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +50,8 @@
 		3F446320212690B400462912 = {
 			isa = PBXGroup;
 			children = (
+				3F1111E12128F118001F8CB6 /* sample_record */,
+				3F44633621269B8A00462912 /* README.md */,
 				3F44632B212690B500462912 /* pedsparser */,
 				3F44632A212690B500462912 /* Products */,
 			);
@@ -63,6 +71,8 @@
 				3F44632C212690B500462912 /* main.cpp */,
 				3F4463332126914500462912 /* parser.cpp */,
 				3F4463342126914500462912 /* parser.hpp */,
+				3F87DA02212A7784001EFAF1 /* database.cpp */,
+				3F87DA03212A7784001EFAF1 /* database.hpp */,
 			);
 			path = pedsparser;
 			sourceTree = "<group>";
@@ -76,7 +86,7 @@
 			buildPhases = (
 				3F446325212690B400462912 /* Sources */,
 				3F446326212690B400462912 /* Frameworks */,
-				3F446327212690B400462912 /* CopyFiles */,
+				3F446327212690B400462912 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -125,6 +135,7 @@
 			files = (
 				3F4463352126914500462912 /* parser.cpp in Sources */,
 				3F44632D212690B500462912 /* main.cpp in Sources */,
+				3F87DA04212A7784001EFAF1 /* database.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +254,31 @@
 		3F446331212690B500462912 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/Cellar/nlohmann_json/3.1.2/include/**",
+					"/usr/local/Cellar/mysql-connector-c++/1.1.9_2/include/**",
+					/usr/local/Cellar/boost/1.67.0_1/include,
+					"/usr/local/Cellar/mysql-client/5.7.23/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"/usr/local/Cellar/mysql-connector-c++/1.1.9_2/lib",
+					/usr/local/Cellar/boost/1.67.0_1/lib,
+					"/usr/local/Cellar/mysql-client/5.7.23/lib",
+				);
+				OTHER_LDFLAGS = (
+					"-lmysqlcppconn",
+					"-lm",
+					"-lmysqlclient",
+					"-lz",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -251,7 +286,27 @@
 		3F446332212690B500462912 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/Cellar/nlohmann_json/3.1.2/include/**",
+					"/usr/local/Cellar/mysql-connector-c++/1.1.9_2/include/**",
+					/usr/local/Cellar/boost/1.67.0_1/include,
+					"/usr/local/Cellar/mysql-client/5.7.23/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"/usr/local/Cellar/mysql-connector-c++/1.1.9_2/lib",
+					/usr/local/Cellar/boost/1.67.0_1/lib,
+					"/usr/local/Cellar/mysql-client/5.7.23/lib",
+				);
+				OTHER_LDFLAGS = (
+					"-lmysqlcppconn",
+					"-lm",
+					"-lmysqlclient",
+					"-lz",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

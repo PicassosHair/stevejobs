@@ -1,0 +1,311 @@
+{
+  "patentCaseMetadata": {
+    "applicationNumberText": {
+      "value": "15482583",
+      "electronicText": "15482583"
+    },
+    "filingDate": "2017-04-07",
+    "applicationTypeCategory": "Utility",
+    "partyBag": {
+      "applicantBagOrInventorBagOrOwnerBag": [
+        {
+          "primaryExaminerOrAssistantExaminerOrAuthorizedOfficer": [
+            {
+              "name": {
+                "personNameOrOrganizationNameOrEntityName": [
+                  {
+                    "personFullName": "KIM, EUN HWA"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "inventorOrDeceasedInventor": [
+            {
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "lastName": "Matthew R. Angle"
+                        }
+                      }
+                    ]
+                  },
+                  "cityName": "San Jose",
+                  "geographicRegionName": {
+                    "value": "CA",
+                    "geographicRegionCategory": "STATE"
+                  },
+                  "countryCode": "US"
+                }
+              ]
+            },
+            {
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "lastName": "Yifan  Kong"
+                        }
+                      }
+                    ]
+                  },
+                  "cityName": "San Jose",
+                  "geographicRegionName": {
+                    "value": "CA",
+                    "geographicRegionCategory": "STATE"
+                  },
+                  "countryCode": "US"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "partyIdentifierOrContact": [
+            {
+              "contactText": {
+                "content": [
+                  "21971"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "groupArtUnitNumber": {
+      "value": "3739",
+      "electronicText": "3739"
+    },
+    "applicationConfirmationNumber": "3913",
+    "applicantFileReference": "49467-701.201",
+    "patentClassificationBag": {
+      "cpcClassificationBagOrIPCClassificationOrECLAClassificationBag": [
+        {
+          "mainNationalClassification": {
+            "nationalClass": "600",
+            "nationalSubclass": "600/378000"
+          }
+        }
+      ]
+    },
+    "businessEntityStatusCategory": "SMALL",
+    "firstInventorToFileIndicator": true,
+    "inventionTitle": {
+      "content": [
+        "NEURAL-INTERFACE PROBE AND METHODS OF PACKAGING THE SAME"
+      ]
+    },
+    "applicationStatusCategory": "Non Final Action Mailed",
+    "applicationStatusDate": "2017-11-24",
+    "officialFileLocationCategory": "ELECTRONIC",
+    "officialFileLocationDate": "-",
+    "relatedPatentPublicationIdentification": {
+      "publicationNumber": "US20170290521A1",
+      "publicationDate": "2017-10-12"
+    },
+    "patentGrantIdentification": {},
+    "pctRegionalPublicationData": {},
+    "hagueAgreementData": {
+      "internationalFilingDate": "-",
+      "internationalRegistrationNumber": "-"
+    }
+  },
+  "prosecutionHistoryDataOrPatentTermData": [
+    {
+      "recordedDate": "2018-05-16",
+      "caseActionDescriptionText": "track 1 OFF , T1OFF"
+    },
+    {
+      "recordedDate": "2018-05-08",
+      "caseActionDescriptionText": "Interview Summary - Applicant Initiated - Telephonic , EXAT"
+    },
+    {
+      "recordedDate": "2017-11-28",
+      "caseActionDescriptionText": "Electronic Review , ELC_RVW"
+    },
+    {
+      "recordedDate": "2017-11-28",
+      "caseActionDescriptionText": "Email Notification , EML_NTF"
+    },
+    {
+      "recordedDate": "2017-11-28",
+      "caseActionDescriptionText": "Mail Non-Final Rejection , MCTNF"
+    },
+    {
+      "recordedDate": "2017-11-22",
+      "caseActionDescriptionText": "Non-Final Rejection , CTNF"
+    },
+    {
+      "recordedDate": "2017-11-22",
+      "caseActionDescriptionText": "Information Disclosure Statement considered , IDSC"
+    },
+    {
+      "recordedDate": "2017-10-13",
+      "caseActionDescriptionText": "Email Notification , EML_NTR"
+    },
+    {
+      "recordedDate": "2017-10-12",
+      "caseActionDescriptionText": "Application ready for PDX access by participating foreign offices , CCRDY"
+    },
+    {
+      "recordedDate": "2017-10-12",
+      "caseActionDescriptionText": "PG-Pub Issue Notification , PG-ISSUE"
+    },
+    {
+      "recordedDate": "2017-10-02",
+      "caseActionDescriptionText": "track 1 ON  , T1ON"
+    },
+    {
+      "recordedDate": "2017-10-02",
+      "caseActionDescriptionText": "Date Forwarded to Examiner , FWDX"
+    },
+    {
+      "recordedDate": "2017-09-28",
+      "caseActionDescriptionText": "Response after Non-Final Action , A..."
+    },
+    {
+      "recordedDate": "2017-06-30",
+      "caseActionDescriptionText": "Reference capture on IDS , RCAP"
+    },
+    {
+      "recordedDate": "2017-06-30",
+      "caseActionDescriptionText": "Information Disclosure Statement (IDS) Filed , M844"
+    },
+    {
+      "recordedDate": "2017-06-30",
+      "caseActionDescriptionText": "Information Disclosure Statement (IDS) Filed , WIDS"
+    },
+    {
+      "recordedDate": "2017-06-30",
+      "caseActionDescriptionText": "Electronic Review , ELC_RVW"
+    },
+    {
+      "recordedDate": "2017-06-30",
+      "caseActionDescriptionText": "Email Notification , EML_NTF"
+    },
+    {
+      "recordedDate": "2017-06-30",
+      "caseActionDescriptionText": "Mail Non-Final Rejection , MCTNF"
+    },
+    {
+      "recordedDate": "2017-06-26",
+      "caseActionDescriptionText": "Non-Final Rejection , CTNF"
+    },
+    {
+      "recordedDate": "2017-06-26",
+      "caseActionDescriptionText": "Information Disclosure Statement considered , IDSC"
+    },
+    {
+      "recordedDate": "2017-06-26",
+      "caseActionDescriptionText": "Information Disclosure Statement considered , IDSC"
+    },
+    {
+      "recordedDate": "2017-06-19",
+      "caseActionDescriptionText": "Information Disclosure Statement (IDS) Filed , M844"
+    },
+    {
+      "recordedDate": "2017-06-19",
+      "caseActionDescriptionText": "Information Disclosure Statement (IDS) Filed , WIDS"
+    },
+    {
+      "recordedDate": "2017-06-07",
+      "caseActionDescriptionText": "Case Docketed to Examiner in GAU , DOCK"
+    },
+    {
+      "recordedDate": "2017-05-12",
+      "caseActionDescriptionText": "Application Dispatched from OIPE , OIPE"
+    },
+    {
+      "recordedDate": "2017-05-01",
+      "caseActionDescriptionText": "Information Disclosure Statement (IDS) Filed , M844"
+    },
+    {
+      "recordedDate": "2017-05-01",
+      "caseActionDescriptionText": "Information Disclosure Statement (IDS) Filed , WIDS"
+    },
+    {
+      "recordedDate": "2017-04-26",
+      "caseActionDescriptionText": "Email Notification , EML_NTR"
+    },
+    {
+      "recordedDate": "2017-04-21",
+      "caseActionDescriptionText": "Track 1 Request Granted , T1GR"
+    },
+    {
+      "recordedDate": "2017-04-21",
+      "caseActionDescriptionText": "Mail-Record Petition Decision of Granted to Make Special , MP003"
+    },
+    {
+      "recordedDate": "2017-04-20",
+      "caseActionDescriptionText": "Record Petition Decision of Granted to Make Special , P003"
+    },
+    {
+      "recordedDate": "2017-04-19",
+      "caseActionDescriptionText": "Email Notification , EML_NTR"
+    },
+    {
+      "recordedDate": "2017-04-19",
+      "caseActionDescriptionText": "Application Is Now Complete , COMP"
+    },
+    {
+      "recordedDate": "2017-04-19",
+      "caseActionDescriptionText": "Filing Receipt , FLRCPT.O"
+    },
+    {
+      "recordedDate": "2017-04-18",
+      "caseActionDescriptionText": "Sent to Classification Contractor , PGPC"
+    },
+    {
+      "recordedDate": "2017-04-18",
+      "caseActionDescriptionText": "FITF set to YES - revise initial setting , FTFS"
+    },
+    {
+      "recordedDate": "2017-04-17",
+      "caseActionDescriptionText": "Applicant Has Filed a Verified Statement of Small Entity Status in Compliance with 37 CFR 1.27 , SMAL"
+    },
+    {
+      "recordedDate": "2017-04-11",
+      "caseActionDescriptionText": "Cleared by OIPE CSR , L194"
+    },
+    {
+      "recordedDate": "2017-04-07",
+      "caseActionDescriptionText": "Patent Term Adjustment - Ready for Examination , PTA.RFE"
+    },
+    {
+      "recordedDate": "2017-04-07",
+      "caseActionDescriptionText": "PTO/SB/69-Authorize EPO Access to Search Results , SREXR141"
+    },
+    {
+      "recordedDate": "2017-04-07",
+      "caseActionDescriptionText": "Applicants have given acceptable permission for participating foreign  , APPERMS"
+    },
+    {
+      "recordedDate": "2017-04-07",
+      "caseActionDescriptionText": "Track 1 Request , TK1R"
+    },
+    {
+      "recordedDate": "2017-04-07",
+      "caseActionDescriptionText": "Petition Entered , PET."
+    },
+    {
+      "recordedDate": "2017-04-07",
+      "caseActionDescriptionText": "IFW Scan & PACR Auto Security Review , SCAN"
+    },
+    {
+      "recordedDate": "2017-04-07",
+      "caseActionDescriptionText": "ENTITY STATUS SET TO UNDISCOUNTED (INITIAL DEFAULT SETTING OR STATUS CHANGE) , BIG."
+    },
+    {
+      "recordedDate": "2017-04-07",
+      "caseActionDescriptionText": "Initial Exam Team nn , IEXX"
+    }
+  ]
+}
