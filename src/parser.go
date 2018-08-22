@@ -1,28 +1,46 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
+	"log"
 	"os"
-
-	jsoniter "github.com/json-iterator/go"
 )
+
+// RawPatentRecords defines raw PEDS bulk data.
+type RawPatentRecords []struct {
+	PatentCaseMetadata struct {
+		ApplicationNumberText struct {
+			Value, ElectronicText string
+		}
+	}
+}
 
 func main() {
 	fmt.Printf("starting...")
 
 	file, _ := os.Open("/Users/hao/Desktop/data/1964.json")
-	iter := jsoniter.Parse(jsoniter.ConfigDefault, file, 1024)
-	count := 0
+	decoder := json.NewDecoder(file)
+	for {
+		t, err := decoder.Token()
+		if err != nil {
+			if err == io.EOF {
+				break
+			}
+		}
+		if t == "patentRecord" {
+			for decoder.More() {
+				var m RawPatentRecords
+				err := decoder.Decode(&m)
+				if err != nil {
+					log.Fatal(err)
+				}
 
-	var value interface{} = iter.Read()
-	for value != nil {
-		fmt.Printf("%v", count+1)
-		value = iter.Read()
+				fmt.Println(m[0].PatentCaseMetadata.ApplicationNumberText.Value)
+			}
+		}
 	}
+
 	file.Close()
-	// iter := jsoniter.ParseString(jsoniter.ConfigDefault, `[ {"a" : [{"b": "c"}], "d": 102 }, "b"]`)
-	// iter.ReadArray()
-	// iter.Skip()
-	// iter.ReadArray()
-	// fmt.Printf(iter.ReadString())
 }
