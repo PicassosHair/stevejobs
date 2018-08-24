@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"database/sql"
 	"encoding/json"
 	"fmt"
@@ -10,44 +9,10 @@ import (
 	"os"
 	"time"
 
+	"util"
+
 	_ "github.com/go-sql-driver/mysql"
 )
-
-// RawPatentRecords defines raw PEDS bulk data.
-type RawPatentRecords []struct {
-	PatentCaseMetadata                     map[string]interface{}
-	ProsecutionHistoryDataOrPatentTermData []struct {
-		RecordDate, CaseActionDescriptionText string
-	}
-}
-
-func processApplication(record *RawPatentRecords) bytes.Buffer {
-	var result bytes.Buffer
-	currentTime := time.Now()
-	formatedTime := currentTime.Format("2006-01-02")
-	result.WriteString(formatedTime)
-	result.WriteString("^")
-	result.WriteString(formatedTime)
-	result.WriteString("^")
-
-	applText := (*record)[0].PatentCaseMetadata["applicationNumberText"].(map[string]interface{})
-
-	result.WriteString(applText["value"].(string))
-	result.WriteString("^")
-
-	pedsData, _ := json.Marshal((*record)[0].PatentCaseMetadata)
-
-	result.WriteString(string(pedsData))
-	result.WriteString("^")
-
-	title := (*record)[0].PatentCaseMetadata["inventionTitle"].(map[string]interface{})
-	titleText := title["content"].([]interface{})
-
-	result.WriteString(titleText[0].(string))
-	result.WriteByte('\n')
-
-	return result
-}
 
 func checkErr(err error) {
 	if err != nil {
@@ -66,14 +31,14 @@ func loadApplicationsToDatabase() {
 	checkErr(err)
 
 	// Drop indices to speed up.
-	_, err = db.Query(`
-	DROP INDEX applId_index ON temp_Applications;
-	`)
-	checkErr(err)
+	// _, err = db.Query(`
+	// DROP INDEX applId_index ON temp_Applications;
+	// `)
+	// checkErr(err)
 
 	// Load data into temp Applications table.
 	_, err = db.Query(`	
-	LOAD DATA INFILE '/Users/hao/Desktop/data/out.txt'      
+	LOAD DATA INFILE '/Users/hao/Desktop/data/out_applications'      
 	INTO TABLE temp_Applications
 	FIELDS TERMINATED BY '^'
 	LINES TERMINATED BY '\n'
@@ -98,22 +63,28 @@ func loadApplicationsToDatabase() {
 func main() {
 	startTime := time.Now()
 
-	outPath := "/Users/hao/Desktop/data/out.txt"
+	outPath := "/Users/hao/Desktop/data/out"
 
-	readFile, err := os.Open("/Users/hao/Desktop/data/2017.json")
+	readFile, err := os.Open("/Users/hao/Desktop/data/1964.json")
 
 	checkErr(err)
 
-	writeFile, err := os.Create(outPath)
+	writeApplicationsFile, err := os.Create(outPath + "_applications")
+	writeCodesFile, err := os.Create(outPath + "_codes")
 
 	checkErr(err)
 
 	defer readFile.Close()
-	defer writeFile.Close()
+	defer writeApplicationsFile.Close()
+	defer writeCodesFile.Close()
 
 	decoder := json.NewDecoder(readFile)
 
 	fmt.Println("Parsing JSON...")
+
+	// Used for dedup codes.
+	codeSet := map[string]bool{}
+
 	for {
 		t, err := decoder.Token()
 		if err != nil {
@@ -123,16 +94,18 @@ func main() {
 		}
 		if t == "patentRecord" {
 			for decoder.More() {
-				var rawRecord RawPatentRecords
+				var rawRecord util.RawPatentRecords
 				err := decoder.Decode(&rawRecord)
 				if err != nil {
 					log.Fatal(err)
 				}
 
-				applicationText := processApplication(&rawRecord)
-				writeFile.WriteString(applicationText.String())
+				applicationText := util.ProcessApplication(&rawRecord)
+				writeApplicationsFile.WriteString(applicationText.String())
+				codeText := util.ProcessCode(&rawRecord, codeSet)
+				writeCodesFile.WriteString(codeText.String())
 			}
-			writeFile.Sync()
+			writeApplicationsFile.Sync()
 		}
 	}
 
@@ -140,7 +113,7 @@ func main() {
 	loadApplicationsToDatabase()
 
 	fmt.Println("Remove out.txt file...")
-	err = os.Remove(outPath)
+	err = os.Remove(outPath + "_applications")
 	checkErr(err)
 
 	duration := time.Since(startTime)
