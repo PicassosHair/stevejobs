@@ -3,7 +3,6 @@ package util
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"strings"
 	"time"
 )
@@ -48,7 +47,6 @@ func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer
 			continue
 		}
 		code := texts[1]
-		fmt.Println(len(codeMap))
 		if (codeMap)[code] {
 			continue
 		} else {
