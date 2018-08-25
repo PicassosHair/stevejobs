@@ -7,6 +7,12 @@ import (
 	"time"
 )
 
+func extractApplID(record *RawPatentRecords) string {
+	applText := (*record)[0].PatentCaseMetadata["applicationNumberText"].(map[string]interface{})
+
+	return applText["value"].(string)
+}
+
 // ProcessApplication processes generated JSON record and generates a string.
 func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	var result bytes.Buffer
@@ -16,10 +22,8 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	result.WriteString("^")
 	result.WriteString(formatedTime)
 	result.WriteString("^")
+	result.WriteString(extractApplID(record))
 
-	applText := (*record)[0].PatentCaseMetadata["applicationNumberText"].(map[string]interface{})
-
-	result.WriteString(applText["value"].(string))
 	result.WriteString("^")
 
 	pedsData, _ := json.Marshal((*record)[0].PatentCaseMetadata)
@@ -55,5 +59,28 @@ func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer
 			(codeMap)[code] = true
 		}
 	}
+	return result
+}
+
+// ProcessTransaction processes the record and generates a string of transactions. Separated by linebreaks.
+func ProcessTransaction(record *RawPatentRecords) bytes.Buffer {
+	var result bytes.Buffer
+	transactionData := (*record)[0].ProsecutionHistoryDataOrPatentTermData
+	applID := extractApplID(record)
+
+	for _, event := range transactionData {
+		descText := event.CaseActionDescriptionText
+		texts := strings.Split(descText, " , ")
+		if len(texts) != 2 {
+			continue
+		}
+		result.WriteString(event.RecordedDate)
+		result.WriteString("^")
+		result.WriteString(applID)
+		result.WriteString("^")
+		result.WriteString(strings.Join(texts, "^"))
+		result.WriteByte('\n')
+	}
+
 	return result
 }

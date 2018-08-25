@@ -4,6 +4,6 @@ package util
 type RawPatentRecords []struct {
 	PatentCaseMetadata                     map[string]interface{}
 	ProsecutionHistoryDataOrPatentTermData []struct {
-		RecordDate, CaseActionDescriptionText string
+		RecordedDate, CaseActionDescriptionText string
 	}
 }
