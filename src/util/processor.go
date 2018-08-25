@@ -43,6 +43,8 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 // ProcessCode processes generated JSON record and generate a string of transaction codes. Since the total amount of code is ~600, we will just use a map to dedup here.
 func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer {
 	var result bytes.Buffer
+	currentTime := time.Now()
+	formatedTime := currentTime.Format("2006-01-02")
 	transactionData := (*record)[0].ProsecutionHistoryDataOrPatentTermData
 	for _, event := range transactionData {
 		descText := event.CaseActionDescriptionText
@@ -54,7 +56,17 @@ func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer
 		if (codeMap)[code] {
 			continue
 		} else {
+			result.WriteString(formatedTime)
+			result.WriteString("^")
+			result.WriteString(formatedTime)
+			result.WriteString("^")
 			result.WriteString(strings.Join(texts, "^"))
+			result.WriteString("^")
+			result.WriteString("info")
+			result.WriteString("^")
+			result.WriteString("uspto")
+			result.WriteString("^")
+			result.WriteString("1")
 			result.WriteByte('\n')
 			(codeMap)[code] = true
 		}
@@ -65,6 +77,8 @@ func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer
 // ProcessTransaction processes the record and generates a string of transactions. Separated by linebreaks.
 func ProcessTransaction(record *RawPatentRecords) bytes.Buffer {
 	var result bytes.Buffer
+	currentTime := time.Now()
+	formatedTime := currentTime.Format("2006-01-02")
 	transactionData := (*record)[0].ProsecutionHistoryDataOrPatentTermData
 	applID := extractApplID(record)
 
@@ -74,11 +88,15 @@ func ProcessTransaction(record *RawPatentRecords) bytes.Buffer {
 		if len(texts) != 2 {
 			continue
 		}
-		result.WriteString(event.RecordedDate)
+		result.WriteString(formatedTime)
+		result.WriteString("^")
+		result.WriteString(formatedTime)
+		result.WriteString("^")
+		result.WriteString(texts[1])
 		result.WriteString("^")
 		result.WriteString(applID)
 		result.WriteString("^")
-		result.WriteString(strings.Join(texts, "^"))
+		result.WriteString(event.RecordedDate)
 		result.WriteByte('\n')
 	}
 

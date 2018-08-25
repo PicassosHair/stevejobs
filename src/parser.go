@@ -18,46 +18,6 @@ func checkErr(err error) {
 	}
 }
 
-// func loadApplicationsToDatabase() {
-// 	db, err := sql.Open("mysql", "root:@/idsguard_dev")
-// 	checkErr(err)
-
-// 	// Create a new temp table.
-// 	_, err = db.Query(`
-// 	CREATE TABLE IF NOT EXISTS temp_Applications LIKE Applications;
-// 	`)
-// 	checkErr(err)
-
-// 	// Drop indices to speed up.
-// 	// _, err = db.Query(`
-// 	// DROP INDEX applId_index ON temp_Applications;
-// 	// `)
-// 	// checkErr(err)
-
-// 	// Load data into temp Applications table.
-// 	_, err = db.Query(`
-// 	LOAD DATA INFILE '/Users/hao/Desktop/data/out_applications'
-// 	INTO TABLE temp_Applications
-// 	FIELDS TERMINATED BY '^'
-// 	LINES TERMINATED BY '\n'
-// 	(createdAt, updatedAt, applId, pedsData, title);
-// 	`)
-// 	checkErr(err)
-
-// 	// Sync temp table with real table.
-// 	_, err = db.Query(`
-// 	INSERT INTO Applications
-// 	SELECT * FROM temp_Applications
-// 	ON DUPLICATE KEY UPDATE updatedAt = VALUES(updatedAt), pedsData = VALUES(pedsData), title = VALUES(title);
-// 	`)
-
-// 	_, err = db.Query(`
-// 	DROP TABLE temp_Applications;
-// 	`)
-// 	checkErr(err)
-
-// }
-
 func main() {
 
 	inFilePath := flag.String("in", "", "The raw json file to parse.")
