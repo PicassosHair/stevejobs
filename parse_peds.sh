@@ -15,4 +15,4 @@ mysql --defaults-extra-file=$HOME/config/mysql.conf --local-infile -e \
 SOURCE ./temp/load_application.sql;" > ${LOG_FILE_PATH}
 
 # Clean work
-# rm -rf ./temp
+rm -rf ./temp

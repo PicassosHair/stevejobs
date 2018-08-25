@@ -10,4 +10,8 @@ FIELDS TERMINATED BY '^'
 LINES TERMINATED BY '\n'
 (createdAt, updatedAt, applId, pedsData, title);
 
+INSERT INTO Applications
+SELECT * FROM temp_Applications
+ON DUPLICATE KEY UPDATE updatedAt = VALUES(updatedAt), pedsData = VALUES(pedsData), title = VALUES(title);
+
 DROP TEMPORARY TABLE temp_Applications;
