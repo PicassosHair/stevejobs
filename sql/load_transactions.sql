@@ -16,7 +16,7 @@ ALTER TABLE temp_Transactions MODIFY applicationId VARCHAR(255);
 LOAD DATA LOCAL INFILE @infile
 INTO TABLE temp_Transactions
 FIELDS TERMINATED BY '^'
-LINES TERMINATED BY '$'
+LINES TERMINATED BY '$\n'
 (createdAt, updatedAt, transactionCodeId, applicationId, recordDate);
 
 INSERT IGNORE INTO Transactions
