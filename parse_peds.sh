@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # This script pass $1 = year parameter and load the data of $1.json to mysql database.
 
 # Put MySQL credentials into $HOME/config/mysql.conf
