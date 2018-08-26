@@ -23,9 +23,9 @@ INSERT IGNORE INTO Transactions
    (createdAt, updatedAt, transactionCodeId, applicationId, recordDate)
 SELECT tt.createdAt, tt.updatedAt, tc.id AS transactionCodeId, app.id AS applicationId, recordDate
 FROM temp_Transactions tt
-LEFT JOIN applications app
+LEFT JOIN Applications app
 ON app.applId = tt.applicationId
-LEFT JOIN transactionCodes tc
+LEFT JOIN TransactionCodes tc
 ON tc.code = tt.transactionCodeId;
 
 DROP TEMPORARY TABLE temp_Transactions;
