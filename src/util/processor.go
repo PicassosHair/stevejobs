@@ -34,8 +34,11 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	title := (*record)[0].PatentCaseMetadata["inventionTitle"].(map[string]interface{})
 	titleText := title["content"].([]interface{})
 
-	result.WriteString(titleText[0].(string))
-	result.WriteString("$\n")
+	// Remove line breaks
+	titleTextWithoutBreaks := strings.Replace(titleText[0].(string), "\n", " ", -1)
+
+	result.WriteString(titleTextWithoutBreaks)
+	result.WriteString("\n")
 
 	return result
 }
@@ -67,7 +70,7 @@ func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer
 			result.WriteString("uspto")
 			result.WriteString("^")
 			result.WriteString("1")
-			result.WriteString("$\n")
+			result.WriteString("\n")
 			(codeMap)[code] = true
 		}
 	}
@@ -97,7 +100,7 @@ func ProcessTransaction(record *RawPatentRecords) bytes.Buffer {
 		result.WriteString(applID)
 		result.WriteString("^")
 		result.WriteString(event.RecordedDate)
-		result.WriteString("$\n")
+		result.WriteString("\n")
 	}
 
 	return result

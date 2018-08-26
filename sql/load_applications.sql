@@ -6,7 +6,7 @@ TRUNCATE TABLE temp_Applications;
 LOAD DATA LOCAL INFILE @infile
 INTO TABLE temp_Applications
 FIELDS TERMINATED BY '^'
-LINES TERMINATED BY '$\n'
+LINES TERMINATED BY '\n'
 (createdAt, updatedAt, applId, pedsData, title);
 
 INSERT INTO Applications (createdAt, updatedAt, applId, pedsData, title)

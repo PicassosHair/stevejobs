@@ -6,7 +6,7 @@ TRUNCATE TABLE temp_Codes;
 LOAD DATA LOCAL INFILE @infile
 INTO TABLE temp_Codes
 FIELDS TERMINATED BY '^'
-LINES TERMINATED BY '$\n'
+LINES TERMINATED BY '\n'
 (createdAt, updatedAt, description, code, type, initiator, isActionable);
 
 INSERT IGNORE INTO TransactionCodes (createdAt, updatedAt, code, description, type, initiator, isActionable)

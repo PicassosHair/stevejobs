@@ -44,6 +44,6 @@ load_to_db "code"
 load_to_db "transaction"
 
 # Clean work
-rm -rf ./temp
+# rm -rf ./temp
 
 echo "${GREEN}Done!${NOCOLOR}"
