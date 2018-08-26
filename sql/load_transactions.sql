@@ -6,9 +6,9 @@ CREATE TEMPORARY TABLE IF NOT EXISTS temp_Transactions LIKE Transactions;
 ALTER TABLE temp_Transactions DROP FOREIGN KEY Transactions_ibfk_1;
 ALTER TABLE temp_Transactions DROP FOREIGN KEY Transactions_ibfk_2;
 
-DROP INDEX `transactionCodeId` ON temp_Transactions;
-DROP INDEX `applicationId` ON temp_Transactions;
-DROP INDEX `unique_transaction_constraint` ON temp_Transactions;
+-- DROP INDEX `transactionCodeId` ON temp_Transactions;
+-- DROP INDEX `applicationId` ON temp_Transactions;
+-- DROP INDEX `unique_transaction_constraint` ON temp_Transactions;
 
 ALTER TABLE temp_Transactions MODIFY transactionCodeId VARCHAR(255);
 ALTER TABLE temp_Transactions MODIFY applicationId VARCHAR(255);
