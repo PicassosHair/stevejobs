@@ -6,14 +6,10 @@
 BASEDIR=$(pwd)
 LOG_FILE_PATH="./result.log"
 
-RED="\033[1;31m"
-GREEN="\033[1;32m"
-NOCOLOR="\033[0m"
-
 # Generate a SQL file, then load the file to mysql.
 function load_to_db ()
 {
-    echo "${GREEN}Loading ${1}s to the database...${NOCOLOR}"
+    echo "[INFO] Loading ${1}s to the database..."
     cat "${BASEDIR}/sql/load_${1}s.sql" > ./temp/load_${1}.sql
     sed -i -e "s|@infile|'${BASEDIR}/temp/${1}s'|g" ./temp/load_${1}.sql
 
@@ -27,11 +23,11 @@ function load_to_db ()
 mkdir -p ./temp
 
 # Unzip data/raw.json to temp/YYYY.json
-echo "${GREEN}Unzipping raw.zip...${NOCOLOR}"
+echo "[INFO] Unzipping raw.zip..."
 unzip -o ${BASEDIR}/data/raw.zip $1.json -d ${BASEDIR}/temp/
 
 # Parse json file to temp/applications, temp/codes, temp/transactions
-echo "${GREEN}Parsing ${1}.json...${NOCOLOR}"
+echo "[INFO] Parsing ${1}.json..."
 ${BASEDIR}/src/parser -in=${BASEDIR}/temp/$1.json -out=${BASEDIR}/temp
 
 # Generate raw load application SQL file.
@@ -46,4 +42,4 @@ load_to_db "transaction"
 # Clean work
 # rm -rf ./temp
 
-echo "${GREEN}Done!${NOCOLOR}"
+echo "[INFO] Done!"

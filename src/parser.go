@@ -8,6 +8,7 @@ import (
 	"log"
 	"os"
 	"path"
+	"runtime"
 	"time"
 	"util"
 )
@@ -19,6 +20,7 @@ func checkErr(err error) {
 }
 
 func main() {
+	runtime.GOMAXPROCS(2)
 
 	inFilePath := flag.String("in", "", "The raw json file to parse.")
 	outPath := flag.String("out", "", "The raw json file to parse.")
