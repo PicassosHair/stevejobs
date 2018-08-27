@@ -2,9 +2,22 @@
 
 Parse PEDS raw JSON file into organized file.
 
+# Need
+
+wget
+mysql
+go
+
+
 # Usage
 
-./parse_peds.sh <application_out_file_path>
+1. Download PEDS data from PEDS website: https://ped.uspto.gov/peds/#/apiDocumentation
+
+`./download_latest_peds.sh`
+
+2. Parse year range:
+
+`./parse_peds_between 2000 2018`
 
 # Data flow
 
