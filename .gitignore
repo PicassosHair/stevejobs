@@ -2,4 +2,5 @@
 temp/
 pkg/
 data/
-src/parser
+bin/
+.temp/
