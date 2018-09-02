@@ -9,6 +9,8 @@ BASEDIR=$(pwd)
 LOG_FILE_PATH="./result.log"
 YEAR=$1
 
+START_TIME=`date +%s`
+
 # Generate a SQL file, then load the file to mysql.
 function load_to_db ()
 {
@@ -59,4 +61,4 @@ load_to_db "transaction"
 # Clean work
 rm -rf ./temp
 
-echogreen "Done!"
+echogreen "Done! Used $(expr `date +%s` - $START_TIME) s"

@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `temp_Codes` (
 
 LOAD DATA LOCAL INFILE @infile
 INTO TABLE temp_Codes
-FIELDS TERMINATED BY '\0'
+FIELDS TERMINATED BY '^^'
 LINES TERMINATED BY '\n'
 (description, code, type, initiator, isActionable);
 

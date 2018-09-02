@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `temp_Transactions` (
 
 LOAD DATA LOCAL INFILE @infile
 INTO TABLE temp_Transactions
-FIELDS TERMINATED BY '\0'
+FIELDS TERMINATED BY '^^'
 LINES TERMINATED BY '\n'
 (code, applId, recordDate);
 
@@ -24,14 +24,33 @@ CREATE TABLE IF NOT EXISTS `temp_Applications_ByYear` (
 INSERT INTO temp_Applications_ByYear (id, applId)
 SELECT id, applId FROM Applications WHERE YEAR(filingDate) = @year;
 
-INSERT IGNORE INTO Transactions
-   (createdAt, updatedAt, transactionCodeId, applicationId, recordDate)
-SELECT NOW(), NOW(), tc.id, tay.id, tt.recordDate
+-- Get applicationId.
+ALTER TABLE `temp_Transactions` ADD INDEX `applId_index` (`applId`);
+
+DROP TABLE IF EXISTS temp_Transactions_WithAppl;
+CREATE TABLE temp_Transactions_WithAppl AS
+SELECT `code`, tt.`applId`, `recordDate`, tay.id AS `applicationId`
 FROM temp_Transactions tt
 LEFT JOIN temp_Applications_ByYear tay
-ON tay.applId = tt.applId
-LEFT JOIN TransactionCodes tc
-ON tt.code = tc.code;
+ON tt.applId = tay.applId;
 
-DROP TABLE temp_Applications_ByYear;
-DROP TABLE temp_Transactions;
+-- Get transactionCodeId
+ALTER TABLE `temp_Transactions_WithAppl` ADD INDEX `code_index` (`code`);
+
+DROP TABLE IF EXISTS temp_Transactions_Final;
+CREATE TABLE temp_Transactions_Final AS
+SELECT `recordDate`, tt.applicationId AS `applicationId`, tc.id AS `transactionCodeId`
+FROM temp_Transactions_WithAppl tt
+LEFT JOIN TransactionCodes tc
+ON tc.code = tt.code;
+
+-- Final insertion.
+INSERT IGNORE INTO Transactions
+   (createdAt, updatedAt, transactionCodeId, applicationId, recordDate)
+SELECT NOW(), NOW(), transactionCodeId, applicationId, recordDate
+FROM temp_Transactions_Final;
+
+DROP TABLE IF EXISTS temp_Transactions_Final;
+DROP TABLE IF EXISTS temp_Transactions_WithAppl;
+DROP TABLE IF EXISTS temp_Applications_ByYear;
+DROP TABLE IF EXISTS temp_Transactions;

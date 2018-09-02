@@ -17,21 +17,22 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	var result bytes.Buffer
 	result.WriteString(extractApplID(record))
 
-	result.WriteString("\x00")
+	result.WriteString("^^")
 
 	pedsData, _ := json.Marshal((*record)[0].PatentCaseMetadata)
 
 	result.WriteString(string(pedsData))
-	result.WriteString("\x00")
+	result.WriteString("^^")
 
 	title := (*record)[0].PatentCaseMetadata["inventionTitle"].(map[string]interface{})
 	titleText := title["content"].([]interface{})
 
 	// Remove line breaks
-	titleTextWithoutBreaks := strings.Replace(titleText[0].(string), "\n", " ", -1)
+	titleTextProcessed := strings.Replace(titleText[0].(string), "\n", " ", -1)
+	titleTextProcessed = strings.Replace(titleTextProcessed, "^^", " ", -1)
 
-	result.WriteString(titleTextWithoutBreaks)
-	result.WriteString("\x00")
+	result.WriteString(titleTextProcessed)
+	result.WriteString("^^")
 
 	filingDate := (*record)[0].PatentCaseMetadata["filingDate"].(string)
 	result.WriteString(filingDate)
@@ -54,12 +55,12 @@ func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer
 		if (codeMap)[code] {
 			continue
 		} else {
-			result.WriteString(strings.Join(texts, "\x00"))
-			result.WriteString("\x00")
+			result.WriteString(strings.Join(texts, "^^"))
+			result.WriteString("^^")
 			result.WriteString("info")
-			result.WriteString("\x00")
+			result.WriteString("^^")
 			result.WriteString("uspto")
-			result.WriteString("\x00")
+			result.WriteString("^^")
 			result.WriteString("1")
 			result.WriteString("\n")
 			(codeMap)[code] = true
@@ -81,9 +82,9 @@ func ProcessTransaction(record *RawPatentRecords) bytes.Buffer {
 			continue
 		}
 		result.WriteString(texts[1])
-		result.WriteString("\x00")
+		result.WriteString("^^")
 		result.WriteString(applID)
-		result.WriteString("\x00")
+		result.WriteString("^^")
 		result.WriteString(event.RecordedDate)
 		result.WriteString("\n")
 	}

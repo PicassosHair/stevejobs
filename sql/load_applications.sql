@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `temp_Applications` (
 
 LOAD DATA LOCAL INFILE @infile
 INTO TABLE temp_Applications
-FIELDS TERMINATED BY '\0'
+FIELDS TERMINATED BY '^^'
 LINES TERMINATED BY '\n'
 (applId, pedsData, title, filingDate);
 
