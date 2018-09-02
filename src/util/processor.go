@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"strings"
-	"time"
 )
 
 func extractApplID(record *RawPatentRecords) string {
@@ -16,20 +15,14 @@ func extractApplID(record *RawPatentRecords) string {
 // ProcessApplication processes generated JSON record and generates a string.
 func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	var result bytes.Buffer
-	currentTime := time.Now()
-	formatedTime := currentTime.Format("2006-01-02")
-	result.WriteString(formatedTime)
-	result.WriteString("^")
-	result.WriteString(formatedTime)
-	result.WriteString("^")
 	result.WriteString(extractApplID(record))
 
-	result.WriteString("^")
+	result.WriteString("\x00")
 
 	pedsData, _ := json.Marshal((*record)[0].PatentCaseMetadata)
 
 	result.WriteString(string(pedsData))
-	result.WriteString("^")
+	result.WriteString("\x00")
 
 	title := (*record)[0].PatentCaseMetadata["inventionTitle"].(map[string]interface{})
 	titleText := title["content"].([]interface{})
@@ -38,6 +31,10 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	titleTextWithoutBreaks := strings.Replace(titleText[0].(string), "\n", " ", -1)
 
 	result.WriteString(titleTextWithoutBreaks)
+	result.WriteString("\x00")
+
+	filingDate := (*record)[0].PatentCaseMetadata["filingDate"].(string)
+	result.WriteString(filingDate)
 	result.WriteString("\n")
 
 	return result
@@ -46,8 +43,6 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 // ProcessCode processes generated JSON record and generate a string of transaction codes. Since the total amount of code is ~600, we will just use a map to dedup here.
 func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer {
 	var result bytes.Buffer
-	currentTime := time.Now()
-	formatedTime := currentTime.Format("2006-01-02")
 	transactionData := (*record)[0].ProsecutionHistoryDataOrPatentTermData
 	for _, event := range transactionData {
 		descText := event.CaseActionDescriptionText
@@ -59,16 +54,12 @@ func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer
 		if (codeMap)[code] {
 			continue
 		} else {
-			result.WriteString(formatedTime)
-			result.WriteString("^")
-			result.WriteString(formatedTime)
-			result.WriteString("^")
-			result.WriteString(strings.Join(texts, "^"))
-			result.WriteString("^")
+			result.WriteString(strings.Join(texts, "\x00"))
+			result.WriteString("\x00")
 			result.WriteString("info")
-			result.WriteString("^")
+			result.WriteString("\x00")
 			result.WriteString("uspto")
-			result.WriteString("^")
+			result.WriteString("\x00")
 			result.WriteString("1")
 			result.WriteString("\n")
 			(codeMap)[code] = true
@@ -80,8 +71,6 @@ func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer
 // ProcessTransaction processes the record and generates a string of transactions. Separated by linebreaks.
 func ProcessTransaction(record *RawPatentRecords) bytes.Buffer {
 	var result bytes.Buffer
-	currentTime := time.Now()
-	formatedTime := currentTime.Format("2006-01-02")
 	transactionData := (*record)[0].ProsecutionHistoryDataOrPatentTermData
 	applID := extractApplID(record)
 
@@ -91,14 +80,10 @@ func ProcessTransaction(record *RawPatentRecords) bytes.Buffer {
 		if len(texts) != 2 {
 			continue
 		}
-		result.WriteString(formatedTime)
-		result.WriteString("^")
-		result.WriteString(formatedTime)
-		result.WriteString("^")
 		result.WriteString(texts[1])
-		result.WriteString("^")
+		result.WriteString("\x00")
 		result.WriteString(applID)
-		result.WriteString("^")
+		result.WriteString("\x00")
 		result.WriteString(event.RecordedDate)
 		result.WriteString("\n")
 	}

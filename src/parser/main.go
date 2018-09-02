@@ -13,6 +13,10 @@ import (
 	"util"
 )
 
+const (
+	loggingThreshold = 1000
+)
+
 func checkErr(err error) {
 	if err != nil {
 		panic(err)
@@ -87,7 +91,7 @@ func main() {
 
 			// Log every 100 applications
 			count++
-			if count%100 == 0 {
+			if count%loggingThreshold == 0 {
 				fmt.Println(count, "...")
 			}
 		}

@@ -7,13 +7,14 @@
 # Put MySQL credentials into $HOME/config/mysql.conf
 BASEDIR=$(pwd)
 LOG_FILE_PATH="./result.log"
+YEAR=$1
 
 # Generate a SQL file, then load the file to mysql.
 function load_to_db ()
 {
     echogreen "Loading ${1}s to the database..."
     cat "${BASEDIR}/sql/load_${1}s.sql" > ./temp/load_${1}.sql
-    sed -i -e "s|@infile|'${BASEDIR}/temp/${1}s'|g" ./temp/load_${1}.sql
+    sed -i -e "s|@infile|'${BASEDIR}/temp/${1}s'|g; s|@year|${YEAR}|g;" ./temp/load_${1}.sql
 
     # Load sql to database
     mysql --defaults-extra-file=$HOME/config/mysql.conf --local-infile -e \
@@ -38,8 +39,8 @@ if [ $? -ne 0 ]; then
 fi
 
 # Parse json file to temp/applications, temp/codes, temp/transactions
-echogreen "Parsing ${1}.json..."
-${BASEDIR}/bin/parser -in=${BASEDIR}/temp/$1.json -out=${BASEDIR}/temp
+echogreen "Parsing ${YEAR}.json..."
+${BASEDIR}/bin/parser -in=${BASEDIR}/temp/$YEAR.json -out=${BASEDIR}/temp
 
 if [ $? -ne 0 ]; then
     echored "Parse failed."
