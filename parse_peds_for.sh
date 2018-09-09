@@ -29,6 +29,7 @@ function load_to_db ()
 }
 
 # Prepare work.
+rm -rf ./temp
 mkdir -p ./temp
 
 # Unzip data/raw.json to temp/YYYY.json
