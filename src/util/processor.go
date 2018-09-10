@@ -25,11 +25,17 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	result.WriteString(string(pedsData))
 	result.WriteString("^^")
 
-	title := (*record)[0].PatentCaseMetadata["inventionTitle"].(map[string]interface{})
-	titleText := title["content"].([]interface{})
+	possibleTitle := (*record)[0].PatentCaseMetadata["inventionTitle"]
+	var titleText = ""
+
+	if possibleTitle != nil {
+		title := possibleTitle.(map[string]interface{})
+		titleContent := title["content"].([]interface{})
+		titleText = titleContent[0].(string)
+	}
 
 	// Remove line breaks
-	titleTextProcessed := strings.Replace(titleText[0].(string), "\n", " ", -1)
+	titleTextProcessed := strings.Replace(titleText, "\n", " ", -1)
 	titleTextProcessed = strings.Replace(titleTextProcessed, "^^", " ", -1)
 
 	result.WriteString(titleTextProcessed)
