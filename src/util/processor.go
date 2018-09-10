@@ -6,7 +6,8 @@ import (
 	"strings"
 )
 
-func extractApplID(record *RawPatentRecords) string {
+// ExtractApplID gets applId from raw record.
+func ExtractApplID(record *RawPatentRecords) string {
 	applText := (*record)[0].PatentCaseMetadata["applicationNumberText"].(map[string]interface{})
 
 	return applText["value"].(string)
@@ -15,7 +16,7 @@ func extractApplID(record *RawPatentRecords) string {
 // ProcessApplication processes generated JSON record and generates a string.
 func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	var result bytes.Buffer
-	result.WriteString(extractApplID(record))
+	result.WriteString(ExtractApplID(record))
 
 	result.WriteString("^^")
 
@@ -44,9 +45,9 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 // ProcessCode processes generated JSON record and generate a string of transaction codes. Since the total amount of code is ~600, we will just use a map to dedup here.
 func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer {
 	var result bytes.Buffer
-	transactionData := (*record)[0].ProsecutionHistoryDataOrPatentTermData
+	transactionData := (*record)[0].ProsecutionHistoryDataBag.ProsecutionHistoryData
 	for _, event := range transactionData {
-		descText := event.CaseActionDescriptionText
+		descText := event.EventDescriptionText
 		texts := strings.Split(descText, " , ")
 		if len(texts) != 2 {
 			continue
@@ -72,11 +73,11 @@ func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer
 // ProcessTransaction processes the record and generates a string of transactions. Separated by linebreaks.
 func ProcessTransaction(record *RawPatentRecords) bytes.Buffer {
 	var result bytes.Buffer
-	transactionData := (*record)[0].ProsecutionHistoryDataOrPatentTermData
-	applID := extractApplID(record)
+	transactionData := (*record)[0].ProsecutionHistoryDataBag.ProsecutionHistoryData
+	applID := ExtractApplID(record)
 
 	for _, event := range transactionData {
-		descText := event.CaseActionDescriptionText
+		descText := event.EventDescriptionText
 		texts := strings.Split(descText, " , ")
 		if len(texts) != 2 {
 			continue
@@ -85,7 +86,7 @@ func ProcessTransaction(record *RawPatentRecords) bytes.Buffer {
 		result.WriteString("^^")
 		result.WriteString(applID)
 		result.WriteString("^^")
-		result.WriteString(event.RecordedDate)
+		result.WriteString(event.EventDate)
 		result.WriteString("\n")
 	}
 

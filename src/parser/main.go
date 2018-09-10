@@ -28,11 +28,17 @@ func main() {
 
 	inFilePath := flag.String("in", "", "The raw json file to parse.")
 	outPath := flag.String("out", "", "The raw json file to parse.")
+	debugMode := flag.Bool("debug", false, "Turn on the debug mode, require Application Number as input.")
+	applID := flag.String("applId", "", "The application number to locate debug info.")
 
 	flag.Parse()
 
-	if *inFilePath == "" || *outPath == "" {
+	if !*debugMode && (*inFilePath == "" || *outPath == "") {
 		panic("Error arguments. Use -in and -out.")
+	}
+
+	if *debugMode && *applID == "" {
+		panic("Debug mode needs a application number, use -applId=12345678")
 	}
 
 	startTime := time.Now()
@@ -76,14 +82,22 @@ func main() {
 					log.Fatal(err)
 				}
 
-				applicationText := util.ProcessApplication(&rawRecord)
-				writeApplicationsFile.WriteString(applicationText.String())
+				if !*debugMode {
+					applicationText := util.ProcessApplication(&rawRecord)
+					writeApplicationsFile.WriteString(applicationText.String())
 
-				codeText := util.ProcessCode(&rawRecord, codeSet)
-				writeCodesFile.WriteString(codeText.String())
+					codeText := util.ProcessCode(&rawRecord, codeSet)
+					writeCodesFile.WriteString(codeText.String())
 
-				transactionText := util.ProcessTransaction(&rawRecord)
-				writeTransactionFile.WriteString(transactionText.String())
+					transactionText := util.ProcessTransaction(&rawRecord)
+					writeTransactionFile.WriteString(transactionText.String())
+				} else {
+					applIDText := util.ExtractApplID(&rawRecord)
+					if *applID == applIDText {
+						tcText := util.ProcessTransaction(&rawRecord)
+						fmt.Println(tcText.String())
+					}
+				}
 			}
 			writeApplicationsFile.Sync()
 			writeCodesFile.Sync()
