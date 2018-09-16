@@ -9,31 +9,31 @@ YEAR=$1
 BASEDIR=$(pwd)
 START_TIME=`date +%s`
 
-# # Prep work.
-# # Clear all temp/*.json files if exists.
-# # Prepare work.
-# rm -rf ./temp
-# mkdir -p ./temp
+# Prep work.
+# Clear all temp/*.json files if exists.
+# Prepare work.
+rm -rf ./temp
+mkdir -p ./temp
 
-# # Unzip old year file and rename to xxxx.old.json
-# unzip -o ${BASEDIR}/data/raw.old.zip ${YEAR}.json -d ${BASEDIR}/temp/ ${YEAR}.json
-# mv ./temp/${YEAR}.json ./temp/${YEAR}.old.json
+# Unzip old year file and rename to xxxx.old.json
+unzip -o ${BASEDIR}/data/raw.old.zip ${YEAR}.json -d ${BASEDIR}/temp/ ${YEAR}.json
+mv ./temp/${YEAR}.json ./temp/${YEAR}.old.json
 
-# # Unzip new year
-# unzip -o ${BASEDIR}/data/raw.zip ${YEAR}.json -d ${BASEDIR}/temp/ ${YEAR}.json
-# echogreen "Unzip done."
+# Unzip new year
+unzip -o ${BASEDIR}/data/raw.zip ${YEAR}.json -d ${BASEDIR}/temp/ ${YEAR}.json
+echogreen "Unzip done."
 
-# # Generate applications, codes, and transactions by line.
-# echogreen "Parsing old raw json."
-# ${BASEDIR}/bin/parser -in=${BASEDIR}/temp/${YEAR}.old.json -out=${BASEDIR}/temp
+# Generate applications, codes, and transactions by line.
+echogreen "Parsing old raw json."
+${BASEDIR}/bin/parser -in=${BASEDIR}/temp/${YEAR}.old.json -out=${BASEDIR}/temp
 
-# echogreen "Renaming old output to xxx.old."
-# mv ./temp/applications ./temp/applications.old
-# mv ./temp/codes ./temp/codes.old
-# mv ./temp/transactions ./temp/transactions.old
+echogreen "Renaming old output to xxx.old."
+mv ./temp/applications ./temp/applications.old
+mv ./temp/codes ./temp/codes.old
+mv ./temp/transactions ./temp/transactions.old
 
-# echogreen "Parsing new raw json."
-# ${BASEDIR}/bin/parser -in=${BASEDIR}/temp/${YEAR}.json -out=${BASEDIR}/temp
+echogreen "Parsing new raw json."
+${BASEDIR}/bin/parser -in=${BASEDIR}/temp/${YEAR}.json -out=${BASEDIR}/temp
 
 # Run diff to generate changed.
 echogreen "Diffing applications..."
