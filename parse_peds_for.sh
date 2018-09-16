@@ -1,32 +1,16 @@
 #!/bin/bash
 # This script pass $1 = year parameter and load the data of $1.json to mysql database.
 
+# Stop if error.
+set -e
+
 # Load color echo file.
 . ./_rainbow.sh
 
 # Put MySQL credentials into $HOME/config/mysql.conf
 BASEDIR=$(pwd)
-LOG_FILE_PATH="./result.log"
 YEAR=$1
-
 START_TIME=`date +%s`
-
-# Generate a SQL file, then load the file to mysql.
-function load_to_db ()
-{
-    echogreen "Loading ${1}s to the database..."
-    cat "${BASEDIR}/sql/load_${1}s.sql" > ./temp/load_${1}.sql
-    sed -i -e "s|@infile|'${BASEDIR}/temp/${1}s'|g; s|@year|${YEAR}|g;" ./temp/load_${1}.sql
-
-    # Load sql to database
-    mysql --defaults-extra-file=$HOME/config/mysql.conf --local-infile -e \
-    "SOURCE ./temp/load_${1}.sql;" > ${LOG_FILE_PATH}
-
-    if [ $? -ne 0 ]; then
-        echored "Loading to DB failed."
-        exit 1
-    fi
-}
 
 # Prepare work.
 rm -rf ./temp
@@ -51,13 +35,13 @@ if [ $? -ne 0 ]; then
 fi
 
 # Generate raw load application SQL file.
-load_to_db "application"
+${BASEDIR}/insert_to_database.sh application ${BASEDIR}/temp/applications ${YEAR}
 
 # Generate raw load codes SQL file.
-load_to_db "code"
+${BASEDIR}/insert_to_database.sh code ${BASEDIR}/temp/codes ${YEAR}
 
 # Generate raw load codes SQL file.
-load_to_db "transaction"
+${BASEDIR}/insert_to_database.sh transaction ${BASEDIR}/temp/transactions ${YEAR}
 
 # Clean work
 rm -rf ./temp

@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	loggingThreshold = 1000
+	loggingThreshold = 100000
 )
 
 func checkErr(err error) {
@@ -27,7 +27,7 @@ func main() {
 	runtime.GOMAXPROCS(2)
 
 	inFilePath := flag.String("in", "", "The raw json file to parse.")
-	outPath := flag.String("out", "", "The raw json file to parse.")
+	outPath := flag.String("out", "", "The *folder* to output all generated files.")
 	debugMode := flag.Bool("debug", false, "Turn on the debug mode, require Application Number as input.")
 	applID := flag.String("applId", "", "The application number to locate debug info.")
 
@@ -67,6 +67,7 @@ func main() {
 	codeSet := map[string]bool{}
 	count := 0
 
+	// Parsing big JSON file.
 	for {
 		t, err := decoder.Token()
 		if err != nil {
@@ -103,7 +104,7 @@ func main() {
 			writeCodesFile.Sync()
 			writeTransactionFile.Sync()
 
-			// Log every 100 applications
+			// Log every 100000 applications
 			count++
 			if count%loggingThreshold == 0 {
 				fmt.Println(count, "...")
