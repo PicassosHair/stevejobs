@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASEDIR=$(pwd)
+BASEDIR=/root/pedsparser
 
 . ${BASEDIR}/_rainbow.sh
 

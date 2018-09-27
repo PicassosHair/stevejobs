@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASEDIR=$(pwd)
+BASEDIR=/root/pedsparser
 
 # Load color output module.
 . ${BASEDIR}/_rainbow.sh

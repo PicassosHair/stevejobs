@@ -4,7 +4,7 @@
 # Stop if error.
 set -e
 
-BASEDIR=$(pwd)
+BASEDIR=/root/pedsparser
 
 # Load color echo file.
 . ${BASEDIR}/_rainbow.sh

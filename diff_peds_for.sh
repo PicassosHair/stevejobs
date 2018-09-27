@@ -3,7 +3,7 @@
 
 # Variables.
 YEAR=$1
-BASEDIR=$(pwd)
+BASEDIR=/root/pedsparser
 START_TIME=`date +%s`
 
 # Load color echo file.
