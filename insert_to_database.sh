@@ -4,8 +4,10 @@
 # $2 - parsed file location.
 # $3 - year. (e.g. 2017)
 
+BASEDIR=$(pwd)
+
 # Load color output module.
-. ./_rainbow.sh
+. ${BASEDIR}/_rainbow.sh
 
 BASEDIR=$(pwd)
 TABLE_NAME=$1
@@ -13,12 +15,12 @@ PARSED_FILE_PATH=$2
 YEAR=$3
 
 echogreen "Loading ${TABLE_NAME}s to the database..."
-cat "${BASEDIR}/sql/load_${TABLE_NAME}s.sql" > ./temp/load_${TABLE_NAME}.sql
-sed -i -e "s|@infile|'${PARSED_FILE_PATH}'|g; s|@year|${YEAR}|g;" ./temp/load_${TABLE_NAME}.sql
+cat "${BASEDIR}/sql/load_${TABLE_NAME}s.sql" > ${BASEDIR}/temp/load_${TABLE_NAME}.sql
+sed -i -e "s|@infile|'${PARSED_FILE_PATH}'|g; s|@year|${YEAR}|g;" ${BASEDIR}/temp/load_${TABLE_NAME}.sql
 
 # Load sql to database
 mysql --defaults-extra-file=$HOME/config/mysql.conf --local-infile -e \
-"SOURCE ./temp/load_${TABLE_NAME}.sql;"
+"SOURCE ${BASEDIR}/temp/load_${TABLE_NAME}.sql;"
 
 if [ $? -ne 0 ]; then
     echored "Loading to DB failed."

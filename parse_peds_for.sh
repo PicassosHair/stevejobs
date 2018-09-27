@@ -4,8 +4,10 @@
 # Stop if error.
 set -e
 
+BASEDIR=$(pwd)
+
 # Load color echo file.
-. ./_rainbow.sh
+. ${BASEDIR}/_rainbow.sh
 
 # Put MySQL credentials into $HOME/config/mysql.conf
 BASEDIR=$(pwd)
@@ -13,8 +15,8 @@ YEAR=$1
 START_TIME=`date +%s`
 
 # Prepare work.
-rm -rf ./temp
-mkdir -p ./temp
+rm -rf ${BASEDIR}/temp
+mkdir -p ${BASEDIR}/temp
 
 # Unzip data/raw.json to temp/YYYY.json
 echogreen "Unzipping raw.zip..."
@@ -44,6 +46,6 @@ ${BASEDIR}/insert_to_database.sh code ${BASEDIR}/temp/codes ${YEAR}
 ${BASEDIR}/insert_to_database.sh transaction ${BASEDIR}/temp/transactions ${YEAR}
 
 # Clean work
-rm -rf ./temp
+rm -rf ${BASEDIR}/temp
 
 echogreen "Done! Used $(expr `date +%s` - $START_TIME) s"

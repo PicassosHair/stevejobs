@@ -1,23 +1,23 @@
 #!/bin/bash
 # This script pass $1 = year parameter and load differences.
 
-# Load color echo file.
-. ./_rainbow.sh
-
 # Variables.
 YEAR=$1
 BASEDIR=$(pwd)
 START_TIME=`date +%s`
 
+# Load color echo file.
+. ${BASEDIR}/_rainbow.sh
+
 # Prep work.
 # Clear all temp/*.json files if exists.
 # Prepare work.
-rm -rf ./temp
-mkdir -p ./temp
+rm -rf ${BASEDIR}/temp
+mkdir -p ${BASEDIR}/temp
 
 # Unzip old year file and rename to xxxx.old.json
 unzip -o ${BASEDIR}/data/raw.old.zip ${YEAR}.json -d ${BASEDIR}/temp/ ${YEAR}.json
-mv ./temp/${YEAR}.json ./temp/${YEAR}.old.json
+mv ${BASEDIR}/temp/${YEAR}.json ${BASEDIR}/temp/${YEAR}.old.json
 
 # Unzip new year
 unzip -o ${BASEDIR}/data/raw.zip ${YEAR}.json -d ${BASEDIR}/temp/ ${YEAR}.json
@@ -28,9 +28,9 @@ echogreen "Parsing old raw json."
 ${BASEDIR}/bin/parser -in=${BASEDIR}/temp/${YEAR}.old.json -out=${BASEDIR}/temp
 
 echogreen "Renaming old output to xxx.old."
-mv ./temp/applications ./temp/applications.old
-mv ./temp/codes ./temp/codes.old
-mv ./temp/transactions ./temp/transactions.old
+mv ${BASEDIR}/temp/applications ${BASEDIR}/temp/applications.old
+mv ${BASEDIR}/temp/codes ${BASEDIR}/temp/codes.old
+mv ${BASEDIR}/temp/transactions ${BASEDIR}/temp/transactions.old
 
 echogreen "Parsing new raw json."
 ${BASEDIR}/bin/parser -in=${BASEDIR}/temp/${YEAR}.json -out=${BASEDIR}/temp
@@ -54,15 +54,15 @@ ${BASEDIR}/bin/postdiff -in=${BASEDIR}/temp/transactions.diff -out=${BASEDIR}/te
 # Load to DB.
 echogreen "Loading to DB..."
 # Generate raw load application SQL file.
-./insert_to_database.sh application ${BASEDIR}/temp/applications.final ${YEAR}
+${BASEDIR}/insert_to_database.sh application ${BASEDIR}/temp/applications.final ${YEAR}
 
 # Generate raw load codes SQL file.
-./insert_to_database.sh code ${BASEDIR}/temp/codes.final ${YEAR}
+${BASEDIR}/insert_to_database.sh code ${BASEDIR}/temp/codes.final ${YEAR}
 
 # Generate raw load codes SQL file.
-./insert_to_database.sh transaction ${BASEDIR}/temp/transactions.final ${YEAR}
+${BASEDIR}/insert_to_database.sh transaction ${BASEDIR}/temp/transactions.final ${YEAR}
 
 # Cleanup
-rm -rf ./temp
+rm -rf ${BASEDIR}/temp
 
 echogreen "Done! Used $(expr `date +%s` - $START_TIME) s"

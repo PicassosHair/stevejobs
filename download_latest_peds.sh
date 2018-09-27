@@ -1,16 +1,18 @@
 #!/bin/bash
 
+BASEDIR=$(pwd)
+
 # Load color output module.
-. ./_rainbow.sh
+. ${BASEDIR}/_rainbow.sh
 
 # Remove raw.old.zip if exists.
-rm -f ./data/raw.old.zip
+rm -f ${BASEDIR}/data/raw.old.zip
 echogreen "Removed old raw.zip file."
 
 # Rename raw.zip to raw.old.zip
-if [ -e ./data/raw.zip ]
+if [ -e ${BASEDIR}/data/raw.zip ]
 then
-    mv ./data/raw.zip ./data/raw.old.zip
+    mv ${BASEDIR}/data/raw.zip ${BASEDIR}/data/raw.old.zip
     echogreen "Renamed raw.zip to raw.old.zip"
 else
     echored "Not found raw.zip file."
@@ -18,12 +20,12 @@ else
 fi
 
 echogreen "Start download latest data."
-wget https://ped.uspto.gov/api/full-download\?format\=JSON --output-document=./data/raw.zip --show-progress
+wget https://ped.uspto.gov/api/full-download\?format\=JSON --output-document=${BASEDIR}/data/raw.zip --show-progress
 
 if [ $? -eq 0 ]; then
     echogreen "Download complete!"
 else
-    rm -rf ./data/raw.zip
-    mv ./data/raw.old.zip ./data/raw.zip
+    rm -rf ${BASEDIR}/data/raw.zip
+    mv ${BASEDIR}/data/raw.old.zip ${BASEDIR}/data/raw.zip
     echored "Download failed."
 fi
