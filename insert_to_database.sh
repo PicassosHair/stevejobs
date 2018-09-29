@@ -9,7 +9,6 @@ BASEDIR=/root/pedsparser
 # Load color output module.
 . ${BASEDIR}/_rainbow.sh
 
-BASEDIR=$(pwd)
 TABLE_NAME=$1
 PARSED_FILE_PATH=$2
 YEAR=$3
