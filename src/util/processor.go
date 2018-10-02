@@ -9,11 +9,8 @@ import (
 // ExtractApplID gets applId from raw record.
 func ExtractApplID(record *RawPatentRecords) string {
 	applText := (*record)[0].PatentCaseMetadata["applicationNumberText"].(map[string]interface{})
-	applIDText := applText["value"].(string)
-	applIDText = strings.Replace(applIDText, "/", "", -1)
-	applIDText = strings.Replace(applIDText, ",", "", -1)
 
-	return applIDText
+	return applText["value"].(string)
 }
 
 // ProcessApplication processes generated JSON record and generates a string.
