@@ -15,7 +15,16 @@ then
     mv ${BASEDIR}/data/raw.zip ${BASEDIR}/data/raw.old.zip
     echogreen "Renamed raw.zip to raw.old.zip"
 else
-    echored "Not found raw.zip file."
+    echoyellow "Not found raw.zip file."
+    echogreen "Downloading a new raw.zip file..."
+
+    wget https://ped.uspto.gov/api/full-download\?format\=JSON --output-document=${BASEDIR}/data/raw.zip --show-progress
+    if [ $? -eq 0 ]; then
+        echogreen "Download complete!"
+    else
+        echored "Download failed."
+    fi
+
     exit 1
 fi
 
