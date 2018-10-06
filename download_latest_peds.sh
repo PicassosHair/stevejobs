@@ -1,6 +1,7 @@
 #!/bin/bash
 
 BASEDIR=/root/pedsparser
+BE_BASEDIR=/root/idsguard-be
 
 # Load color output module.
 . ${BASEDIR}/_rainbow.sh
@@ -33,6 +34,9 @@ wget https://ped.uspto.gov/api/full-download\?format\=JSON --output-document=${B
 
 if [ $? -eq 0 ]; then
     echogreen "Download complete!"
+
+    # TODO: use other secure way to do this.
+    node ${BE_BASEDIR}/dist/tasks/sendInternal "New PEDS data is downloaded." "Completed!" 
 else
     rm -rf ${BASEDIR}/data/raw.zip
     mv ${BASEDIR}/data/raw.old.zip ${BASEDIR}/data/raw.zip
