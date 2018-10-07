@@ -21,7 +21,7 @@ else
 
     wget https://ped.uspto.gov/api/full-download\?format\=JSON --output-document=${BASEDIR}/data/raw.zip --show-progress
     if [ $? -eq 0 ]; then
-        echogreen "Download complete!"
+        echogreen "Download complete."
     else
         echored "Download failed."
     fi
@@ -35,8 +35,8 @@ wget https://ped.uspto.gov/api/full-download\?format\=JSON --output-document=${B
 if [ $? -eq 0 ]; then
     echogreen "Download complete!"
 
-    # TODO: use other secure way to do this.
-    node ${BE_BASEDIR}/dist/tasks/sendInternal "New PEDS data is downloaded." "Completed!" 
+    # TODO: use other secure way to do this, maybe move to BE?
+    node ${BE_BASEDIR}/dist/tasks/sendInternal "New PEDS data is downloaded." "New bulk data is downloaded."
 else
     rm -rf ${BASEDIR}/data/raw.zip
     mv ${BASEDIR}/data/raw.old.zip ${BASEDIR}/data/raw.zip
