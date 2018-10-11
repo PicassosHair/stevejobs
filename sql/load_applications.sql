@@ -14,7 +14,18 @@ LINES TERMINATED BY '\n'
 (applId, pedsData, title, filingDate);
 
 INSERT INTO Applications (createdAt, updatedAt, applId, pedsData, title, filingDate)
-SELECT NOW(), NOW(), applId, pedsData, title, filingDate FROM temp_Applications
+SELECT 
+  NOW(),
+  NOW(),
+  applId,
+  pedsData,
+  title,
+  CASE 
+    WHEN filingDate = '' THEN NULL
+    WHEN filingDate IS NULL THEN NULL
+    ELSE filingDate
+  END AS filingDate
+FROM temp_Applications
 ON DUPLICATE KEY UPDATE updatedAt = NOW(), pedsData = VALUES(pedsData), title = VALUES(title), filingDate = VALUES(filingDate);
 
 DROP TABLE temp_Applications;
