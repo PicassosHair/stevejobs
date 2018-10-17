@@ -1,6 +1,6 @@
 # PEDS Parser
 
-Parse PEDS raw JSON file into organized file.
+Parse PEDS raw JSON file into organized file. Using Go.
 
 # Need
 
