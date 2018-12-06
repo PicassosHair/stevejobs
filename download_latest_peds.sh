@@ -1,7 +1,8 @@
 #!/bin/bash
 
-BASEDIR=/root/pedsparser
-BE_BASEDIR=/root/idsguard-be
+BASEDIR="$(pwd)"
+BASE_PARENTDIR="$(dirname "${BASEDIR}")"
+BE_BASEDIR="${BASE_PARENTDIR}/idsguard-be"
 
 # Load color output module.
 . ${BASEDIR}/_rainbow.sh
