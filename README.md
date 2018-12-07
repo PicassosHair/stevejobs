@@ -8,6 +8,20 @@ Parse PEDS raw JSON file into organized file. Using Go.
 Install wget if don't have already. Install MySQL.
 Install Go.
 
+# Local Testing Data
+
+Unzip 2018.json from compressed data file, and move to temp/ folder.
+
+Parse: `$ ./bin/parser -in=./temp/2018.json -out=./temp`.
+
+Insert into local MySQL:
+- `$ ./insert_to_database.sh application ./temp/applications 2018`
+- `$ ./insert_to_database.sh code ./temp/codes 2018`
+- `$ ./insert_to_database.sh transaction ./temp/transactions 2018`
+
+Cleanup:
+`$ rm -rf ./temp`
+
 # Usage
 
 - Download PEDS data from PEDS website: https://ped.uspto.gov/peds/#/apiDocumentation
