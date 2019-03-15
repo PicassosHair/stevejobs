@@ -4,7 +4,7 @@
 # $2 - parsed file location.
 # $3 - year. (e.g. 2017)
 
-BASEDIR=/root/pedsparser
+BASEDIR="$(pwd)"
 
 # Load color output module.
 . ${BASEDIR}/_rainbow.sh

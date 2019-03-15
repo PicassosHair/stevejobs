@@ -4,3 +4,4 @@ pkg/
 data/
 bin/
 .temp/
+*.DS_Store
