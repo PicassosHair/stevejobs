@@ -9,3 +9,13 @@ services:
                 container_name: jobs
                 restart: unless-stopped
                 command: tail -f /dev/null
+        ofelia:
+                image: mcuadros/ofelia:latest
+                container_name: ofelia
+                volumes:
+                        - /var/run/docker.sock:/var/run/docker.sock
+                        - ./ofelia/config.ini:/etc/ofelia/config.ini
+                        - ./logs:/tmp/logs
+                depends_on:
+                        - jobs
+                restart: always
