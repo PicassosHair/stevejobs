@@ -5,6 +5,9 @@ WORKDIR $GOPATH
 
 COPY . .
 
+# Install deps.
+RUN go get github.com/mailgun/mailgun-go/v3
+
 # Build go binary and output to ${GOPATH}/bin
 RUN go build -o ./bin/parser parser
 RUN go build -o ./bin/postdiff postdiff

@@ -5,3 +5,4 @@ data/
 bin/
 .temp/
 *.DS_Store
+logs/
