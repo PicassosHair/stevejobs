@@ -11,6 +11,8 @@ services:
     command: tail -f /dev/null
     env_file:
       - ./.env
+    networks:
+      - stevejobs-network
   ofelia:
     image: mcuadros/ofelia:latest
     container_name: ofelia
@@ -21,3 +23,6 @@ services:
     depends_on:
       - jobs
     restart: always
+networks:
+  stevejobs-network:
+    driver: bridge
