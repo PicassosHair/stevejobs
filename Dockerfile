@@ -12,7 +12,7 @@ RUN go get github.com/mailgun/mailgun-go
 # Build go binary and output to ${GOPATH}/bin
 RUN go build -o ./bin/parser parser
 RUN go build -o ./bin/postdiff postdiff
-RUN go build -o ./bin/mailroom mailroom
+RUN go build -o ./bin/mail mail
 
 # Move bin to another image.
 FROM alpine
