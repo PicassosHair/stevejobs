@@ -1,45 +1,32 @@
 #!/bin/bash
+# Download the latest data from https://ped.uspto.gov/peds/.
 
-BASEDIR="$(pwd)"
-BASE_PARENTDIR="$(dirname "${BASEDIR}")"
-BE_BASEDIR="${BASE_PARENTDIR}/idsguard-be"
-
-# Load color output module.
-. ${BASEDIR}/_rainbow.sh
+DATA_DIR=${STORAGE_DIR}/peds
 
 # Remove raw.old.zip if exists.
-rm -f ${BASEDIR}/data/raw.old.zip
-echogreen "Removed old raw.zip file."
+rm -f DATA_DIR/raw.old.zip
+echo "Removed old raw.zip file."
 
-# Rename raw.zip to raw.old.zip
-if [ -e ${BASEDIR}/data/raw.zip ]
+# Rename raw.zip to raw.old.zip if needed, or just download the data.
+if [ -e ${STORAGE_DIR}/raw.zip ]
 then
-    mv ${BASEDIR}/data/raw.zip ${BASEDIR}/data/raw.old.zip
-    echogreen "Renamed raw.zip to raw.old.zip"
+    mv ${STORAGE_DIR}/raw.zip ${STORAGE_DIR}/raw.old.zip
+    echo "Renamed raw.zip to raw.old.zip."
 else
-    echoyellow "Not found raw.zip file."
-    echogreen "Downloading a new raw.zip file..."
-
-    wget https://ped.uspto.gov/api/full-download\?format\=JSON --output-document=${BASEDIR}/data/raw.zip --show-progress
-    if [ $? -eq 0 ]; then
-        echogreen "Download complete."
-    else
-        echored "Download failed."
-    fi
-
-    exit 1
+    echo "Not found old raw.zip file."
 fi
 
-echogreen "Start download latest data."
-wget https://ped.uspto.gov/api/full-download\?format\=JSON --output-document=${BASEDIR}/data/raw.zip --show-progress
+echo "Start downloading latest data."
+wget https://ped.uspto.gov/api/full-download\?format\=JSON --output-document=${STORAGE_DIR}/raw.zip --show-progress
 
 if [ $? -eq 0 ]; then
-    echogreen "Download complete!"
+    echo "Download complete!"
 
-    # TODO: use other secure way to do this, maybe move to BE?
-    node ${BE_BASEDIR}/dist/tasks/sendInternal "New PEDS data is downloaded." "New bulk data is downloaded."
+    ${WORK_DIR}/bin/mail -sender="mailman@pathub.io" -subject="[PatHub Backend] PEDS is downloaded." -body="New bulk data is downloaded." -recipient="liuhao1990@gmai.com,hinmeng@gmail.com"
 else
-    rm -rf ${BASEDIR}/data/raw.zip
-    mv ${BASEDIR}/data/raw.old.zip ${BASEDIR}/data/raw.zip
-    echored "Download failed."
+    rm -rf ${STORAGE_DIR}/raw.zip
+    mv ${STORAGE_DIR}/raw.old.zip ${STORAGE_DIR}/raw.zip
+    echo "Downloading failed. Rolled back everything."
+
+    ${WORK_DIR}/bin/mail -sender="mailman@pathub.io" -subject="[PatHub Backend] PEDS data downloading is failed." -body="New bulk data is NOT downloaded. Please check." -recipient="liuhao1990@gmai.com,hinmeng@gmail.com"
 fi
