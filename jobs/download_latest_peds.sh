@@ -17,7 +17,7 @@ else
 fi
 
 echo "Start downloading latest data."
-wget https://ped.uspto.gov/api/full-download\?format\=JSON --output-document=${STORAGE_DIR}/raw.zip --show-progress
+wget --output-document=${STORAGE_DIR}/raw.zip --show-progress https://ped.uspto.gov/api/full-download\?format\=JSON
 
 if [ $? -eq 0 ]; then
     echo "Download complete!"
