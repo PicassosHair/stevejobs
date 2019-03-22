@@ -14,6 +14,7 @@ then
     echo "Renamed raw.zip to raw.old.zip."
 else
     echo "Not found old raw.zip file."
+    touch ${STORAGE_DIR}/raw.zip
 fi
 
 echo "Start downloading latest data."

@@ -17,6 +17,10 @@ RUN go build -o ./bin/mail mail
 # Move bin to another image.
 FROM alpine
 WORKDIR /usr/src/app
+
+# Mounting outside disk here.
+RUN mkdir /data
+
 COPY --from=builder /go/bin ./bin
 
 # Add Add SSL ca certificates.
