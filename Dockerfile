@@ -18,13 +18,14 @@ RUN go build -o ./bin/mail mail
 FROM alpine
 WORKDIR /usr/src/app
 
+# Install deps.
+RUN apk update
+RUN apk add ca-certificates wget
+RUN update-ca-certificates
 # Mounting outside disk here.
 RUN mkdir /data
 
 COPY --from=builder /go/bin ./bin
-
-# Add Add SSL ca certificates.
-COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 # Add other files such as sql templates or jobs.
 COPY ./sql ./sql
