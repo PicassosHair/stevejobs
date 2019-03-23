@@ -23,11 +23,11 @@ wget --output-document=${STORAGE_DIR}/raw.zip --show-progress https://ped.uspto.
 if [ $? -eq 0 ]; then
     echo "Download complete!"
 
-    ${WORK_DIR}/bin/mail -sender="mailman@pathub.io" -subject="[PatHub Backend] PEDS is downloaded." -body="New bulk data is downloaded." -recipient="liuhao1990@gmai.com,hinmeng@gmail.com"
+    ${WORK_DIR}/bin/mail -sender="mailman@pathub.io" -subject="[PatHub Backend] PEDS is downloaded." -body="New bulk data is downloaded." -recipient="liuhao1990@gmail.com,hinmeng@gmail.com"
 else
     rm -rf ${STORAGE_DIR}/raw.zip
     mv ${STORAGE_DIR}/raw.old.zip ${STORAGE_DIR}/raw.zip
     echo "Downloading failed. Rolled back everything."
 
-    ${WORK_DIR}/bin/mail -sender="mailman@pathub.io" -subject="[PatHub Backend] PEDS data downloading is failed." -body="New bulk data is NOT downloaded. Please check." -recipient="liuhao1990@gmai.com,hinmeng@gmail.com"
+    # ${WORK_DIR}/bin/mail -sender="mailman@pathub.io" -subject="[PatHub Backend] PEDS data downloading is failed." -body="New bulk data is NOT downloaded. Please check." -recipient="liuhao1990@gmail.com,hinmeng@gmail.com"
 fi
