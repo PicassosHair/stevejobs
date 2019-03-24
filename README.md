@@ -1,6 +1,6 @@
 # PEDS Parser
 
-Add `.env` file and `./mysql/config.conf` to local.
+Add `.env` file and `./mysql.conf` to local.
 
 # Local Testing Data
 
