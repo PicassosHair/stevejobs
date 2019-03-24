@@ -11,7 +11,7 @@ echo "Start diffing PEDS data between $1 ... $2";
 for (( y=$1; y<=$2; y++ ))
     do 
     echo "Start parsing year for $y."
-    ${APP_DIR}/jobs/diff_peds_for.sh $y
+    /bin/sh ${APP_DIR}/jobs/diff_peds_for.sh $y
 done
 
 ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS parsing is done." -body="No error found." -recipient=${RECIPIENT}

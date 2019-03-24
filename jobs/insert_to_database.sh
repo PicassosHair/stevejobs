@@ -19,6 +19,7 @@ sed -i -e "s|@infile|'${PARSED_FILE_PATH}'|g; s|@year|${YEAR}|g;" ${DATA_DIR}/te
 
 # Load sql to database. Use file to locate auth as no safe way to put the password in cmd.
 mysql --defaults-extra-file=${APP_DIR}/mysql.conf \
+--enforce-gtid-consistency \
 --local-infile \
 -e "SOURCE ${DATA_DIR}/temp/load_${TABLE_NAME}.sql;"
 
