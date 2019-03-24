@@ -30,8 +30,8 @@ COPY --from=builder /go/bin ./bin
 # Add other files such as sql templates or jobs.
 COPY ./sql ./sql
 COPY ./jobs ./jobs
-# Mysql config file is in it.
-COPY ./mysql ./mysql
+# Mysql config file used to connect to the database.
+COPY ./mysql.conf ./mysql.conf
 
 RUN chmod -R 755 /usr/src/app/jobs
 RUN echo "Done."
