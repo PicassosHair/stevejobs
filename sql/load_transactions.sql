@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `temp_Transactions_WithAppl` (
   `code` VARCHAR(100) NOT NULL,
   `applId` VARCHAR(10) NOT NULL,
   `recordDate` datetime NOT NULL,
-  `applicationId` varchar(15) NOT NULL
+  `applicationId` varchar(15)
 ) ENGINE=InnoDB;
 INSERT INTO `temp_Transactions_WithAppl` (code, applId, recordDate, applicationId)
   SELECT `code`, tt.`applId`, `recordDate`, tay.id
