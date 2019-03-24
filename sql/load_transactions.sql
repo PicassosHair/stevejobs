@@ -44,10 +44,10 @@ ON tt.applId = tay.applId;
 ALTER TABLE `temp_Transactions_WithAppl` ADD INDEX `code_index` (`code`);
 
 DROP TABLE IF EXISTS temp_Transactions_Final;
-CREATE TABLE temp_Transactions_Final (
+CREATE TABLE IF NOT EXISTS temp_Transactions_Final (
   `recordDate` datetime NOT NULL,
   `applicationId` varchar(15) NOT NULL,
-  `transactionCodeId` varchar(15) NOT NULL,
+  `transactionCodeId` varchar(15) NOT NULL
 ) ENGINE=InnoDB;
 INSERT INTO `temp_Transactions_Final` (recordDate, applicationId, transactionCodeId)
 SELECT `recordDate`, tt.applicationId AS `applicationId`, tc.id AS `transactionCodeId`
