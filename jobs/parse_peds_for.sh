@@ -36,13 +36,13 @@ fi
 
 # Generate raw load application SQL file.
 # Assumption: these shell scripts are in the same directory.
-./insert_to_database.sh application ${DATA_DIR}/temp/applications ${YEAR}
+/bin/sh ./insert_to_database.sh application ${DATA_DIR}/temp/applications ${YEAR}
 
 # Generate raw load codes SQL file.
-./insert_to_database.sh code ${DATA_DIR}/temp/codes ${YEAR}
+/bin/sh ./insert_to_database.sh code ${DATA_DIR}/temp/codes ${YEAR}
 
 # Generate raw load codes SQL file.
-./insert_to_database.sh transaction ${DATA_DIR}/temp/transactions ${YEAR}
+/bin/sh ./insert_to_database.sh transaction ${DATA_DIR}/temp/transactions ${YEAR}
 
 # Clean up work.
 rm -rf ${DATA_DIR}/temp
