@@ -1,16 +1,17 @@
 #!/bin/bash
+# This script accept two years and diff them.
+# $1 - starting year (e.g. 2013)
+# $2 - ending year (e.g. 2018)
 
-BASEDIR=/root/pedsparser
-BE_BASEDIR=/root/idsguard-be
+APP_DIR=/usr/src/app
+RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
 
-. ${BASEDIR}/_rainbow.sh
-
-echogreen "Start diffing PEDS data between $1 ... $2";
+echo "Start diffing PEDS data between $1 ... $2";
 
 for (( y=$1; y<=$2; y++ ))
     do 
-    echogreen "Start parsing year for $y"
-    ${BASEDIR}/diff_peds_for.sh $y
+    echo "Start parsing year for $y."
+    ${APP_DIR}/jobs/diff_peds_for.sh $y
 done
 
-node ${BE_BASEDIR}/dist/tasks/sendInternal "PEDS data is parsed." "Success."
+${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS parsing is done." -body="No error found." -recipient=${RECIPIENT}

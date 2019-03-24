@@ -15,14 +15,14 @@ func main() {
 	domainName := os.Getenv("MAILGUN_DOMAIN_NAME")
 	mailgunAPIKey := os.Getenv("MAILGUN_API_KEY")
 
-	sender := flag.String("sender", "", "The sender email address.")
+	sender := flag.String("sender", "mailman@pathub.io", "The sender email address.")
 	subject := flag.String("subject", "", "The email subject.")
 	body := flag.String("body", "", "The email body.")
 	recipient := flag.String("recipient", "", "The email recipient(s).")
 
-  flag.Parse()
+	flag.Parse()
 
-  fmt.Println(*sender, *subject, *body, *recipient)
+	fmt.Println(*sender, *subject, *body, *recipient)
 
 	mg := mailgun.NewMailgun(domainName, mailgunAPIKey)
 

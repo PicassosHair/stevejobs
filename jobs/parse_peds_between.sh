@@ -1,13 +1,14 @@
 #!/bin/bash
+# This script accept two years and parse the PEDS data between them.
+# $1 - starting year (e.g. 2013)
+# $2 - ending year (e.g. 2018)
 
-BASEDIR=/root/pedsparser
+APP_DIR=/usr/src/app
 
-. ${BASEDIR}/_rainbow.sh
-
-echogreen "Start parsing PEDS data between $1 ... $2";
+echo "Start parsing PEDS data between $1 ... $2";
 
 for (( y=$1; y<=$2; y++ ))
     do 
-    echogreen "Start parsing year for $y"
-    ${BASEDIR}/parse_peds_for.sh $y
+    echo "Start parsing year for $y."
+    ${APP_DIR}/jobs/parse_peds_for.sh $y
 done
