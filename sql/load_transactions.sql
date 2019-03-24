@@ -8,10 +8,10 @@ CREATE TABLE IF NOT EXISTS `temp_Transactions` (
 ) ENGINE=InnoDB;
 
 LOAD DATA LOCAL INFILE @infile
-INTO TABLE temp_Transactions
-FIELDS TERMINATED BY '^^'
-LINES TERMINATED BY '\n'
-(code, applId, recordDate);
+  INTO TABLE temp_Transactions
+  FIELDS TERMINATED BY '^^'
+  LINES TERMINATED BY '\n'
+  (code, applId, recordDate);
 
 -- Temp table for applications by year for later join.
 DROP TABLE IF EXISTS temp_Applications_ByYear;
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `temp_Applications_ByYear` (
 ) ENGINE=InnoDB;
 
 INSERT INTO temp_Applications_ByYear (id, applId)
-SELECT id, applId FROM Applications WHERE YEAR(filingDate) = @year;
+  SELECT id, applId FROM Applications WHERE YEAR(filingDate) = @year;
 
 -- Get applicationId.
 ALTER TABLE `temp_Transactions` ADD INDEX `applId_index` (`applId`);
@@ -35,10 +35,10 @@ CREATE TABLE IF NOT EXISTS `temp_Transactions_WithAppl` (
   `applicationId` varchar(15) NOT NULL
 ) ENGINE=InnoDB;
 INSERT INTO `temp_Transactions_WithAppl` (code, applId, recordDate, applicationId)
-SELECT `code`, tt.`applId`, `recordDate`, tay.id AS `applicationId`
-FROM temp_Transactions tt
-LEFT JOIN temp_Applications_ByYear tay
-ON tt.applId = tay.applId;
+  SELECT `code`, tt.`applId`, `recordDate`, tay.id
+  FROM temp_Transactions tt
+  LEFT JOIN temp_Applications_ByYear tay
+  ON tt.applId = tay.applId;
 
 -- Get transactionCodeId
 ALTER TABLE `temp_Transactions_WithAppl` ADD INDEX `code_index` (`code`);
@@ -50,16 +50,16 @@ CREATE TABLE IF NOT EXISTS temp_Transactions_Final (
   `transactionCodeId` varchar(15) NOT NULL
 ) ENGINE=InnoDB;
 INSERT INTO `temp_Transactions_Final` (recordDate, applicationId, transactionCodeId)
-SELECT `recordDate`, tt.applicationId AS `applicationId`, tc.id AS `transactionCodeId`
-FROM temp_Transactions_WithAppl tt
-LEFT JOIN TransactionCodes tc
-ON tc.code = tt.code;
+  SELECT `recordDate`, tt.applicationId, tc.id
+  FROM temp_Transactions_WithAppl tt
+  LEFT JOIN TransactionCodes tc
+  ON tc.code = tt.code;
 
 -- Final insertion.
 INSERT IGNORE INTO Transactions
    (createdAt, updatedAt, transactionCodeId, applicationId, recordDate)
-SELECT NOW(), NOW(), transactionCodeId, applicationId, recordDate
-FROM temp_Transactions_Final;
+  SELECT NOW(), NOW(), transactionCodeId, applicationId, recordDate
+  FROM temp_Transactions_Final;
 
 DROP TABLE IF EXISTS temp_Transactions_Final;
 DROP TABLE IF EXISTS temp_Transactions_WithAppl;
