@@ -28,7 +28,13 @@ SELECT id, applId FROM Applications WHERE YEAR(filingDate) = @year;
 ALTER TABLE `temp_Transactions` ADD INDEX `applId_index` (`applId`);
 
 DROP TABLE IF EXISTS temp_Transactions_WithAppl;
-CREATE TABLE temp_Transactions_WithAppl AS
+CREATE TABLE IF NOT EXISTS `temp_Transactions_WithAppl` (
+  `code` VARCHAR(100) NOT NULL,
+  `applId` VARCHAR(10) NOT NULL,
+  `recordDate` datetime NOT NULL,
+  `applicationId` varchar(15) NOT NULL
+) ENGINE=InnoDB;
+INSERT INTO `temp_Transactions_WithAppl` (code, applId, recordDate, applicationId)
 SELECT `code`, tt.`applId`, `recordDate`, tay.id AS `applicationId`
 FROM temp_Transactions tt
 LEFT JOIN temp_Applications_ByYear tay
@@ -38,7 +44,12 @@ ON tt.applId = tay.applId;
 ALTER TABLE `temp_Transactions_WithAppl` ADD INDEX `code_index` (`code`);
 
 DROP TABLE IF EXISTS temp_Transactions_Final;
-CREATE TABLE temp_Transactions_Final AS
+CREATE TABLE temp_Transactions_Final (
+  `recordDate` datetime NOT NULL,
+  `applicationId` varchar(15) NOT NULL,
+  `transactionCodeId` varchar(15) NOT NULL,
+) ENGINE=InnoDB;
+INSERT INTO `temp_Transactions_Final` (recordDate, applicationId, transactionCodeId)
 SELECT `recordDate`, tt.applicationId AS `applicationId`, tc.id AS `transactionCodeId`
 FROM temp_Transactions_WithAppl tt
 LEFT JOIN TransactionCodes tc
