@@ -6,7 +6,7 @@
 APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
 
-echo "Start diffing PEDS data between $1 ... $2";
+echo "Start diffing PEDS data between $1 ... $2"
 
 for (( y=$1; y<=$2; y++ ))
     do 
