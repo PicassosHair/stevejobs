@@ -10,5 +10,5 @@ echo "Start parsing PEDS data between $1 ... $2";
 for (( y=$1; y<=$2; y++ ))
     do 
     echo "Start parsing year for $y."
-    /bin/sh ${APP_DIR}/jobs/parse_peds_for.sh $y
+    bash ${APP_DIR}/jobs/parse_peds_for.sh $y
 done

@@ -52,13 +52,13 @@ ${APP_DIR}/bin/postdiff -in=${DATA_DIR}/temp/transactions.diff -out=${DATA_DIR}/
 # Load to DB.
 echo "Loading to DB..."
 # Generate raw load application SQL file.
-/bin/sh ${APP_DIR}/jobs/insert_to_database.sh application ${DATA_DIR}/temp/applications.final ${YEAR}
+bash ${APP_DIR}/jobs/insert_to_database.sh application ${DATA_DIR}/temp/applications.final ${YEAR}
 
 # Generate raw load codes SQL file.
-/bin/sh ${APP_DIR}/jobs/insert_to_database.sh code ${DATA_DIR}/temp/codes.final ${YEAR}
+bash ${APP_DIR}/jobs/insert_to_database.sh code ${DATA_DIR}/temp/codes.final ${YEAR}
 
 # Generate raw load codes SQL file.
-/bin/sh ${APP_DIR}/jobs/insert_to_database.sh transaction ${DATA_DIR}/temp/transactions.final ${YEAR}
+bash ${APP_DIR}/jobs/insert_to_database.sh transaction ${DATA_DIR}/temp/transactions.final ${YEAR}
 
 # Cleanup
 rm -rf ${DATA_DIR}/temp
