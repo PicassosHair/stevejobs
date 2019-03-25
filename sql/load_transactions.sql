@@ -32,13 +32,14 @@ CREATE TABLE IF NOT EXISTS `temp_Transactions_WithAppl` (
   `code` VARCHAR(100) NOT NULL,
   `applId` VARCHAR(10) NOT NULL,
   `recordDate` datetime NOT NULL,
-  `applicationId` varchar(15)
+  `applicationId` varchar(15) NOT NULL
 ) ENGINE=InnoDB;
 INSERT INTO `temp_Transactions_WithAppl` (code, applId, recordDate, applicationId)
   SELECT `code`, tt.`applId`, `recordDate`, tay.id
   FROM temp_Transactions tt
   LEFT JOIN temp_Applications_ByYear tay
-  ON tt.applId = tay.applId;
+  ON tt.applId = tay.applId
+  WHERE tay.id IS NOT NULL;
 
 -- Get transactionCodeId
 ALTER TABLE `temp_Transactions_WithAppl` ADD INDEX `code_index` (`code`);
@@ -53,7 +54,8 @@ INSERT INTO `temp_Transactions_Final` (recordDate, applicationId, transactionCod
   SELECT `recordDate`, tt.applicationId, tc.id
   FROM temp_Transactions_WithAppl tt
   LEFT JOIN TransactionCodes tc
-  ON tc.code = tt.code;
+  ON tc.code = tt.code
+  WHERE tt.applicationId IS NOT NULL;
 
 -- Final insertion.
 INSERT IGNORE INTO Transactions
