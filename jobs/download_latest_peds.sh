@@ -1,8 +1,8 @@
 #!/bin/bash
 # Download the latest data from https://ped.uspto.gov/peds/.
 
-DATA_DIR=${DATA_DIR}
-APP_DIR=${APP_DIR}
+DATA_DIR=/data
+APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
 
 # Remove raw.old.zip if exists.
