@@ -5,6 +5,10 @@ DATA_DIR=/data
 APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
 
+${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS downloading started." \
+-body="PEDS data is now started downloading. Will let you know when it's done (or failed)." \
+-recipient=${RECIPIENT}
+
 # Remove raw.old.zip if exists.
 if [ -e ${DATA_DIR}/raw.old.zip ]
   rm -f ${DATA_DIR}/raw.old.zip
