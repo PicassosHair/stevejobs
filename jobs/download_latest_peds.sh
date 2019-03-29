@@ -9,11 +9,8 @@ ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS downloading started." \
 -body="PEDS data is now started downloading. Will let you know when it's done (or failed)." \
 -recipient=${RECIPIENT}
 
-# Remove raw.old.zip if exists.
-if [ -e ${DATA_DIR}/raw.old.zip ]
-  rm -f ${DATA_DIR}/raw.old.zip
-  echo "Removed old raw.zip file."
-fi
+# Remove oldest file keep total files count 3.
+ls ${DATA_DIR} -1t | tail -n +4 | xargs rm -f
 
 # Rename raw.zip to raw.old.zip if needed, or just download the data.
 if [ -e ${DATA_DIR}/raw.zip ] then

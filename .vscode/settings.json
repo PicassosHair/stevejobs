@@ -16,5 +16,6 @@
         "string_view": "cpp",
         "valarray": "cpp",
         "vector": "cpp"
-    }
+    },
+    "editor.wordWrap": "bounded"
 }
