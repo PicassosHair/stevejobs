@@ -63,7 +63,7 @@ INSERT IGNORE INTO Transactions
   SELECT NOW(), NOW(), transactionCodeId, applicationId, recordDate
   FROM temp_Transactions_Final;
 
-DROP TABLE IF EXISTS temp_Transactions_Final;
-DROP TABLE IF EXISTS temp_Transactions_WithAppl;
-DROP TABLE IF EXISTS temp_Applications_ByYear;
-DROP TABLE IF EXISTS temp_Transactions;
+-- DROP TABLE IF EXISTS temp_Transactions_Final;
+-- DROP TABLE IF EXISTS temp_Transactions_WithAppl;
+-- DROP TABLE IF EXISTS temp_Applications_ByYear;
+-- DROP TABLE IF EXISTS temp_Transactions;
