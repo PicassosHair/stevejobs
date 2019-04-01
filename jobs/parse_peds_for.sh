@@ -44,7 +44,6 @@ if [ $? -ne 0 ]; then
 fi
 
 # Generate raw load application SQL file.
-# Assumption: these shell scripts are in the same directory.
 # ${APP_DIR}/jobs/insert_to_database.sh application ${DATA_DIR}/temp/applications ${YEAR}
 
 # Generate raw load codes SQL file.

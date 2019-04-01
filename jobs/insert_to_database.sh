@@ -6,7 +6,7 @@
 
 DATA_DIR=/data
 APP_DIR=/usr/src/app
-
+START_TIME=`date +%s`
 TABLE_NAME=$1
 PARSED_FILE_PATH=$2
 YEAR=$3
@@ -27,5 +27,5 @@ if [ $? -ne 0 ]; then
     echo "Failed to pump data into the database."
     exit 1
 else
-    echo "Successfully pump into database for ${TABLE_NAME} on ${YEAR}."
+    echo "Successfully pump into database for ${TABLE_NAME} on ${YEAR}. Used $(expr `date +%s` - $START_TIME) s."
 fi
