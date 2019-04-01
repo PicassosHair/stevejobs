@@ -34,7 +34,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Parse json file to temp/applications, temp/codes, temp/transactions
+# Parse json file to temp/applications, temp/codes, temp/transactions, which are csv-like files.
 echo "Parsing ${YEAR}.json."
 ${APP_DIR}/bin/parser -in=${DATA_DIR}/temp/$YEAR.json -out=${DATA_DIR}/temp
 
