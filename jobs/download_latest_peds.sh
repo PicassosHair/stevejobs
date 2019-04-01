@@ -14,7 +14,7 @@ ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS downloading started." \
 ls ${DATA_DIR} -1t | tail -n +4 | xargs rm -f
 
 echo "Start downloading latest data."
-wget --output-document=${DATA_DIR}/raw.${START_DATE}.zip https://ped.uspto.gov/api/full-download\?format\=JSON
+wget --tries=3 --output-document=${DATA_DIR}/raw.${START_DATE}.zip https://ped.uspto.gov/api/full-download\?format\=JSON
 
 if [ $? -eq 0 ]; 
 then
