@@ -13,7 +13,8 @@ ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS downloading started." \
 ls ${DATA_DIR} -1t | tail -n +4 | xargs rm -f
 
 # Rename raw.zip to raw.old.zip if needed, or just download the data.
-if [ -e ${DATA_DIR}/raw.zip ] then
+if [ -e ${DATA_DIR}/raw.zip ] 
+then
   echo "Renamed raw.zip to raw.old.zip."
   mv ${DATA_DIR}/raw.zip ${DATA_DIR}/raw.old.zip
 else
@@ -24,7 +25,8 @@ fi
 echo "Start downloading latest data."
 wget --output-document=${DATA_DIR}/raw.zip https://ped.uspto.gov/api/full-download\?format\=JSON
 
-if [ $? -eq 0 ]; then
+if [ $? -eq 0 ]; 
+then
     echo "Download complete!"
 
     ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS is downloaded." -body="New bulk data is downloaded." -recipient=${RECIPIENT}
