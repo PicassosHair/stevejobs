@@ -1,311 +1,492 @@
 {
-  "patentCaseMetadata": {
-    "applicationNumberText": {
-      "value": "15482583",
-      "electronicText": "15482583"
-    },
-    "filingDate": "2017-04-07",
-    "applicationTypeCategory": "Utility",
-    "partyBag": {
-      "applicantBagOrInventorBagOrOwnerBag": [
-        {
-          "primaryExaminerOrAssistantExaminerOrAuthorizedOfficer": [
-            {
-              "name": {
-                "personNameOrOrganizationNameOrEntityName": [
+  "patentRecordBag": {
+    "patentRecord": [
+      {
+        "patentCaseMetadata": {
+          "applicationNumberText": {
+            "value": "16314662",
+            "electronicText": "16314662"
+          },
+          "filingDate": "2019-01-01",
+          "applicationTypeCategory": "Utility",
+          "partyBag": {
+            "applicantBagOrInventorBagOrOwnerBag": [
+              {
+                "primaryExaminerOrAssistantExaminerOrAuthorizedOfficer": [
                   {
-                    "personFullName": "KIM, EUN HWA"
+                    "name": {
+                      "personNameOrOrganizationNameOrEntityName": [
+                        { "personFullName": "NGO, RICKY QUOC" }
+                      ]
+                    }
                   }
                 ]
-              }
-            }
-          ]
-        },
-        {
-          "inventorOrDeceasedInventor": [
-            {
-              "contactOrPublicationContact": [
-                {
-                  "name": {
-                    "personNameOrOrganizationNameOrEntityName": [
+              },
+              {
+                "applicant": [
+                  {
+                    "contactOrPublicationContact": [
                       {
-                        "personStructuredName": {
-                          "lastName": "Matthew R. Angle"
-                        }
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "",
+                                "middleName": "",
+                                "lastName": "SONY MOBILE COMMUNICATIONS INC."
+                              }
+                            }
+                          ]
+                        },
+                        "cityName": "Tokyo",
+                        "geographicRegionName": {
+                          "value": "",
+                          "geographicRegionCategory": "STATE"
+                        },
+                        "countryCode": "JP"
                       }
                     ]
-                  },
-                  "cityName": "San Jose",
-                  "geographicRegionName": {
-                    "value": "CA",
-                    "geographicRegionCategory": "STATE"
-                  },
-                  "countryCode": "US"
-                }
-              ]
-            },
-            {
-              "contactOrPublicationContact": [
-                {
-                  "name": {
-                    "personNameOrOrganizationNameOrEntityName": [
+                  }
+                ]
+              },
+              {
+                "inventorOrDeceasedInventor": [
+                  {
+                    "contactOrPublicationContact": [
                       {
-                        "personStructuredName": {
-                          "lastName": "Yifan  Kong"
-                        }
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "Takashi",
+                                "middleName": "",
+                                "lastName": "NAKAYAMA"
+                              }
+                            }
+                          ]
+                        },
+                        "cityName": "Chiba",
+                        "geographicRegionName": {
+                          "value": "",
+                          "geographicRegionCategory": "STATE"
+                        },
+                        "countryCode": "JP"
                       }
                     ]
+                  }
+                ]
+              },
+              {
+                "registeredPractitioner": [
+                  {
+                    "registeredPractitionerRegistrationNumber": "56959",
+                    "registeredPractitionerCategory": "AGENT",
+                    "contactOrPublicationContact": [
+                      {
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "Andrew",
+                                "middleName": "",
+                                "lastName": "Harry",
+                                "nameSuffix": ""
+                              }
+                            }
+                          ]
+                        },
+                        "phoneNumberBag": {
+                          "phoneNumber": [{ "value": "703-413-3000" }]
+                        }
+                      }
+                    ],
+                    "activeIndicator": true
                   },
-                  "cityName": "San Jose",
-                  "geographicRegionName": {
-                    "value": "CA",
-                    "geographicRegionCategory": "STATE"
+                  {
+                    "registeredPractitionerRegistrationNumber": "57766",
+                    "registeredPractitionerCategory": "ATTORNEY",
+                    "contactOrPublicationContact": [
+                      {
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "Aaron",
+                                "middleName": "",
+                                "lastName": "Perez-Daple",
+                                "nameSuffix": ""
+                              }
+                            }
+                          ]
+                        },
+                        "phoneNumberBag": {
+                          "phoneNumber": [{ "value": "312-285-6905" }]
+                        }
+                      }
+                    ],
+                    "activeIndicator": true
                   },
-                  "countryCode": "US"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "partyIdentifierOrContact": [
-            {
-              "contactText": {
-                "content": [
-                  "21971"
+                  {
+                    "registeredPractitionerRegistrationNumber": "40073",
+                    "registeredPractitionerCategory": "ATTORNEY",
+                    "contactOrPublicationContact": [
+                      {
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "Bradley",
+                                "middleName": "",
+                                "lastName": "Lytle",
+                                "nameSuffix": ""
+                              }
+                            }
+                          ]
+                        },
+                        "phoneNumberBag": {
+                          "phoneNumber": [{ "value": "571-376-6333" }]
+                        }
+                      }
+                    ],
+                    "activeIndicator": true
+                  },
+                  {
+                    "registeredPractitionerRegistrationNumber": "60532",
+                    "registeredPractitionerCategory": "ATTORNEY",
+                    "contactOrPublicationContact": [
+                      {
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "Milena",
+                                "middleName": "",
+                                "lastName": "Sukovic",
+                                "nameSuffix": ""
+                              }
+                            }
+                          ]
+                        },
+                        "phoneNumberBag": {
+                          "phoneNumber": [{ "value": "312-285-6905" }]
+                        }
+                      }
+                    ],
+                    "activeIndicator": true
+                  },
+                  {
+                    "registeredPractitionerRegistrationNumber": "73616",
+                    "registeredPractitionerCategory": "AGENT",
+                    "contactOrPublicationContact": [
+                      {
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "Brian",
+                                "middleName": "",
+                                "lastName": "Fisher",
+                                "nameSuffix": "Jr."
+                              }
+                            }
+                          ]
+                        },
+                        "phoneNumberBag": {
+                          "phoneNumber": [{ "value": "571-376-6333" }]
+                        }
+                      }
+                    ],
+                    "activeIndicator": true
+                  },
+                  {
+                    "registeredPractitionerRegistrationNumber": "69541",
+                    "registeredPractitionerCategory": "ATTORNEY",
+                    "contactOrPublicationContact": [
+                      {
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "Noah",
+                                "middleName": "",
+                                "lastName": "Flaks",
+                                "nameSuffix": ""
+                              }
+                            }
+                          ]
+                        },
+                        "phoneNumberBag": {
+                          "phoneNumber": [{ "value": "571-376-6333" }]
+                        }
+                      }
+                    ],
+                    "activeIndicator": true
+                  },
+                  {
+                    "registeredPractitionerRegistrationNumber": "56944",
+                    "registeredPractitionerCategory": "ATTORNEY",
+                    "contactOrPublicationContact": [
+                      {
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "Derek",
+                                "middleName": "",
+                                "lastName": "Benke",
+                                "nameSuffix": ""
+                              }
+                            }
+                          ]
+                        },
+                        "phoneNumberBag": {
+                          "phoneNumber": [{ "value": "571-376-6306" }]
+                        }
+                      }
+                    ],
+                    "activeIndicator": true
+                  },
+                  {
+                    "registeredPractitionerRegistrationNumber": "54719",
+                    "registeredPractitionerCategory": "ATTORNEY",
+                    "contactOrPublicationContact": [
+                      {
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "Zachary",
+                                "middleName": "",
+                                "lastName": "Stern",
+                                "nameSuffix": ""
+                              }
+                            }
+                          ]
+                        },
+                        "phoneNumberBag": {
+                          "phoneNumber": [{ "value": "571-376-6340" }]
+                        }
+                      }
+                    ],
+                    "activeIndicator": true
+                  },
+                  {
+                    "registeredPractitionerRegistrationNumber": "47288",
+                    "registeredPractitionerCategory": "AGENT",
+                    "contactOrPublicationContact": [
+                      {
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "Catherine",
+                                "middleName": "",
+                                "lastName": "Lytle",
+                                "nameSuffix": ""
+                              }
+                            }
+                          ]
+                        },
+                        "phoneNumberBag": {
+                          "phoneNumber": [{ "value": "571-214-8959" }]
+                        }
+                      }
+                    ],
+                    "activeIndicator": true
+                  },
+                  {
+                    "registeredPractitionerRegistrationNumber": "34648",
+                    "registeredPractitionerCategory": "ATTORNEY",
+                    "contactOrPublicationContact": [
+                      {
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "James",
+                                "middleName": "",
+                                "lastName": "Kulbaski",
+                                "nameSuffix": ""
+                              }
+                            }
+                          ]
+                        },
+                        "phoneNumberBag": {
+                          "phoneNumber": [{ "value": "571-376-6333" }]
+                        }
+                      }
+                    ],
+                    "activeIndicator": true
+                  },
+                  {
+                    "registeredPractitionerRegistrationNumber": "54375",
+                    "registeredPractitionerCategory": "AGENT",
+                    "contactOrPublicationContact": [
+                      {
+                        "name": {
+                          "personNameOrOrganizationNameOrEntityName": [
+                            {
+                              "personStructuredName": {
+                                "firstName": "Michael",
+                                "middleName": "",
+                                "lastName": "Plotnick",
+                                "nameSuffix": ""
+                              }
+                            }
+                          ]
+                        },
+                        "phoneNumberBag": {
+                          "phoneNumber": [{ "value": "215-364-4176" }]
+                        }
+                      }
+                    ],
+                    "activeIndicator": true
+                  }
+                ]
+              },
+              {
+                "partyIdentifierOrContact": [
+                  {
+                    "name": {
+                      "personNameOrOrganizationNameOrEntityName": [
+                        {
+                          "personStructuredName": { "lastName": "XSENSUS LLP" }
+                        }
+                      ]
+                    },
+                    "postalAddressBag": {
+                      "postalAddress": [
+                        {
+                          "postalStructuredAddress": {
+                            "addressLineText": [
+                              { "value": "200 Daingerfield Road" },
+                              { "value": "Suite 201" }
+                            ],
+                            "cityName": "Alexandria",
+                            "geographicRegionName": [{ "value": "VA" }],
+                            "countryCode": "US",
+                            "postalCode": "22314"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  { "value": "154930" }
                 ]
               }
+            ]
+          },
+          "groupArtUnitNumber": { "value": "2464", "electronicText": "2464" },
+          "applicationConfirmationNumber": "6420",
+          "applicantFileReference": "11501US01",
+          "priorityClaimBag": {
+            "priorityClaim": [
+              {
+                "ipOfficeName": "JAPAN",
+                "applicationNumber": { "applicationNumberText": "2016-139586" },
+                "filingDate": "2016-07-14",
+                "sequenceNumber": "1"
+              }
+            ]
+          },
+          "patentClassificationBag": {
+            "cpcClassificationBagOrIPCClassificationOrECLAClassificationBag": [
+              {
+                "ipOfficeCode": "US",
+                "mainNationalClassification": {
+                  "nationalClass": "370",
+                  "nationalSubclass": "329000"
+                }
+              }
+            ]
+          },
+          "businessEntityStatusCategory": "UNDISCOUNTED",
+          "firstInventorToFileIndicator": "true",
+          "inventionTitle": {
+            "content": [
+              "INFORMATION PROCESSING DEVICE, COMMUNICATION DEVICE, INFORMATION PROCESSING METHOD, COMMUNICATION METHOD, AND PROGRAM"
+            ]
+          },
+          "applicationStatusCategory": "Application Dispatched from Preexam, Not Yet Docketed",
+          "applicationStatusDate": "2019-03-27",
+          "officialFileLocationCategory": "ELECTRONIC",
+          "relatedDocumentData": {
+            "parentDocumentDataOrChildDocumentData": [
+              {
+                "descriptionText": "This application is National Stage Entry of",
+                "applicationNumberText": "PCT/JP2017/019188",
+                "filingDate": "2017-05-23",
+                "parentDocumentStatusCode": "Published",
+                "patentNumber": ""
+              }
+            ]
+          }
+        },
+        "prosecutionHistoryDataBag": {
+          "prosecutionHistoryData": [
+            {
+              "eventDate": "2019-02-28",
+              "eventDescriptionText": "Email Notification , EML_NTR"
+            },
+            {
+              "eventDate": "2019-02-28",
+              "eventDescriptionText": "Email Notification , EML_NTR"
+            },
+            {
+              "eventDate": "2019-01-01",
+              "eventDescriptionText": "371 Completion Date , 371COMP"
+            },
+            {
+              "eventDate": "2019-02-27",
+              "eventDescriptionText": "Sent to Classification Contractor , PGPC"
+            },
+            {
+              "eventDate": "2019-02-27",
+              "eventDescriptionText": "FITF set to YES - revise initial setting , FTFS"
+            },
+            {
+              "eventDate": "2019-01-01",
+              "eventDescriptionText": "Patent Term Adjustment - Ready for Examination , PTA.RFE"
+            },
+            {
+              "eventDate": "2019-02-28",
+              "eventDescriptionText": "Notice of DO/EO Acceptance Mailed , M903"
+            },
+            {
+              "eventDate": "2019-02-28",
+              "eventDescriptionText": "Filing Receipt , FLRCPT.O"
+            },
+            {
+              "eventDate": "2019-01-01",
+              "eventDescriptionText": "PTO/SB/69-Authorize EPO Access to Search Results , SREXR141"
+            },
+            {
+              "eventDate": "2019-01-01",
+              "eventDescriptionText": "Applicants have given acceptable permission for participating foreign  , APPERMS"
+            },
+            {
+              "eventDate": "2019-01-07",
+              "eventDescriptionText": "Cleared by OIPE CSR , L194"
+            },
+            {
+              "eventDate": "2019-01-01",
+              "eventDescriptionText": "Information Disclosure Statement (IDS) Filed , WIDS"
+            },
+            {
+              "eventDate": "2019-01-01",
+              "eventDescriptionText": "ENTITY STATUS SET TO UNDISCOUNTED (INITIAL DEFAULT SETTING OR STATUS CHANGE) , BIG."
+            },
+            {
+              "eventDate": "2019-01-01",
+              "eventDescriptionText": "Initial Exam Team nn , IEXX"
             }
           ]
-        }
-      ]
-    },
-    "groupArtUnitNumber": {
-      "value": "3739",
-      "electronicText": "3739"
-    },
-    "applicationConfirmationNumber": "3913",
-    "applicantFileReference": "49467-701.201",
-    "patentClassificationBag": {
-      "cpcClassificationBagOrIPCClassificationOrECLAClassificationBag": [
-        {
-          "mainNationalClassification": {
-            "nationalClass": "600",
-            "nationalSubclass": "600/378000"
-          }
-        }
-      ]
-    },
-    "businessEntityStatusCategory": "SMALL",
-    "firstInventorToFileIndicator": true,
-    "inventionTitle": {
-      "content": [
-        "NEURAL-INTERFACE PROBE AND METHODS OF PACKAGING THE SAME"
-      ]
-    },
-    "applicationStatusCategory": "Non Final Action Mailed",
-    "applicationStatusDate": "2017-11-24",
-    "officialFileLocationCategory": "ELECTRONIC",
-    "officialFileLocationDate": "-",
-    "relatedPatentPublicationIdentification": {
-      "publicationNumber": "US20170290521A1",
-      "publicationDate": "2017-10-12"
-    },
-    "patentGrantIdentification": {},
-    "pctRegionalPublicationData": {},
-    "hagueAgreementData": {
-      "internationalFilingDate": "-",
-      "internationalRegistrationNumber": "-"
-    }
+        },
+        "st96Version": "V3_0",
+        "ipoVersion": "US_V8_0_D8"
+      }
+    ]
   },
-  "prosecutionHistoryDataOrPatentTermData": [
-    {
-      "recordedDate": "2018-05-16",
-      "caseActionDescriptionText": "track 1 OFF , T1OFF"
-    },
-    {
-      "recordedDate": "2018-05-08",
-      "caseActionDescriptionText": "Interview Summary - Applicant Initiated - Telephonic , EXAT"
-    },
-    {
-      "recordedDate": "2017-11-28",
-      "caseActionDescriptionText": "Electronic Review , ELC_RVW"
-    },
-    {
-      "recordedDate": "2017-11-28",
-      "caseActionDescriptionText": "Email Notification , EML_NTF"
-    },
-    {
-      "recordedDate": "2017-11-28",
-      "caseActionDescriptionText": "Mail Non-Final Rejection , MCTNF"
-    },
-    {
-      "recordedDate": "2017-11-22",
-      "caseActionDescriptionText": "Non-Final Rejection , CTNF"
-    },
-    {
-      "recordedDate": "2017-11-22",
-      "caseActionDescriptionText": "Information Disclosure Statement considered , IDSC"
-    },
-    {
-      "recordedDate": "2017-10-13",
-      "caseActionDescriptionText": "Email Notification , EML_NTR"
-    },
-    {
-      "recordedDate": "2017-10-12",
-      "caseActionDescriptionText": "Application ready for PDX access by participating foreign offices , CCRDY"
-    },
-    {
-      "recordedDate": "2017-10-12",
-      "caseActionDescriptionText": "PG-Pub Issue Notification , PG-ISSUE"
-    },
-    {
-      "recordedDate": "2017-10-02",
-      "caseActionDescriptionText": "track 1 ON  , T1ON"
-    },
-    {
-      "recordedDate": "2017-10-02",
-      "caseActionDescriptionText": "Date Forwarded to Examiner , FWDX"
-    },
-    {
-      "recordedDate": "2017-09-28",
-      "caseActionDescriptionText": "Response after Non-Final Action , A..."
-    },
-    {
-      "recordedDate": "2017-06-30",
-      "caseActionDescriptionText": "Reference capture on IDS , RCAP"
-    },
-    {
-      "recordedDate": "2017-06-30",
-      "caseActionDescriptionText": "Information Disclosure Statement (IDS) Filed , M844"
-    },
-    {
-      "recordedDate": "2017-06-30",
-      "caseActionDescriptionText": "Information Disclosure Statement (IDS) Filed , WIDS"
-    },
-    {
-      "recordedDate": "2017-06-30",
-      "caseActionDescriptionText": "Electronic Review , ELC_RVW"
-    },
-    {
-      "recordedDate": "2017-06-30",
-      "caseActionDescriptionText": "Email Notification , EML_NTF"
-    },
-    {
-      "recordedDate": "2017-06-30",
-      "caseActionDescriptionText": "Mail Non-Final Rejection , MCTNF"
-    },
-    {
-      "recordedDate": "2017-06-26",
-      "caseActionDescriptionText": "Non-Final Rejection , CTNF"
-    },
-    {
-      "recordedDate": "2017-06-26",
-      "caseActionDescriptionText": "Information Disclosure Statement considered , IDSC"
-    },
-    {
-      "recordedDate": "2017-06-26",
-      "caseActionDescriptionText": "Information Disclosure Statement considered , IDSC"
-    },
-    {
-      "recordedDate": "2017-06-19",
-      "caseActionDescriptionText": "Information Disclosure Statement (IDS) Filed , M844"
-    },
-    {
-      "recordedDate": "2017-06-19",
-      "caseActionDescriptionText": "Information Disclosure Statement (IDS) Filed , WIDS"
-    },
-    {
-      "recordedDate": "2017-06-07",
-      "caseActionDescriptionText": "Case Docketed to Examiner in GAU , DOCK"
-    },
-    {
-      "recordedDate": "2017-05-12",
-      "caseActionDescriptionText": "Application Dispatched from OIPE , OIPE"
-    },
-    {
-      "recordedDate": "2017-05-01",
-      "caseActionDescriptionText": "Information Disclosure Statement (IDS) Filed , M844"
-    },
-    {
-      "recordedDate": "2017-05-01",
-      "caseActionDescriptionText": "Information Disclosure Statement (IDS) Filed , WIDS"
-    },
-    {
-      "recordedDate": "2017-04-26",
-      "caseActionDescriptionText": "Email Notification , EML_NTR"
-    },
-    {
-      "recordedDate": "2017-04-21",
-      "caseActionDescriptionText": "Track 1 Request Granted , T1GR"
-    },
-    {
-      "recordedDate": "2017-04-21",
-      "caseActionDescriptionText": "Mail-Record Petition Decision of Granted to Make Special , MP003"
-    },
-    {
-      "recordedDate": "2017-04-20",
-      "caseActionDescriptionText": "Record Petition Decision of Granted to Make Special , P003"
-    },
-    {
-      "recordedDate": "2017-04-19",
-      "caseActionDescriptionText": "Email Notification , EML_NTR"
-    },
-    {
-      "recordedDate": "2017-04-19",
-      "caseActionDescriptionText": "Application Is Now Complete , COMP"
-    },
-    {
-      "recordedDate": "2017-04-19",
-      "caseActionDescriptionText": "Filing Receipt , FLRCPT.O"
-    },
-    {
-      "recordedDate": "2017-04-18",
-      "caseActionDescriptionText": "Sent to Classification Contractor , PGPC"
-    },
-    {
-      "recordedDate": "2017-04-18",
-      "caseActionDescriptionText": "FITF set to YES - revise initial setting , FTFS"
-    },
-    {
-      "recordedDate": "2017-04-17",
-      "caseActionDescriptionText": "Applicant Has Filed a Verified Statement of Small Entity Status in Compliance with 37 CFR 1.27 , SMAL"
-    },
-    {
-      "recordedDate": "2017-04-11",
-      "caseActionDescriptionText": "Cleared by OIPE CSR , L194"
-    },
-    {
-      "recordedDate": "2017-04-07",
-      "caseActionDescriptionText": "Patent Term Adjustment - Ready for Examination , PTA.RFE"
-    },
-    {
-      "recordedDate": "2017-04-07",
-      "caseActionDescriptionText": "PTO/SB/69-Authorize EPO Access to Search Results , SREXR141"
-    },
-    {
-      "recordedDate": "2017-04-07",
-      "caseActionDescriptionText": "Applicants have given acceptable permission for participating foreign  , APPERMS"
-    },
-    {
-      "recordedDate": "2017-04-07",
-      "caseActionDescriptionText": "Track 1 Request , TK1R"
-    },
-    {
-      "recordedDate": "2017-04-07",
-      "caseActionDescriptionText": "Petition Entered , PET."
-    },
-    {
-      "recordedDate": "2017-04-07",
-      "caseActionDescriptionText": "IFW Scan & PACR Auto Security Review , SCAN"
-    },
-    {
-      "recordedDate": "2017-04-07",
-      "caseActionDescriptionText": "ENTITY STATUS SET TO UNDISCOUNTED (INITIAL DEFAULT SETTING OR STATUS CHANGE) , BIG."
-    },
-    {
-      "recordedDate": "2017-04-07",
-      "caseActionDescriptionText": "Initial Exam Team nn , IEXX"
-    }
-  ]
+  "st96Version": "V3_0",
+  "ipoVersion": "US_V8_0_D8"
 }

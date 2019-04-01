@@ -2,8 +2,8 @@
 DROP TABLE IF EXISTS temp_Codes;
 -- Codes table like temp table without constraints.
 CREATE TABLE IF NOT EXISTS `temp_Codes` (
-  `code` varchar(100) NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
+  `code` VARCHAR(100) NOT NULL,
+  `description` VARCHAR(255) DEFAULT NULL,
   `type` enum('info','warning','success') DEFAULT NULL,
   `initiator` enum('uspto','applicant') DEFAULT NULL,
   `isActionable` tinyint(1) NOT NULL DEFAULT '1'

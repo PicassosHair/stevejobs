@@ -2,10 +2,10 @@
 DROP TABLE IF EXISTS temp_Applications;
 -- The temp table has no constraints whatsoever, and is a subset of the Applications table.
 CREATE TABLE IF NOT EXISTS `temp_Applications` (
-  `applId` varchar(20) NOT NULL,
+  `applId` VARCHAR(30) NOT NULL,
   `pedsData` text,
   `title` text,
-  `filingDate` varchar(20) NOT NULL
+  `filingDate` VARCHAR(20) NOT NULL
 ) ENGINE=InnoDB;
 
 -- Pump the csv-like file to the temp table.

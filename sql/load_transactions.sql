@@ -2,7 +2,8 @@
 DROP TABLE IF EXISTS temp_Transactions;
 CREATE TABLE IF NOT EXISTS `temp_Transactions` (
   `code` VARCHAR(100) NOT NULL,
-  `applId` VARCHAR(10) NOT NULL,
+  -- Cound be something like '15473454' or 'PCT/US19/15735'.
+  `applId` VARCHAR(30) NOT NULL,
   `recordDate` datetime NOT NULL
 ) ENGINE=InnoDB;
 
@@ -17,7 +18,7 @@ LOAD DATA LOCAL INFILE @infile
 DROP TABLE IF EXISTS temp_Applications_ByYear;
 CREATE TABLE IF NOT EXISTS `temp_Applications_ByYear` (
     `id` INT(11) NOT NULL,
-    `applId` varchar(15) NOT NULL,
+    `applId` varchar(30) NOT NULL,
     UNIQUE KEY `applId_index` (`applId`)
 ) ENGINE=InnoDB;
 
@@ -32,9 +33,9 @@ ALTER TABLE `temp_Transactions` ADD INDEX `applId_index` (`applId`);
 DROP TABLE IF EXISTS temp_Transactions_WithAppl;
 CREATE TABLE IF NOT EXISTS `temp_Transactions_WithAppl` (
   `code` VARCHAR(100) NOT NULL,
-  `applId` VARCHAR(10) NOT NULL,
+  `applId` VARCHAR(30) NOT NULL,
   `recordDate` datetime NOT NULL,
-  `applicationId` varchar(15) NOT NULL
+  `applicationId` INT(11) NOT NULL
 ) ENGINE=InnoDB;
 INSERT INTO `temp_Transactions_WithAppl` (code, applId, recordDate, applicationId)
   SELECT `code`, tt.`applId`, `recordDate`, tay.id
@@ -48,8 +49,8 @@ ALTER TABLE `temp_Transactions_WithAppl` ADD INDEX `code_index` (`code`);
 DROP TABLE IF EXISTS temp_Transactions_Final;
 CREATE TABLE IF NOT EXISTS temp_Transactions_Final (
   `recordDate` datetime NOT NULL,
-  `applicationId` varchar(15) NOT NULL,
-  `transactionCodeId` varchar(15) NOT NULL
+  `applicationId` INT(11) NOT NULL,
+  `transactionCodeId` INT(11) NOT NULL
 ) ENGINE=InnoDB;
 INSERT INTO `temp_Transactions_Final` (recordDate, applicationId, transactionCodeId)
   SELECT `recordDate`, tt.applicationId, tc.id
