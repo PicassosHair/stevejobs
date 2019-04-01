@@ -4,26 +4,17 @@
 DATA_DIR=/data
 APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
+START_DATE=`date +%Y%m%d`
 
 ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS downloading started." \
--body="PEDS data is now started downloading. Will let you know when it's done (or failed)." \
+-body="PEDS data is now started downloading. Will let you know when it's done (or failed). Date: ${START_DATE}" \
 -recipient=${RECIPIENT}
 
 # Remove oldest file keep total files count 3.
 ls ${DATA_DIR} -1t | tail -n +4 | xargs rm -f
 
-# Rename raw.zip to raw.old.zip if needed, or just download the data.
-if [ -e ${DATA_DIR}/raw.zip ] 
-then
-  echo "Renamed raw.zip to raw.old.zip."
-  mv ${DATA_DIR}/raw.zip ${DATA_DIR}/raw.old.zip
-else
-  echo "Not found old raw.zip file. Create a fake raw.zip for placeholder."
-  touch ${DATA_DIR}/raw.zip
-fi
-
 echo "Start downloading latest data."
-wget --output-document=${DATA_DIR}/raw.zip https://ped.uspto.gov/api/full-download\?format\=JSON
+wget --output-document=${DATA_DIR}/raw.${START_DATE}.zip https://ped.uspto.gov/api/full-download\?format\=JSON
 
 if [ $? -eq 0 ]; 
 then
