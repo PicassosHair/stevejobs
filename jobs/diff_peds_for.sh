@@ -10,17 +10,35 @@ APP_DIR=/usr/src/app
 START_TIME=`date +%s`
 START_DATE=`date +%Y%m%d`
 
+# Validating data files.
+LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n 1`
+SECOND_LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n 2 | tail -n 1`
+
+if [ -e ${LATEST_RAW_ZIP} ] && [ -e ${SECOND_LATEST_RAW_ZIP} ]
+then
+  if [[ ${LATEST_RAW_ZIP} -ef ${SECOND_LATEST_RAW_ZIP} ]]
+  then
+    echo "Error. Data files are same. Stop."
+    exit 1
+  fi
+  echo "Found raw data files -latest: ${LATEST_RAW_ZIP}, -older: ${SECOND_LATEST_RAW_ZIP}. Continue."
+else
+  echo "Error. Latest raw zip file doesn't exist. Stop parsing."
+  exit 1
+fi
+
 # Prep work.
 # Clear all temp/*.json files if exists.
 rm -rf ${DATA_DIR}/temp
 mkdir -p ${DATA_DIR}/temp
 
 # Unzip old year file and rename to xxxx.old.json.
-unzip -o ${DATA_DIR}/raw.old.zip ${YEAR}.json -d ${DATA_DIR}/temp/ ${YEAR}.json
+echo "Unzip data files."
+unzip -o ${SECOND_LATEST_RAW_ZIP} ${YEAR}.json -d ${DATA_DIR}/temp/ ${YEAR}.json
 mv ${DATA_DIR}/temp/${YEAR}.json ${DATA_DIR}/temp/${YEAR}.old.json
 
 # Unzip new year.
-unzip -o ${DATA_DIR}/raw.zip ${YEAR}.json -d ${DATA_DIR}/temp/ ${YEAR}.json
+unzip -o ${LATEST_RAW_ZIP} ${YEAR}.json -d ${DATA_DIR}/temp/ ${YEAR}.json
 echo "Unzip done."
 
 # Generate applications, codes, and transactions by line.
@@ -62,7 +80,4 @@ bash ${APP_DIR}/jobs/insert_to_database.sh code ${DATA_DIR}/temp/codes.final ${Y
 # Generate raw load codes SQL file.
 bash ${APP_DIR}/jobs/insert_to_database.sh transaction ${DATA_DIR}/temp/transactions.final ${YEAR}
 
-# Cleanup
-rm -rf ${DATA_DIR}/temp
-
-echo "Done! Used $(expr `date +%s` - $START_TIME) s"
+echo "Done! Used $(expr `date +%s` - $START_TIME) s."

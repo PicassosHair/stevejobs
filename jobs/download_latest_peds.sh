@@ -9,6 +9,7 @@ START_DATE=`date +%Y%m%d`
 ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS downloading started." \
 -body="PEDS data is now started downloading. Will let you know when it's done (or failed). Date: ${START_DATE}" \
 -recipient=${RECIPIENT}
+${APP_DIR}/bin/slack chat send "PEDS downloading started for date ${START_DATE}" "#job"
 
 echo "Start downloading latest data."
 wget --tries=3 --output-document=${DATA_DIR}/raw.${START_DATE}.zip https://ped.uspto.gov/api/full-download\?format\=JSON

@@ -16,7 +16,7 @@ rm -rf ${DATA_DIR}/temp
 mkdir -p ${DATA_DIR}/temp
 
 # Check for latest raw.YYYYMMDD.zip file existance.
-LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n1`
+LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n 1`
 
 if [ -e ${LATEST_RAW_ZIP} ] 
 then

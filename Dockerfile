@@ -22,6 +22,10 @@ WORKDIR /usr/src/app
 RUN apk update
 RUN apk add --no-cache --no-progress ca-certificates wget unzip mysql-client bash
 RUN update-ca-certificates
+# Install Slack CLI tool for msg.
+RUN curl -o ./bin/slack https://raw.githubusercontent.com/rockymadden/slack-cli/master/src/slack
+RUN chmod +x /usr/src/app/bin/slack
+
 # Mounting outside disk here.
 RUN mkdir /data
 
