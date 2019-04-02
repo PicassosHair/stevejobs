@@ -44,12 +44,12 @@ if [ $? -ne 0 ]; then
 fi
 
 # Generate raw load application SQL file.
-# ${APP_DIR}/jobs/insert_to_database.sh application ${DATA_DIR}/temp/applications ${YEAR}
+${APP_DIR}/jobs/insert_to_database.sh application ${DATA_DIR}/temp/applications ${YEAR}
 
 # Generate raw load codes SQL file.
-# ${APP_DIR}/jobs/insert_to_database.sh code ${DATA_DIR}/temp/codes ${YEAR}
+${APP_DIR}/jobs/insert_to_database.sh code ${DATA_DIR}/temp/codes ${YEAR}
 
 # Generate raw load codes SQL file.
-# ${APP_DIR}/jobs/insert_to_database.sh transaction ${DATA_DIR}/temp/transactions ${YEAR}
+${APP_DIR}/jobs/insert_to_database.sh transaction ${DATA_DIR}/temp/transactions ${YEAR}
 
 echo "Done parsing data for year ${YEAR}! Used $(expr `date +%s` - $START_TIME) s."
