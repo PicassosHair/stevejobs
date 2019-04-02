@@ -1,5 +1,6 @@
 #!/bin/bash
 # This script pass $1 = year parameter and load differences.
+# This job should not be ran with parse_peds_for at the same time.
 
 # Variables.
 YEAR=$1
@@ -7,6 +8,7 @@ DATA_DIR=/data
 APP_DIR=/usr/src/app
 
 START_TIME=`date +%s`
+START_DATE=`date +%Y%m%d`
 
 # Prep work.
 # Clear all temp/*.json files if exists.

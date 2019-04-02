@@ -15,19 +15,21 @@ START_DATE=`date +%Y%m%d`
 rm -rf ${DATA_DIR}/temp
 mkdir -p ${DATA_DIR}/temp
 
-# Check for raw.YYYYMMDD.zip file existance.
-if [ -e ${DATA_DIR}/raw.${START_DATE}.zip ] 
+# Check for latest raw.YYYYMMDD.zip file existance.
+LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n1`
+
+if [ -e ${LATEST_RAW_ZIP} ] 
 then
-  echo "Detect raw.${START_DATE}.zip existing."
+  echo "Found raw data: ${LATEST_RAW_ZIP}, continue."
 else
-  echo "Error. raw.${START_DATE}.zip doesn't exist. Stop parsing."
+  echo "Error. Latest raw zip file doesn't exist. Stop parsing."
   exit 1
 fi
 
 
 # Unzip raw.json to temp/YYYY.json
 echo "Unzipping raw.${START_DATE}.zip. for year ${YEAR}"
-unzip -o ${DATA_DIR}/raw.${START_DATE}.zip $1.json -d ${DATA_DIR}/temp/
+unzip -o ${LATEST_RAW_ZIP} $1.json -d ${DATA_DIR}/temp/
 
 if [ $? -ne 0 ]; then
     echo "Unzip failed."

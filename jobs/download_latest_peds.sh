@@ -20,7 +20,7 @@ then
     ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS is downloaded." -body="New bulk data is downloaded." -recipient=${RECIPIENT}
 
     # Remove oldest file keep total files count 3.
-    ls ${DATA_DIR} -1t | tail -n +4 | xargs rm -f
+    ls ${DATA_DIR}/*.zip -1t | tail -n +4 | xargs rm -f
 else
     echo "Downloading failed."
 
