@@ -10,41 +10,41 @@ RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
 YEAR=$1
 START_TIME=`date +%s`
 START_DATE=`date +%Y%m%d`
+LOG_SLACK=${APP_DIR}/jobs/log_slack.sh
 
 # Prepare work. Remove temp folder if exists.
 rm -rf ${DATA_DIR}/temp
 mkdir -p ${DATA_DIR}/temp
 
-# Log.
-${APP_DIR}/bin/slack chat send "Start: Parse PEDS data for year ${YEAR}" "#jobs"
+LOG_SLACK info "Parse PEDS data for year ${YEAR}."
 
 # Check for latest raw.YYYYMMDD.zip file existance.
 LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n 1`
 
 if [ -e ${LATEST_RAW_ZIP} ] 
 then
-  echo "Found raw data: ${LATEST_RAW_ZIP}, continue."
+  LOG_SLACK info "Found raw data: ${LATEST_RAW_ZIP}, continue."
 else
-  echo "Error. Latest raw zip file doesn't exist. Stop parsing."
+  LOG_SLACK error "Error. Latest raw zip file doesn't exist. Stop parsing for year ${YEAR}."
   exit 1
 fi
 
 
 # Unzip raw.json to temp/YYYY.json
-echo "Unzipping raw.${START_DATE}.zip. for year ${YEAR}"
+LOG_SLACK info "Unzipping raw.${START_DATE}.zip. for year ${YEAR}."
 unzip -o ${LATEST_RAW_ZIP} $1.json -d ${DATA_DIR}/temp/
 
 if [ $? -ne 0 ]; then
-    echo "Unzip failed."
+    LOG_SLACK error "Unzip failed for year ${YEAR}."
     exit 1
 fi
 
 # Parse json file to temp/applications, temp/codes, temp/transactions, which are csv-like files.
-echo "Parsing ${YEAR}.json."
+LOG_SLACK info "Parsing ${YEAR}.json."
 ${APP_DIR}/bin/parser -in=${DATA_DIR}/temp/$YEAR.json -out=${DATA_DIR}/temp
 
 if [ $? -ne 0 ]; then
-    echo "Parse failed."
+    LOG_SLACK error "Parsing ${YEAR}.json failed."
     exit 1
 fi
 
@@ -57,5 +57,4 @@ ${APP_DIR}/jobs/insert_to_database.sh code ${DATA_DIR}/temp/codes ${YEAR}
 # Generate raw load codes SQL file.
 ${APP_DIR}/jobs/insert_to_database.sh transaction ${DATA_DIR}/temp/transactions ${YEAR}
 
-echo "Done parsing data for year ${YEAR}! Used $(expr `date +%s` - $START_TIME) s."
-${APP_DIR}/bin/slack chat send "Success: Parse PEDS data for year ${YEAR}" "#jobs"
+LOG_SLACK success "Done parsing data for year ${YEAR}! Used $(expr `date +%s` - $START_TIME) s."

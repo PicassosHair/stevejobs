@@ -12,7 +12,7 @@ ERROR_COLOR='#C70039'
 COLOR=${INFO_COLOR}
 
 if [ "$1" == "success" ]; then
-  COLOR=${INFO_COLOR}
+  COLOR=${SUCCESS_COLOR}
 fi
 if [ "$1" == "warning" ]; then
   COLOR=${WARNING_COLOR}
