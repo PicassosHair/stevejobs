@@ -14,6 +14,8 @@ START_DATE=`date +%Y%m%d`
 LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n 1`
 SECOND_LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n 2 | tail -n 1`
 
+${APP_DIR}/bin/slack chat send "Start: Diff PEDS data for year ${YEAR}" "#jobs"
+
 if [ -e ${LATEST_RAW_ZIP} ] && [ -e ${SECOND_LATEST_RAW_ZIP} ]
 then
   if [[ ${LATEST_RAW_ZIP} -ef ${SECOND_LATEST_RAW_ZIP} ]]

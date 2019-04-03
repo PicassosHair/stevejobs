@@ -15,6 +15,9 @@ START_DATE=`date +%Y%m%d`
 rm -rf ${DATA_DIR}/temp
 mkdir -p ${DATA_DIR}/temp
 
+# Log.
+${APP_DIR}/bin/slack chat send "Start: Parse PEDS data for year ${YEAR}" "#jobs"
+
 # Check for latest raw.YYYYMMDD.zip file existance.
 LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n 1`
 
@@ -55,3 +58,4 @@ ${APP_DIR}/jobs/insert_to_database.sh code ${DATA_DIR}/temp/codes ${YEAR}
 ${APP_DIR}/jobs/insert_to_database.sh transaction ${DATA_DIR}/temp/transactions ${YEAR}
 
 echo "Done parsing data for year ${YEAR}! Used $(expr `date +%s` - $START_TIME) s."
+${APP_DIR}/bin/slack chat send "Success: Parse PEDS data for year ${YEAR}" "#jobs"

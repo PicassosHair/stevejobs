@@ -7,6 +7,7 @@ APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
 
 echo "Start diffing PEDS data between $1 ... $2"
+${APP_DIR}/bin/slack chat send "Start: Diff PEDS data between year ${1} and ${2}" "#jobs"
 
 for (( y=$1; y<=$2; y++ ))
     do 

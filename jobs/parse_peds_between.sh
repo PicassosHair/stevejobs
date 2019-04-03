@@ -6,9 +6,10 @@
 APP_DIR=/usr/src/app
 
 echo "Start parsing PEDS data between $1 ... $2";
+${APP_DIR}/bin/slack chat send "Start: Parse PEDS data between year ${1} and ${2}" "#jobs"
 
 for (( y=$1; y<=$2; y++ ))
     do 
     echo "Start parsing year for $y."
-    bash ${APP_DIR}/jobs/parse_peds_for.sh $y
+    ${APP_DIR}/jobs/parse_peds_for.sh $y
 done
