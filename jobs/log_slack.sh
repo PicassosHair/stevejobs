@@ -22,8 +22,8 @@ if [ "$1" == "error" ]; then
 fi
 
 ${APP_DIR}/bin/slack chat send \
---text '$2' \
---channel '#jobs' \
---author 'stevejobs-bot' \
---author-icon 'https://github.com/fuermosi777/stevejobs/raw/master/bot.png' \
+--text "${2}" \
+--channel "#jobs" \
+--author "stevejobs-bot" \
+--author-icon "https://github.com/fuermosi777/stevejobs/raw/master/bot.png" \
 --color ${COLOR}
