@@ -15,7 +15,7 @@ START_DATE=`date +%Y%m%d`
 LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n 1`
 SECOND_LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n 2 | tail -n 1`
 
-$SLACK "Start: Diff PEDS data for year ${YEAR}"
+$SLACK info "Start diffing PEDS data for year ${YEAR}."
 
 if [ -e ${LATEST_RAW_ZIP} ] && [ -e ${SECOND_LATEST_RAW_ZIP} ]
 then
@@ -24,7 +24,7 @@ then
     $SLACK error "Error. Data files are same. Stop."
     exit 1
   fi
-  $SLACK info "Found raw data files -latest: ${LATEST_RAW_ZIP}, -older: ${SECOND_LATEST_RAW_ZIP}. Continue."
+  $SLACK info "Found raw data files. Latest: ${LATEST_RAW_ZIP}, previous: ${SECOND_LATEST_RAW_ZIP}. Continue."
 else
   $SLACK error "Error. Latest raw zip file doesn't exist. Stop parsing."
   exit 1
@@ -41,7 +41,7 @@ mv ${DATA_DIR}/temp/${YEAR}.json ${DATA_DIR}/temp/${YEAR}.old.json
 
 # Unzip new year.
 unzip -o ${LATEST_RAW_ZIP} ${YEAR}.json -d ${DATA_DIR}/temp/ ${YEAR}.json
-$SLACK info "Unzip done. Latest: ${LATEST_RAW_ZIP}; Older: ${SECOND_LATEST_RAW_ZIP}."
+$SLACK info "Unzip done. Latest: ${LATEST_RAW_ZIP}, previous: ${SECOND_LATEST_RAW_ZIP}."
 
 # Generate applications, codes, and transactions by line.
 ${APP_DIR}/bin/parser -in=${DATA_DIR}/temp/${YEAR}.old.json -out=${DATA_DIR}/temp

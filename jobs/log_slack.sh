@@ -21,6 +21,7 @@ if [ "$1" == "error" ]; then
   COLOR=${ERROR_COLOR}
 fi
 
+echo "[LOG SLACK] ${2}"
 ${APP_DIR}/bin/slack chat send \
 --text "${2}" \
 --channel "#jobs" \
