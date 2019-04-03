@@ -10,9 +10,9 @@ START_TIME=`date +%s`
 TABLE_NAME=$1
 PARSED_FILE_PATH=$2
 YEAR=$3
+SLACK=/usr/src/app/jobs/log_slack.sh
 
-echo "Loading ${TABLE_NAME}s to the database."
-${APP_DIR}/bin/slack chat send "Start: Load data into database for ${TABLE_NAME}, year ${YEAR}" "#jobs"
+$SLACK info "Loading ${TABLE_NAME}s to the database."
 
 # Copy SQL template file to a temp location.
 cat "${APP_DIR}/sql/load_${TABLE_NAME}s.sql" > ${DATA_DIR}/temp/load_${TABLE_NAME}.sql
@@ -26,9 +26,8 @@ mysql --defaults-extra-file=${APP_DIR}/mysql.conf \
 -e "SOURCE ${DATA_DIR}/temp/load_${TABLE_NAME}.sql;"
 
 if [ $? -ne 0 ]; then
-    echo "Failed to pump data into the database."
+    $SLACK error "Failed to pump data into the database."
     exit 1
 else
-    echo "Successfully pump into database for ${TABLE_NAME} on ${YEAR}. Used $(expr `date +%s` - $START_TIME) s."
-    ${APP_DIR}/bin/slack chat send "Success: Pump into database for ${TABLE_NAME} on ${YEAR}. Used $(expr `date +%s` - $START_TIME) s." "#jobs"
+    $SLACK success "Successfully pump into database for ${TABLE_NAME} on ${YEAR}. Used $(expr `date +%s` - $START_TIME) s."
 fi

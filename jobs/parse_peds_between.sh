@@ -4,12 +4,12 @@
 # $2 - ending year (e.g. 2018)
 
 APP_DIR=/usr/src/app
+SLACK=/usr/src/app/jobs/log_slack.sh
 
-echo "Start parsing PEDS data between $1 ... $2";
-${APP_DIR}/bin/slack chat send "Start: Parse PEDS data between year ${1} and ${2}" "#jobs"
+$SLACK info "Start parsing PEDS data between year ${1} and ${2}"
 
 for (( y=$1; y<=$2; y++ ))
     do 
-    echo "Start parsing year for $y."
+    $SLACK info "Start parsing PEDS data for $y."
     ${APP_DIR}/jobs/parse_peds_for.sh $y
 done

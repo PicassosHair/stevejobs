@@ -5,27 +5,25 @@ DATA_DIR=/data
 APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
 START_DATE=`date +%Y%m%d`
+SLACK=/usr/src/app/jobs/log_slack.sh
 
 ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS downloading started." \
 -body="PEDS data is now started downloading. Will let you know when it's done (or failed). Date: ${START_DATE}" \
 -recipient=${RECIPIENT}
-${APP_DIR}/bin/slack chat send "Start: PEDS downloading started for date ${START_DATE}" "#jobs"
 
-echo "Start downloading latest data."
+$SLACK info "Start downloading latest data. Date: ${START_DATE}."
 wget --tries=3 --output-document=${DATA_DIR}/raw.${START_DATE}.zip https://ped.uspto.gov/api/full-download\?format\=JSON
 
 if [ $? -eq 0 ]; 
 then
-    echo "Download complete!"
+    $SLACK success "Download complete!"
 
     ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS is downloaded." -body="New bulk data is downloaded." -recipient=${RECIPIENT}
-    ${APP_DIR}/bin/slack chat send "Success: PEDS is downloaded. Zip file saved at raw.${START_DATE}.zip." "#jobs"
 
     # Remove oldest file keep total files count 3.
     ls ${DATA_DIR}/*.zip -1t | tail -n +4 | xargs rm -f
 else
-    echo "Downloading failed."
+    $SLACK error "Downloading failed."
 
     ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS data downloading is failed." -body="PEDS bulk data is NOT downloaded. Please check." -recipient=${RECIPIENT}
-    ${APP_DIR}/bin/slack chat send "Error: PEDS is NOT downloaded." "#jobs"
 fi

@@ -5,14 +5,15 @@
 
 APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
+SLACK=/usr/src/app/jobs/log_slack.sh
 
-echo "Start diffing PEDS data between $1 ... $2"
-${APP_DIR}/bin/slack chat send "Start: Diff PEDS data between year ${1} and ${2}" "#jobs"
+$SLACK info "Start diffing PEDS data between $1 and $2."
 
 for (( y=$1; y<=$2; y++ ))
     do 
-    echo "Start parsing year for $y."
-    bash ${APP_DIR}/jobs/diff_peds_for.sh $y
+    $SLACK info  "Start parsing year for $y."
+    ${APP_DIR}/jobs/diff_peds_for.sh $y
 done
 
 ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS parsing is done." -body="No error found." -recipient=${RECIPIENT}
+$SLACK success "PEDS parsing diff between $1 and $2 is done."
