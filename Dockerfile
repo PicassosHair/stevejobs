@@ -20,7 +20,7 @@ WORKDIR /usr/src/app
 
 # Install deps.
 RUN apk update
-RUN apk add --no-cache --no-progress ca-certificates wget unzip mysql-client bash curl
+RUN apk add --no-cache --no-progress ca-certificates wget unzip mysql-client bash curl jq
 RUN update-ca-certificates
 
 # Mounting outside disk here.
