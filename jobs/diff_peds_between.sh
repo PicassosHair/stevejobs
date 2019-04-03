@@ -5,7 +5,6 @@
 
 APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
-LOG_SLACK=${APP_DIR}/jobs/log_slack.sh
 
 echo "Start diffing PEDS data between $1 ... $2"
 ${APP_DIR}/bin/slack chat send "Start: Diff PEDS data between year ${1} and ${2}" "#jobs"

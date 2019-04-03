@@ -5,7 +5,6 @@ DATA_DIR=/data
 APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
 START_DATE=`date +%Y%m%d`
-LOG_SLACK=${APP_DIR}/jobs/log_slack.sh
 
 ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS downloading started." \
 -body="PEDS data is now started downloading. Will let you know when it's done (or failed). Date: ${START_DATE}" \

@@ -4,7 +4,6 @@
 # $2 - ending year (e.g. 2018)
 
 APP_DIR=/usr/src/app
-LOG_SLACK=${APP_DIR}/jobs/log_slack.sh
 
 echo "Start parsing PEDS data between $1 ... $2";
 ${APP_DIR}/bin/slack chat send "Start: Parse PEDS data between year ${1} and ${2}" "#jobs"

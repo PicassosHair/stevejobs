@@ -10,7 +10,6 @@ START_TIME=`date +%s`
 TABLE_NAME=$1
 PARSED_FILE_PATH=$2
 YEAR=$3
-LOG_SLACK=${APP_DIR}/jobs/log_slack.sh
 
 echo "Loading ${TABLE_NAME}s to the database."
 ${APP_DIR}/bin/slack chat send "Start: Load data into database for ${TABLE_NAME}, year ${YEAR}" "#jobs"

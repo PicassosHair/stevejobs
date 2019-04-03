@@ -9,7 +9,6 @@ APP_DIR=/usr/src/app
 
 START_TIME=`date +%s`
 START_DATE=`date +%Y%m%d`
-LOG_SLACK=${APP_DIR}/jobs/log_slack.sh
 
 # Validating data files.
 LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n 1`
