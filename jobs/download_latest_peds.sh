@@ -6,13 +6,14 @@ APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
 START_DATE=`date +%Y%m%d`
 SLACK=/usr/src/app/jobs/log_slack.sh
+PEDS_BULK_URL="https://ped.uspto.gov/api/full-download?format=JSON"
 
 ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS downloading started." \
 -body="PEDS data is now started downloading. Will let you know when it's done (or failed). Date: ${START_DATE}" \
 -recipient=${RECIPIENT}
 
 $SLACK info "Start downloading latest data. Date: ${START_DATE}."
-wget --tries=3 --output-document=${DATA_DIR}/raw.${START_DATE}.zip https://ped.uspto.gov/api/full-download\?format\=JSON
+wget --tries=3 --output-document=${DATA_DIR}/raw.${START_DATE}.zip ${PEDS_BULK_URL}
 
 if [ $? -eq 0 ]; 
 then
