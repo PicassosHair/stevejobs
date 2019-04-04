@@ -12,7 +12,7 @@ services:
     env_file:
       - ./.env
     volumes:
-      - /mnt/disks/disk-2/peds:/data
+      - /mnt/disks/disk-3/peds:/data
     networks:
       - stevejobs-network
   ofelia:
