@@ -27,4 +27,5 @@ ${APP_DIR}/bin/slack chat send \
 --channel "#jobs" \
 --author "stevejobs-bot" \
 --author-icon "https://github.com/fuermosi777/stevejobs/raw/master/bot.png" \
---color ${COLOR}
+--color ${COLOR} \
+&>/dev/null
