@@ -44,6 +44,7 @@ unzip -o ${LATEST_RAW_ZIP} ${YEAR}.json -d ${DATA_DIR}/temp/ ${YEAR}.json
 $SLACK info "Unzip done. Latest: ${LATEST_RAW_ZIP}, previous: ${SECOND_LATEST_RAW_ZIP}."
 
 # Generate applications, codes, and transactions by line.
+$SLACK info "Parsing previous PEDS data for year ${YEAR}."
 ${APP_DIR}/bin/parser -in=${DATA_DIR}/temp/${YEAR}.old.json -out=${DATA_DIR}/temp
 
 # Renaming old output to xxx.old.
@@ -52,6 +53,7 @@ mv ${DATA_DIR}/temp/codes ${DATA_DIR}/temp/codes.old
 mv ${DATA_DIR}/temp/transactions ${DATA_DIR}/temp/transactions.old
 
 # Parsing new raw json.
+$SLACK info "Parsing Latest PEDS data for year ${YEAR}."
 ${APP_DIR}/bin/parser -in=${DATA_DIR}/temp/${YEAR}.json -out=${DATA_DIR}/temp
 
 # Run diff to generate changed.
