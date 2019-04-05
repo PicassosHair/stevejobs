@@ -16,7 +16,7 @@ type RawPatentRecords []struct {
     ApplicationTypeCategory string
     PartyBag struct {
       // Could be primaryExaminerOrAssistantExaminerOrAuthorizedOfficer, applicant, inventorOrDeceasedInventor.
-      ApplicantBagOrInventorBagOrOwnerBag []map[string]json.RawMessage
+      ApplicantBagOrInventorBagOrOwnerBag []map[string]*json.RawMessage
     }
     GroupArtUnitNumber struct {
       Value, ElectronicText string
@@ -59,7 +59,7 @@ type RawPatentRecords []struct {
   St96Version, IpoVersion string
 }
 
-type Examiner []struct {
+type Examiners []struct {
   Name struct {
     PersonNameOrOrganizationNameOrEntityName []struct{
       PersonFullName string `json:"personFullName"`

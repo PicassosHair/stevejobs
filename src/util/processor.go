@@ -49,10 +49,10 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 
   parties := metadata.PartyBag.ApplicantBagOrInventorBagOrOwnerBag
   for _, party := range parties {
-    if rawExaminer, ok := party["primaryExaminerOrAssistantExaminerOrAuthorizedOfficer"]; ok {
-      var examiner Examiner
-      json.Unmarshal(rawExaminer, examiner)
-      result.WriteString(examiner[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName)
+    if raw, ok := party["primaryExaminerOrAssistantExaminerOrAuthorizedOfficer"]; ok {
+      var examiners Examiners
+      json.Unmarshal(*raw, &examiners)
+      result.WriteString(examiners[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName)
     }
     result.WriteString("^^")
   }
