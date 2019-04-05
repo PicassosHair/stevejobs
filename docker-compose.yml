@@ -17,7 +17,7 @@ services:
       - stevejobs-network
   ofelia:
     image: mcuadros/ofelia:latest
-    container_name: ofelia
+    container_name: jobs-ofelia
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./ofelia/config.ini:/etc/ofelia/config.ini
