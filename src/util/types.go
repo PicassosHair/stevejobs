@@ -1,17 +1,22 @@
 package util
 
+import (
+	"encoding/json"
+)
+
+
 // RawPatentRecords defines raw PEDS bulk data.
 // View sample_record to see its structure.
 type RawPatentRecords []struct {
 	PatentCaseMetadata struct {
     ApplicationNumberText struct {
       Value, ElectronicText string
-    }
+    } `json:"applicationNumberText"`
     FilingDate string
     ApplicationTypeCategory string
     PartyBag struct {
       // Could be primaryExaminerOrAssistantExaminerOrAuthorizedOfficer, applicant, inventorOrDeceasedInventor.
-      ApplicantBagOrInventorBagOrOwnerBag []map[string]interface{}
+      ApplicantBagOrInventorBagOrOwnerBag []json.RawMessage
     }
     GroupArtUnitNumber struct {
       Value, ElectronicText string

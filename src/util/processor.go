@@ -1,8 +1,9 @@
 package util
 
 import (
+	"fmt"
 	"bytes"
-	// "encoding/json"
+	"encoding/json"
 	"strings"
 )
 
@@ -34,7 +35,6 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
   metadata := (*record)[0].PatentCaseMetadata
 
 	result.WriteString(ExtractApplID(record))
-
 	result.WriteString("^^")
 
 	// pedsData, _ := json.Marshal((*record)[0].PatentCaseMetadata)
@@ -42,24 +42,20 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	// result.WriteString(string(pedsData))
 	// result.WriteString("^^")
 
-	title := extractTitle(record)
-
-	result.WriteString(title)
+	result.WriteString(metadata.FilingDate)
 	result.WriteString("^^")
 
-	filingDate := metadata.FilingDate
-
-	result.WriteString(filingDate)
+  result.WriteString(metadata.ApplicationTypeCategory)
 	result.WriteString("^^")
 
-  applType := metadata.ApplicationTypeCategory
+  parties := metadata.PartyBag.ApplicantBagOrInventorBagOrOwnerBag
+  fmt.Println(parties)
 
-  result.WriteString(applType)
+  result.WriteString(metadata.ApplicantFileReference)
+  result.WriteString("^^")
+
+	result.WriteString(extractTitle(record))
 	result.WriteString("^^")
-
-  applFileRef := metadata.ApplicantFileReference
-
-  result.WriteString(applFileRef)
   
   result.WriteString("\n")
 	return result
