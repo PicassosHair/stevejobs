@@ -61,29 +61,29 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
       }
     }
     // Applicant
-    if raw, ok := party["applicant"]; ok {
-      var applicant Applicant
-      err := json.Unmarshal(*raw, &applicant)
-      if err == nil {
-        partyTexts[1] = applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
-      }
-    }
+    // if raw, ok := party["applicant"]; ok {
+    //   var applicant Applicant
+    //   err := json.Unmarshal(*raw, &applicant)
+    //   if err == nil {
+    //     partyTexts[1] = applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+    //   }
+    // }
     // Inventor
-    if raw, ok := party["inventorOrDeceasedInventor"]; ok {
-      var inventor Inventor
-      err := json.Unmarshal(*raw, &inventor)
-      if err == nil {
-        partyTexts[2] = inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
-      }
-    }
+    // if raw, ok := party["inventorOrDeceasedInventor"]; ok {
+    //   var inventor Inventor
+    //   err := json.Unmarshal(*raw, &inventor)
+    //   if err == nil {
+    //     partyTexts[2] = inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+    //   }
+    // }
     // Practitioner
-    if raw, ok := party["registeredPractitioner"]; ok {
-      var Practitioner Practitioner
-      err := json.Unmarshal(*raw, &Practitioner)
-      if err == nil {
-        partyTexts[3] = Practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
-      }
-    }
+    // if raw, ok := party["registeredPractitioner"]; ok {
+    //   var Practitioner Practitioner
+    //   err := json.Unmarshal(*raw, &Practitioner)
+    //   if err == nil {
+    //     partyTexts[3] = Practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+    //   }
+    // }
     // Identifier is left as blank for now.
   }
 
