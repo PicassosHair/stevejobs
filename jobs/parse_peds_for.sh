@@ -49,7 +49,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-if [ $2 != "debug" ]; then
+if [ "$2" != "debug" ]; then
   # Generate raw load application SQL file.
   ${APP_DIR}/jobs/insert_to_database.sh application ${DATA_DIR}/temp/applications ${YEAR}
 
