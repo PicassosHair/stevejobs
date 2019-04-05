@@ -8,12 +8,12 @@ import (
 
 // ExtractApplID gets applId from raw record.
 func ExtractApplID(record *RawPatentRecords) string {
-	applText := (*record)[0].PatentCaseMetadata["applicationNumberText"].(map[string]interface{})
+	applText := (*record)[0].PatentCaseMetadata.ApplicationNumberText.Value
 
-	return applText["value"].(string)
+	return applText
 }
 
-// ProcessApplication processes generated JSON record and generates a string.
+// ProcessApplication processes generated JSON record and generates a csv-like string for each application.
 func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	var result bytes.Buffer
 	result.WriteString(ExtractApplID(record))
@@ -25,13 +25,11 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	result.WriteString(string(pedsData))
 	result.WriteString("^^")
 
-	possibleTitle := (*record)[0].PatentCaseMetadata["inventionTitle"]
-	var titleText = ""
+	titleContent := (*record)[0].PatentCaseMetadata.InventionTitle.Content
+	titleText := ""
 
-	if possibleTitle != nil {
-		title := possibleTitle.(map[string]interface{})
-		titleContent := title["content"].([]interface{})
-		titleText = titleContent[0].(string)
+	if titleContent != nil {
+		titleText = titleContent[0]
 	}
 
 	// Remove line breaks
@@ -41,7 +39,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	result.WriteString(titleTextProcessed)
 	result.WriteString("^^")
 
-	filingDate := (*record)[0].PatentCaseMetadata["filingDate"].(string)
+	filingDate := (*record)[0].PatentCaseMetadata.FilingDate
 	result.WriteString(filingDate)
 	result.WriteString("\n")
 

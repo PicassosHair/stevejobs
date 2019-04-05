@@ -26,7 +26,7 @@ func checkErr(err error) {
 func main() {
 	runtime.GOMAXPROCS(2)
 
-	inFilePath := flag.String("in", "", "The raw json file to parse.")
+	inFilePath := flag.String("in", "", "The raw json file to parse. e.g. .../2018.json")
 	outPath := flag.String("out", "", "The *folder* to output all generated files.")
 	debugMode := flag.Bool("debug", false, "Turn on the debug mode, require Application Number as input.")
 	applID := flag.String("applId", "", "The application number to locate debug info.")
@@ -75,6 +75,7 @@ func main() {
 				break
 			}
 		}
+    // Match one application.
 		if t == "patentRecord" {
 			for decoder.More() {
 				var rawRecord util.RawPatentRecords
