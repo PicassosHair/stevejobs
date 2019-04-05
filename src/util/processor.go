@@ -54,10 +54,12 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 
   applType := metadata.ApplicationTypeCategory
 
-  result.WriteString(filingDate)
+  result.WriteString(applType)
 	result.WriteString("^^")
 
   applFileRef := metadata.ApplicantFileReference
+
+  result.WriteString(applFileRef)
   
   result.WriteString("\n")
 	return result
