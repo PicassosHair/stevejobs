@@ -2,7 +2,7 @@ package util
 
 import (
 	"bytes"
-	"encoding/json"
+	// "encoding/json"
 	"strings"
 )
 
@@ -57,7 +57,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
   result.WriteString(filingDate)
 	result.WriteString("^^")
 
-  applFileRef := metadata.ApplicationFileReference
+  applFileRef := metadata.ApplicantFileReference
   
   result.WriteString("\n")
 	return result
