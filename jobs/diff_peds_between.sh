@@ -11,7 +11,6 @@ $SLACK info "Start diff PEDS data between $1 and $2."
 
 for (( y=$1; y<=$2; y++ ))
     do 
-    $SLACK info  "Start diff year for $y."
     ${APP_DIR}/jobs/diff_peds_for.sh $y
 done
 

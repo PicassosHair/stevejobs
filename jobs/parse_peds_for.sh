@@ -16,7 +16,7 @@ SLACK=/usr/src/app/jobs/log_slack.sh
 rm -rf ${DATA_DIR}/temp
 mkdir -p ${DATA_DIR}/temp
 
-$SLACK info "Parse PEDS data for year ${YEAR}."
+$SLACK info "Start parsing PEDS data for year ${YEAR}."
 
 # Check for latest raw.YYYYMMDD.zip file existance.
 LATEST_RAW_ZIP=`ls ${DATA_DIR}/*.zip -t | head -n 1`
