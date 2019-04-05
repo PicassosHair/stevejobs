@@ -1,5 +1,5 @@
 #!/bin/bash
-# This script pass $1 = year parameter and load the data of $1.json to mysql database.
+# This script pass $1 = year parameter and load the data of $1.json to mysql database, and add option $2 = debug parameter to decide whether in debugging mode. For debugging mode, will not do insertion. 
 
 # Stop if error.
 set -e
@@ -8,6 +8,7 @@ DATA_DIR=/data
 APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
 YEAR=$1
+DEBUG=$2
 START_TIME=`date +%s`
 START_DATE=`date +%Y%m%d`
 SLACK=/usr/src/app/jobs/log_slack.sh
@@ -48,13 +49,17 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Generate raw load application SQL file.
-${APP_DIR}/jobs/insert_to_database.sh application ${DATA_DIR}/temp/applications ${YEAR}
+if [ $2 != "debug" ]; then
+  # Generate raw load application SQL file.
+  ${APP_DIR}/jobs/insert_to_database.sh application ${DATA_DIR}/temp/applications ${YEAR}
 
-# Generate raw load codes SQL file.
-${APP_DIR}/jobs/insert_to_database.sh code ${DATA_DIR}/temp/codes ${YEAR}
+  # Generate raw load codes SQL file.
+  ${APP_DIR}/jobs/insert_to_database.sh code ${DATA_DIR}/temp/codes ${YEAR}
 
-# Generate raw load codes SQL file.
-${APP_DIR}/jobs/insert_to_database.sh transaction ${DATA_DIR}/temp/transactions ${YEAR}
+  # Generate raw load codes SQL file.
+  ${APP_DIR}/jobs/insert_to_database.sh transaction ${DATA_DIR}/temp/transactions ${YEAR}
+else
+  $SLACK warn "Debug mode, not inserting to the database."
+fi
 
 $SLACK success "Done parsing data for year ${YEAR}! Used $(expr `date +%s` - $START_TIME) s."
