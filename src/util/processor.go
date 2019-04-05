@@ -1,9 +1,8 @@
 package util
 
 import (
-	"fmt"
+	"encoding/json"
 	"bytes"
-	// "encoding/json"
 	"strings"
 )
 
@@ -49,7 +48,14 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	result.WriteString("^^")
 
   parties := metadata.PartyBag.ApplicantBagOrInventorBagOrOwnerBag
-  fmt.Println(parties)
+  for _, party := range parties {
+    if rawExaminer, ok := party["primaryExaminerOrAssistantExaminerOrAuthorizedOfficer"]; ok {
+      var examiner Examiner
+      json.Unmarshal(rawExaminer, examiner)
+      result.WriteString(examiner[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName)
+    }
+    result.WriteString("^^")
+  }
 
   result.WriteString(metadata.ApplicantFileReference)
   result.WriteString("^^")
