@@ -49,39 +49,39 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 
   parties := metadata.PartyBag.ApplicantBagOrInventorBagOrOwnerBag
   
-  // Follow this order: [examiner, applicant, inventor, practioner, identifier].
-  var partyTexts [4]string{"", "", "", "", ""}
+  // Follow this order: [examiner, applicant, inventor, practitioner, identifier].
+  var partyTexts [5]string{"", "", "", "", ""}
   for _, party := range parties {
     // Examiner
     if raw, ok := party["primaryExaminerOrAssistantExaminerOrAuthorizedOfficer"]; ok {
-      var partyBag Examiner
-      err := json.Unmarshal(*raw, &partyBag)
+      var examiner Examiner
+      err := json.Unmarshal(*raw, &examiner)
       if err == nil {
-        partyTexts[0] = partyBag[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName
+        partyTexts[0] = examiner[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName
       }
     }
     // Applicant
     if raw, ok := party["applicant"]; ok {
-      var partyBag Applicant
-      err := json.Unmarshal(*raw, &partyBag)
+      var applicant Applicant
+      err := json.Unmarshal(*raw, &applicant)
       if err == nil {
-        partyTexts[0] = partyBag[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+        partyTexts[0] = applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
       }
     }
     // Inventor
     if raw, ok := party["inventorOrDeceasedInventor"]; ok {
-      var partyBag Inventor
-      err := json.Unmarshal(*raw, &partyBag)
+      var inventor Inventor
+      err := json.Unmarshal(*raw, &inventor)
       if err == nil {
-        partyTexts[0] = partyBag[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+        partyTexts[0] = inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
       }
     }
-    // Practioner
+    // Practitioner
     if raw, ok := party["registeredPractitioner"]; ok {
-      var partyBag Practitioner
-      err := json.Unmarshal(*raw, &partyBag)
+      var Practitioner Practitioner
+      err := json.Unmarshal(*raw, &Practitioner)
       if err == nil {
-        partyTexts[0] = partyBag[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+        partyTexts[0] = Practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
       }
     }
     // Identifier is left as blank for now.
