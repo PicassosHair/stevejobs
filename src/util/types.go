@@ -59,10 +59,45 @@ type RawPatentRecords []struct {
   St96Version, IpoVersion string
 }
 
-type Examiners []struct {
+type EntityName struct{
+  PersonFullName string `json:"personFullName"`
+  PersonStructuredName struct {
+    FirstName string `json:"firstName`
+    MiddleName string `json:"middleName"`
+    LastName string `json:"lastName"`
+  } `json:"personStructuredName"`
+}
+
+type Contact struct {
   Name struct {
-    PersonNameOrOrganizationNameOrEntityName []struct{
-      PersonFullName string `json:"personFullName"`
-    } `json:"personNameOrOrganizationNameOrEntityName"`
+    PersonNameOrOrganizationNameOrEntityName []EntityName `json:"personNameOrOrganizationNameOrEntityName"`
   } `json:"name"`
+  PhoneNumberBag struct {
+    PhoneNumber []struct {
+      Value string `json:"value"`
+    } `json:"phoneNumber"`
+  } `json:"phoneNumberBag"`
+  CityName string `json:"cityName"`
+  GeographicRegionName struct {
+    Value string `json:"value"`
+    GeographicRegionCategory string `json:"geographicRegionCategory"`
+  } `json:"geographicRegionName"`
+  CountryCode string `json:"countryCode"`
+}
+
+type Examiner []Contact
+
+type Applicant []struct {
+  ContactOrPublicationContact []Contact `json:"contactOrPublicationContact"`
+}
+
+type Inventor []struct {
+  ContactOrPublicationContact []Contact `json:"contactOrPublicationContact"`
+}
+
+type Practitioner []struct {
+  RegisteredPractitionerRegistrationNumber string `json:"registeredPractitionerRegistrationNumber"`
+  RegisteredPractitionerCategory string `json:"registeredPractitionerCategory"`
+  ContactOrPublicationContact []Contact `json:"contactOrPublicationContact"`
+  ActiveIndicator bool `json:"activeIndicator"`
 }

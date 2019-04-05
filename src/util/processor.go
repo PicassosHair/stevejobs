@@ -48,20 +48,52 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	result.WriteString("^^")
 
   parties := metadata.PartyBag.ApplicantBagOrInventorBagOrOwnerBag
+  
+  // Follow this order: [examiner, applicant, inventor, practioner, identifier].
+  var partyTexts [4]string{"", "", "", "", ""}
   for _, party := range parties {
+    // Examiner
     if raw, ok := party["primaryExaminerOrAssistantExaminerOrAuthorizedOfficer"]; ok {
-      var examiners Examiners
-      json.Unmarshal(*raw, &examiners)
-      result.WriteString(examiners[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName)
+      var partyBag Examiner
+      err := json.Unmarshal(*raw, &partyBag)
+      if err == nil {
+        partyTexts[0] = partyBag[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName
+      }
     }
-    result.WriteString("^^")
+    // Applicant
+    if raw, ok := party["applicant"]; ok {
+      var partyBag Applicant
+      err := json.Unmarshal(*raw, &partyBag)
+      if err == nil {
+        partyTexts[0] = partyBag[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+      }
+    }
+    // Inventor
+    if raw, ok := party["inventorOrDeceasedInventor"]; ok {
+      var partyBag Inventor
+      err := json.Unmarshal(*raw, &partyBag)
+      if err == nil {
+        partyTexts[0] = partyBag[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+      }
+    }
+    // Practioner
+    if raw, ok := party["registeredPractitioner"]; ok {
+      var partyBag Practitioner
+      err := json.Unmarshal(*raw, &partyBag)
+      if err == nil {
+        partyTexts[0] = partyBag[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+      }
+    }
+    // Identifier is left as blank for now.
   }
+
+  result.WriteString(partyTexts.join("^^"))
+  result.WriteString("^^")
 
   result.WriteString(metadata.ApplicantFileReference)
   result.WriteString("^^")
 
 	result.WriteString(extractTitle(record))
-	result.WriteString("^^")
   
   result.WriteString("\n")
 	return result
