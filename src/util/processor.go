@@ -87,7 +87,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
     // Identifier is left as blank for now.
   }
 
-  result.WriteString(partyTexts.join("^^"))
+  result.WriteString(strings.Join(partyTexts[:], "^^"))
   result.WriteString("^^")
 
   result.WriteString(metadata.ApplicantFileReference)
