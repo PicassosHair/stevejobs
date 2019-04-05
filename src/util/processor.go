@@ -13,19 +13,9 @@ func ExtractApplID(record *RawPatentRecords) string {
 	return applText
 }
 
-// ProcessApplication processes generated JSON record and generates a csv-like string for each application.
-func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
-	var result bytes.Buffer
-	result.WriteString(ExtractApplID(record))
-
-	result.WriteString("^^")
-
-	pedsData, _ := json.Marshal((*record)[0].PatentCaseMetadata)
-
-	result.WriteString(string(pedsData))
-	result.WriteString("^^")
-
-	titleContent := (*record)[0].PatentCaseMetadata.InventionTitle.Content
+// extractTitle gets title text without linebreaks.
+func extractTitle(record *RawPatentRecords) string {
+  titleContent := (*record)[0].PatentCaseMetadata.InventionTitle.Content
 	titleText := ""
 
 	if titleContent != nil {
@@ -35,14 +25,41 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	// Remove line breaks
 	titleTextProcessed := strings.Replace(titleText, "\n", " ", -1)
 	titleTextProcessed = strings.Replace(titleTextProcessed, "^^", " ", -1)
+  return titleTextProcessed
+}
+
+// ProcessApplication processes generated JSON record and generates a csv-like string for each application.
+func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
+	var result bytes.Buffer
+  metadata := (*record)[0].PatentCaseMetadata
+
+	result.WriteString(ExtractApplID(record))
+
+	result.WriteString("^^")
+
+	// pedsData, _ := json.Marshal((*record)[0].PatentCaseMetadata)
+
+	// result.WriteString(string(pedsData))
+	// result.WriteString("^^")
+
+	title := extractTitle(record)
 
 	result.WriteString(titleTextProcessed)
 	result.WriteString("^^")
 
-	filingDate := (*record)[0].PatentCaseMetadata.FilingDate
-	result.WriteString(filingDate)
-	result.WriteString("\n")
+	filingDate := metadata.FilingDate
 
+	result.WriteString(filingDate)
+	result.WriteString("^^")
+
+  applType := metadata.ApplicationTypeCategory
+
+  result.WriteString(filingDate)
+	result.WriteString("^^")
+
+  applFileRef := metadata.ApplicationFileReference
+  
+  result.WriteString("\n")
 	return result
 }
 
