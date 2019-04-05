@@ -44,7 +44,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 
 	title := extractTitle(record)
 
-	result.WriteString(titleTextProcessed)
+	result.WriteString(title)
 	result.WriteString("^^")
 
 	filingDate := metadata.FilingDate
