@@ -50,7 +50,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
   parties := metadata.PartyBag.ApplicantBagOrInventorBagOrOwnerBag
   
   // Follow this order: [examiner, applicant, inventor, practitioner, identifier].
-  var partyTexts [5]string{"", "", "", "", ""}
+  partyTexts := [5]string{"", "", "", "", ""}
   for _, party := range parties {
     // Examiner
     if raw, ok := party["primaryExaminerOrAssistantExaminerOrAuthorizedOfficer"]; ok {
@@ -65,7 +65,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
       var applicant Applicant
       err := json.Unmarshal(*raw, &applicant)
       if err == nil {
-        partyTexts[0] = applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+        partyTexts[1] = applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
       }
     }
     // Inventor
@@ -73,7 +73,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
       var inventor Inventor
       err := json.Unmarshal(*raw, &inventor)
       if err == nil {
-        partyTexts[0] = inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+        partyTexts[2] = inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
       }
     }
     // Practitioner
@@ -81,7 +81,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
       var Practitioner Practitioner
       err := json.Unmarshal(*raw, &Practitioner)
       if err == nil {
-        partyTexts[0] = Practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+        partyTexts[3] = Practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
       }
     }
     // Identifier is left as blank for now.
