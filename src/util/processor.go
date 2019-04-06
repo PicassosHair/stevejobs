@@ -1,8 +1,8 @@
 package util
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"strings"
 )
 
@@ -15,7 +15,7 @@ func ExtractApplID(record *RawPatentRecords) string {
 
 // extractTitle gets title text without linebreaks.
 func extractTitle(record *RawPatentRecords) string {
-  titleContent := (*record)[0].PatentCaseMetadata.InventionTitle.Content
+	titleContent := (*record)[0].PatentCaseMetadata.InventionTitle.Content
 	titleText := ""
 
 	if titleContent != nil {
@@ -25,13 +25,13 @@ func extractTitle(record *RawPatentRecords) string {
 	// Remove line breaks
 	titleTextProcessed := strings.Replace(titleText, "\n", " ", -1)
 	titleTextProcessed = strings.Replace(titleTextProcessed, "^^", " ", -1)
-  return titleTextProcessed
+	return titleTextProcessed
 }
 
 // ProcessApplication processes generated JSON record and generates a csv-like string for each application.
 func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	var result bytes.Buffer
-  metadata := (*record)[0].PatentCaseMetadata
+	metadata := (*record)[0].PatentCaseMetadata
 
 	result.WriteString(ExtractApplID(record))
 	result.WriteString("^^")
@@ -44,58 +44,60 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	result.WriteString(metadata.FilingDate)
 	result.WriteString("^^")
 
-  result.WriteString(metadata.ApplicationTypeCategory)
+	result.WriteString(metadata.ApplicationTypeCategory)
 	result.WriteString("^^")
 
-  parties := metadata.PartyBag.ApplicantBagOrInventorBagOrOwnerBag
-  
-  // Follow this order: [examiner, applicant, inventor, practitioner, identifier].
-  partyTexts := [5]string{"", "", "", "", ""}
-  for _, party := range parties {
-    // Examiner
-    if raw, ok := party["primaryExaminerOrAssistantExaminerOrAuthorizedOfficer"]; ok {
-      var examiner Examiner
-      err := json.Unmarshal(*raw, &examiner)
-      if err == nil {
-        partyTexts[0] = examiner[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName
-      }
-    }
-    // Applicant
-    // if raw, ok := party["applicant"]; ok {
-    //   var applicant Applicant
-    //   err := json.Unmarshal(*raw, &applicant)
-    //   if err == nil {
-    //     partyTexts[1] = applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
-    //   }
-    // }
-    // Inventor
-    // if raw, ok := party["inventorOrDeceasedInventor"]; ok {
-    //   var inventor Inventor
-    //   err := json.Unmarshal(*raw, &inventor)
-    //   if err == nil {
-    //     partyTexts[2] = inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
-    //   }
-    // }
-    // Practitioner
-    // if raw, ok := party["registeredPractitioner"]; ok {
-    //   var Practitioner Practitioner
-    //   err := json.Unmarshal(*raw, &Practitioner)
-    //   if err == nil {
-    //     partyTexts[3] = Practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
-    //   }
-    // }
-    // Identifier is left as blank for now.
-  }
+	parties := metadata.PartyBag.ApplicantBagOrInventorBagOrOwnerBag
 
-  result.WriteString(strings.Join(partyTexts[:], "^^"))
-  result.WriteString("^^")
+	// Follow this order: [examiner, applicant, inventor, practitioner, identifier].
+	partyTexts := [5]string{"", "", "", "", ""}
+	for _, party := range parties {
+		// Examiner
+		if raw, ok := party["primaryExaminerOrAssistantExaminerOrAuthorizedOfficer"]; ok {
+			var examiner Examiner
+			err := json.Unmarshal(*raw, &examiner)
+			if err == nil {
+				partyTexts[0] = examiner[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName
+			}
+		}
+		// Applicant
+		if raw, ok := party["applicant"]; ok {
+			var applicant Applicant
+			err := json.Unmarshal(*raw, &applicant)
+			if err == nil {
+				if len(applicant) > 0 && len(applicant[0].ContactOrPublicationContact) > 0 && len(applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName) > 0 {
+					partyTexts[1] = applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+				}
+			}
+		}
+		// Inventor
+		// if raw, ok := party["inventorOrDeceasedInventor"]; ok {
+		//   var inventor Inventor
+		//   err := json.Unmarshal(*raw, &inventor)
+		//   if err == nil {
+		//     partyTexts[2] = inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+		//   }
+		// }
+		// Practitioner
+		// if raw, ok := party["registeredPractitioner"]; ok {
+		//   var Practitioner Practitioner
+		//   err := json.Unmarshal(*raw, &Practitioner)
+		//   if err == nil {
+		//     partyTexts[3] = Practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+		//   }
+		// }
+		// Identifier is left as blank for now.
+	}
 
-  result.WriteString(metadata.ApplicantFileReference)
-  result.WriteString("^^")
+	result.WriteString(strings.Join(partyTexts[:], "^^"))
+	result.WriteString("^^")
+
+	result.WriteString(metadata.ApplicantFileReference)
+	result.WriteString("^^")
 
 	result.WriteString(extractTitle(record))
-  
-  result.WriteString("\n")
+
+	result.WriteString("\n")
 	return result
 }
 
