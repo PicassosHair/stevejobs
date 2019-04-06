@@ -75,7 +75,7 @@ func main() {
 				break
 			}
 		}
-    // Match one application.
+		// Match one application.
 		if t == "patentRecord" {
 			for decoder.More() {
 				var rawRecord util.RawPatentRecords
