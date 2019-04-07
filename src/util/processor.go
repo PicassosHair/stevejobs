@@ -64,28 +64,36 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 		if raw, ok := party["applicant"]; ok {
 			var applicant Applicant
 			err := json.Unmarshal(*raw, &applicant)
-			if err == nil {
-				if len(applicant) > 0 && len(applicant[0].ContactOrPublicationContact) > 0 && len(applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName) > 0 {
-					partyTexts[1] = applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
-				}
+			if err == nil &&
+				len(applicant) > 0 &&
+				len(applicant[0].ContactOrPublicationContact) > 0 &&
+				len(applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName) > 0 {
+				partyTexts[1] = applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+
 			}
 		}
 		// Inventor
-		// if raw, ok := party["inventorOrDeceasedInventor"]; ok {
-		//   var inventor Inventor
-		//   err := json.Unmarshal(*raw, &inventor)
-		//   if err == nil {
-		//     partyTexts[2] = inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
-		//   }
-		// }
+		if raw, ok := party["inventorOrDeceasedInventor"]; ok {
+			var inventor Inventor
+			err := json.Unmarshal(*raw, &inventor)
+			if err == nil &&
+				len(inventor) > 0 &&
+				len(inventor[0].ContactOrPublicationContact) > 0 &&
+				len(inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName) > 0 {
+				partyTexts[2] = inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+			}
+		}
 		// Practitioner
-		// if raw, ok := party["registeredPractitioner"]; ok {
-		//   var Practitioner Practitioner
-		//   err := json.Unmarshal(*raw, &Practitioner)
-		//   if err == nil {
-		//     partyTexts[3] = Practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
-		//   }
-		// }
+		if raw, ok := party["registeredPractitioner"]; ok {
+			var practitioner Practitioner
+			err := json.Unmarshal(*raw, &practitioner)
+			if err == nil &&
+				len(practitioner) > 0 &&
+				len(practitioner[0].ContactOrPublicationContact) > 0 &&
+				len(practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName) > 0 {
+				partyTexts[3] = practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+			}
+		}
 		// Identifier is left as blank for now.
 	}
 
