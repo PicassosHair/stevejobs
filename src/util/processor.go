@@ -28,6 +28,11 @@ func extractTitle(record *RawPatentRecords) string {
 	return titleTextProcessed
 }
 
+// extractPartyText gets information from an entity name and join them with delimiter. For each line there is `full name`,`first name`,`middle anme`,`last name`,phone number`,`city`,`region`,`country`. Lines are separated by "@".
+func extractPartyText(entityName *PersonNameOrOrganizationNameOrEntityName) string {
+
+}
+
 // ProcessApplication processes generated JSON record and generates a csv-like string for each application.
 func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	var result bytes.Buffer
@@ -35,11 +40,6 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 
 	result.WriteString(ExtractApplID(record))
 	result.WriteString("^^")
-
-	// pedsData, _ := json.Marshal((*record)[0].PatentCaseMetadata)
-
-	// result.WriteString(string(pedsData))
-	// result.WriteString("^^")
 
 	result.WriteString(metadata.FilingDate)
 	result.WriteString("^^")
