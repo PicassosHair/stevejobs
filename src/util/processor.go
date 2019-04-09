@@ -28,12 +28,7 @@ func extractTitle(record *RawPatentRecords) string {
 	return titleTextProcessed
 }
 
-// extractPartyText gets information from an entity name and join them with delimiter. For each line there is `full name`,`first name`,`middle anme`,`last name`,phone number`,`city`,`region`,`country`. Lines are separated by "@".
-func extractPartyText(entityName *PersonNameOrOrganizationNameOrEntityName) string {
-
-}
-
-// ProcessApplication processes generated JSON record and generates a csv-like string for each application.
+// ProcessApplication processes generated JSON record and generates a csv-like string for each application. TODO: parse all parties, not just the first one.
 func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	var result bytes.Buffer
 	metadata := (*record)[0].PatentCaseMetadata
@@ -47,6 +42,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	result.WriteString(metadata.ApplicationTypeCategory)
 	result.WriteString("^^")
 
+	// Parties.
 	parties := metadata.PartyBag.ApplicantBagOrInventorBagOrOwnerBag
 
 	// Follow this order: [examiner, applicant, inventor, practitioner, identifier].
@@ -99,11 +95,52 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 
 	result.WriteString(strings.Join(partyTexts[:], "^^"))
 	result.WriteString("^^")
+	// End parties.
+
+	result.WriteString(metadata.GroupArtUnitNumber.Value)
+	result.WriteString("^^")
 
 	result.WriteString(metadata.ApplicantFileReference)
 	result.WriteString("^^")
 
+	// priorityClaimBag
+	if len(metadata.PriorityClaimBag.PriorityClaim) > 0 {
+		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].ApplicationNumber)
+		result.WriteString(",")
+		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].FilingDate)
+		result.WriteString(",")
+		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].IPOfficeName)
+		result.WriteString(",")
+		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].SequenceNumber)
+	}
+	result.WriteString("^^")
+
+	// patentClassificationBag
+	if len(metadata.PatentClassificationBag.CpcClassificationBagOrIPCClassificationOrECLAClassificationBag) > 0 {
+		result.WriteString(metadata.PatentClassificationBag.CpcClassificationBagOrIPCClassificationOrECLAClassificationBag[0].IPOfficeCode)
+		result.WriteString(",")
+		result.WriteString(metadata.PatentClassificationBag.CpcClassificationBagOrIPCClassificationOrECLAClassificationBag[0].MainNationalClassification.NationalClass)
+		result.WriteString(",")
+		result.WriteString(metadata.PatentClassificationBag.CpcClassificationBagOrIPCClassificationOrECLAClassificationBag[0].MainNationalClassification.NationalSubclass)
+	}
+	result.WriteString("^^")
+
+	result.WriteString(metadata.BusinessEntityStatusCategory)
+	result.WriteString("^^")
+
+	result.WriteString(metadata.FirstInventorToFileIndicator)
+	result.WriteString("^^")
+
 	result.WriteString(extractTitle(record))
+	result.WriteString("^^")
+
+	result.WriteString(metadata.ApplicationStatusCategory)
+	result.WriteString("^^")
+
+	result.WriteString(metadata.ApplicationStatusDate)
+	result.WriteString("^^")
+
+	result.WriteString(metadata.OfficialFileLocationCategory)
 
 	result.WriteString("\n")
 	return result
