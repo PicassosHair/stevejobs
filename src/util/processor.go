@@ -105,7 +105,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 
 	// priorityClaimBag
 	if len(metadata.PriorityClaimBag.PriorityClaim) > 0 {
-		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].ApplicationNumber)
+		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].ApplicationNumber.ApplicationNumberText)
 		result.WriteString(",")
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].FilingDate)
 		result.WriteString(",")
