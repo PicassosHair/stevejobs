@@ -100,6 +100,9 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	result.WriteString(metadata.GroupArtUnitNumber.Value)
 	result.WriteString("^^")
 
+	result.WriteString(metadata.ApplicationConfirmationNumber)
+	result.WriteString("^^")
+
 	result.WriteString(metadata.ApplicantFileReference)
 	result.WriteString("^^")
 
