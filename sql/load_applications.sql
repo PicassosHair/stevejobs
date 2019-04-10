@@ -96,7 +96,10 @@ SELECT
   patentClassification,
   businessEntityStatusCategory,
   firstInventorToFileIndicator,
-  title,
+  CASE 
+    WHEN title IS NULL THEN ''
+    ELSE title
+  END AS title,
   statusCategory,
   CASE 
     WHEN statusDate = '' THEN NULL
