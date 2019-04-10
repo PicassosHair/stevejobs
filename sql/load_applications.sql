@@ -101,7 +101,8 @@ SELECT
   CASE 
     WHEN statusDate = '' THEN NULL
     WHEN statusDate IS NULL THEN NULL
-    ELSE statusDate,
+    ELSE statusDate
+  END AS statusDate,
   officialFileLocationCategory,
   relatedDocumentData
 FROM temp_Applications
