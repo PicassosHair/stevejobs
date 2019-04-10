@@ -3,31 +3,126 @@ DROP TABLE IF EXISTS temp_Applications;
 -- The temp table has no constraints whatsoever, and is a subset of the Applications table.
 CREATE TABLE IF NOT EXISTS `temp_Applications` (
   `applId` VARCHAR(30) NOT NULL,
-  `pedsData` text,
+  `filingDate` VARCHAR(20) NOT NULL,
+  `typeCategory` VARCHAR(30),
+  `examiner` TEXT,
+  `applicant` TEXT,
+  `inventor` TEXT,
+  `practitioner` TEXT,
+  `identifier` TEXT,
+  `groupArtUnitNumber` VARCHAR(20),
+  `confirmationNumber` VARCHAR(20),
+  `applicantFileReference` VARCHAR(30),
+  `priorityClaim` TEXT,
+  `patentClassification` TEXT,
+  `businessEntityStatusCategory` VARCHAR(20),
+  `firstInventorToFileIndicator` VARCHAR(10),
   `title` text,
-  `filingDate` VARCHAR(20) NOT NULL
+  `statusCategory` VARCHAR(120),
+  `statusDate` VARCHAR(20),
+  `officialFileLocationCategory` VARCHAR(20),
+  `relatedDocumentData` TEXT
 ) ENGINE=InnoDB;
 
 -- Pump the csv-like file to the temp table.
+-- The sequence matters.
 LOAD DATA LOCAL INFILE @infile
 INTO TABLE temp_Applications
 FIELDS TERMINATED BY '^^'
-LINES TERMINATED BY '\n'
-(applId, pedsData, title, filingDate);
+LINES TERMINATED BY '\n' (
+  applId,
+  filingDate,
+  typeCategory,
+  examiner,
+  applicant,
+  inventor,
+  practitioner,
+  identifier,
+  groupArtUnitNumber,
+  confirmationNumber,
+  applicantFileReference,
+  priorityClaim,
+  patentClassification,
+  businessEntityStatusCategory,
+  firstInventorToFileIndicator,
+  title,
+  statusCategory,
+  statusDate,
+  officialFileLocationCategory,
+  relatedDocumentData);
 
-INSERT INTO Applications (createdAt, updatedAt, applId, pedsData, title, filingDate)
+INSERT INTO Applications (
+  createdAt,
+  updatedAt,
+  applId,
+  filingDate,
+  typeCategory,
+  examiner,
+  applicant,
+  inventor,
+  practitioner,
+  identifier,
+  groupArtUnitNumber,
+  confirmationNumber,
+  applicantFileReference,
+  priorityClaim,
+  patentClassification,
+  businessEntityStatusCategory,
+  firstInventorToFileIndicator,
+  title,
+  statusCategory,
+  statusDate,
+  officialFileLocationCategory,
+  relatedDocumentData)
 SELECT 
   NOW(),
   NOW(),
   applId,
-  pedsData,
-  title,
   CASE 
     WHEN filingDate = '' THEN NULL
     WHEN filingDate IS NULL THEN NULL
     ELSE filingDate
-  END AS filingDate
+  END AS filingDate,
+  typeCategory,
+  examiner,
+  applicant,
+  inventor,
+  practitioner,
+  identifier,
+  groupArtUnitNumber,
+  confirmationNumber,
+  applicantFileReference,
+  priorityClaim,
+  patentClassification,
+  businessEntityStatusCategory,
+  firstInventorToFileIndicator,
+  title,
+  statusCategory,
+  statusDate,
+  officialFileLocationCategory,
+  relatedDocumentData
 FROM temp_Applications
-ON DUPLICATE KEY UPDATE updatedAt = NOW(), pedsData = VALUES(pedsData), title = VALUES(title), filingDate = VALUES(filingDate);
+ON DUPLICATE KEY UPDATE 
+  updatedAt = NOW(),
+  title = VALUES(title),
+  filingDate = VALUES(filingDate),
+  typeCategory = VALUES(typeCategory),
+  examiner = VALUES(examiner),
+  applicant = VALUES(applicant),
+  inventor = VALUES(inventor),
+  practitioner = VALUES(practitioner),
+  identifier = VALUES(identifier),
+  groupArtUnitNumber = VALUES(groupArtUnitNumber),
+  confirmationNumber = VALUES(confirmationNumber),
+  applicantFileReference = VALUES(applicantFileReference),
+  priorityClaim = VALUES(priorityClaim),
+  patentClassification = VALUES(patentClassification),
+  businessEntityStatusCategory = VALUES(businessEntityStatusCategory),
+  firstInventorToFileIndicator = VALUES(firstInventorToFileIndicator),
+  title = VALUES(title),
+  statusCategory = VALUES(statusCategory),
+  statusDate = VALUES(statusDate),
+  officialFileLocationCategory = VALUES(officialFileLocationCategory),
+  relatedDocumentData = VALUES(relatedDocumentData);
 
 DROP TABLE temp_Applications;
