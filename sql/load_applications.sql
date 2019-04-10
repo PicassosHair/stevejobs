@@ -98,7 +98,10 @@ SELECT
   firstInventorToFileIndicator,
   title,
   statusCategory,
-  statusDate,
+  CASE 
+    WHEN statusDate = '' THEN NULL
+    WHEN statusDate IS NULL THEN NULL
+    ELSE statusDate,
   officialFileLocationCategory,
   relatedDocumentData
 FROM temp_Applications
