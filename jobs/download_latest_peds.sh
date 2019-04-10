@@ -12,8 +12,8 @@ ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS downloading started." \
 -body="PEDS data is now started downloading. Will let you know when it's done (or failed). Date: ${START_DATE}" \
 -recipient=${RECIPIENT}
 
-$SLACK info "Start downloading latest data. Date: ${START_DATE}."
-wget --tries=3 --output-document=${DATA_DIR}/raw.${START_DATE}.zip ${PEDS_BULK_URL}
+$SLACK info "Start downloading latest data. Date: ${START_DATE}. Save to a temp file."
+wget --tries=3 --output-document=${DATA_DIR}/raw.temp.zip ${PEDS_BULK_URL}
 
 if [ $? -eq 0 ]; 
 then
@@ -21,10 +21,16 @@ then
 
     ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS is downloaded." -body="New bulk data is downloaded." -recipient=${RECIPIENT}
 
+    # Rename the temp file to date file.
+    mv ${DATA_DIR}/raw.temp.zip ${DATA_DIR}/raw.${START_DATE}.zip
+
     # Remove oldest file keep total files count 3.
     ls ${DATA_DIR}/*.zip -1t | tail -n +4 | xargs rm -f
 else
     $SLACK error "Downloading failed."
+
+    # Remove incomplete temp file.
+    rm -rf ${DATA_DIR}/raw.temp.zip
 
     ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS data downloading is failed." -body="PEDS bulk data is NOT downloaded. Please check." -recipient=${RECIPIENT}
 fi
