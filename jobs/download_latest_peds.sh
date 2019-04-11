@@ -24,8 +24,8 @@ then
     # Rename the temp file to date file.
     mv ${DATA_DIR}/raw.temp.zip ${DATA_DIR}/raw.${START_DATE}.zip
 
-    # Remove oldest file keep total files count 3.
-    ls ${DATA_DIR}/*.zip -1t | tail -n +4 | xargs rm -f
+    # Remove zip files older than 3 days.
+    find /mnt/disks/disk-3/peds -mtime +3 -name '*.zip' -delete
 else
     $SLACK error "Downloading failed."
 
