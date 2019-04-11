@@ -32,7 +32,7 @@ fi
 
 
 # Unzip raw.json to temp/YYYY.json
-$SLACK info "Unzipping raw.${LATEST_RAW_ZIP}.zip. for year ${YEAR}."
+$SLACK info "Unzipping raw.${LATEST_RAW_ZIP}. for year ${YEAR}."
 unzip -o ${LATEST_RAW_ZIP} $1.json -d ${DATA_DIR}/temp/
 
 if [ $? -ne 0 ]; then

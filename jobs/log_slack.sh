@@ -5,10 +5,10 @@
 #   $2: Message content.
 
 APP_DIR=/usr/src/app
-INFO_COLOR='#3498DB'
-SUCCESS_COLOR='#28B463'
-WARNING_COLOR='#F39C12'
-ERROR_COLOR='#C70039'
+INFO_COLOR="#3498DB"
+SUCCESS_COLOR="#28B463"
+WARNING_COLOR="#F39C12"
+ERROR_COLOR="#C70039"
 COLOR=${INFO_COLOR}
 
 if [ "$1" == "success" ]; then
@@ -21,11 +21,17 @@ if [ "$1" == "error" ]; then
   COLOR=${ERROR_COLOR}
 fi
 
-echo "[LOG SLACK] ${2}"
+LOG_PREFIX="[LOG SLACK]"
+
+if [ "${ENV}" == "development" ]; then
+  LOG_PREFIX="[DEV]${LOG_PREFIX}"
+fi
+
+echo "${LOG_PREFIX} ${2}"
 ${APP_DIR}/bin/slack chat send \
---text "${2}" \
---channel "#jobs" \
---author "stevejobs-bot" \
---author-icon "https://github.com/fuermosi777/stevejobs/raw/master/bot.png" \
---color ${COLOR} \
-&>/dev/null
+  --text "${2}" \
+  --channel "#jobs" \
+  --author "stevejobs-bot" \
+  --author-icon "https://github.com/fuermosi777/stevejobs/raw/master/bot.png" \
+  --color ${COLOR} \
+  &>/dev/null
