@@ -25,7 +25,7 @@ then
     mv ${DATA_DIR}/raw.temp.zip ${DATA_DIR}/raw.${START_DATE}.zip
 
     # Remove zip files older than 3 days.
-    find /mnt/disks/disk-3/peds -mtime +3 -name '*.zip' -delete
+    find ${DATA_DIR} -mtime +3 -name '*.zip' -delete
 else
     $SLACK error "Downloading failed."
 
