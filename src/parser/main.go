@@ -98,6 +98,9 @@ func main() {
 					if *applID == applIDText {
 						tcText := util.ProcessTransaction(&rawRecord)
 						fmt.Println(tcText.String())
+
+						applicationText := util.ProcessApplication(&rawRecord)
+						fmt.Println(applicationText.String())
 					}
 				}
 			}
