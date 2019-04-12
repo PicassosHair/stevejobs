@@ -43,7 +43,15 @@ type RawPatentRecords []struct {
 		InventionTitle                                             struct {
 			Content []string
 		}
-		ApplicationStatusCategory, ApplicationStatusDate, OfficialFileLocationCategory string
+		ApplicationStatusCategory, ApplicationStatusDate, OfficialFileLocationCategory string `json:"officialFileLocationCategory"`
+    PatentPublicationIdentification struct {
+      PublicationNumber string `json:"publicationNumber"`
+      PublicationDate string `json:"publicationDate"`
+    } `json:"patentPublicationIdentification"`
+    PatentGrantIdentification struct {
+      PatentNumber string `json:"patentNumber"`
+      GrantDate string `json:"grantDate"`
+    } `json:"patentGrantIdentification"`
 		RelatedDocumentData                                                            struct {
 			ParentDocumentDataOrChildDocumentData []struct {
 				DescriptionText, ApplicationNumberText, FilingDate, ParentDocumentStatusCode, PatentNumber string
@@ -55,9 +63,10 @@ type RawPatentRecords []struct {
 		ProsecutionHistoryData []struct {
 			EventDate, EventDescriptionText string
 		}
-	}
+	} `json:"prosecutionHistoryDataBag"`
 
-	St96Version, IpoVersion string
+	St96Version string `json:"st96Version"`
+  IpoVersion string `json:"ipoVersion"`
 }
 
 // EntityName defines a person or an entity name, full or structured.

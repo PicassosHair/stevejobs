@@ -21,7 +21,11 @@ CREATE TABLE IF NOT EXISTS `temp_Applications` (
   `statusCategory` VARCHAR(120),
   `statusDate` VARCHAR(20),
   `officialFileLocationCategory` VARCHAR(20),
-  `relatedDocumentData` TEXT
+  `relatedDocumentData` TEXT,
+  `publicationNumber` VARCHAR(30),
+  `publicationDate` VARCHAR(30),
+  `patentNumber` VARCHAR(30),
+  `grantDate` VARCHAR(30)
 ) ENGINE=InnoDB;
 
 -- Pump the csv-like file to the temp table.
@@ -49,7 +53,11 @@ LINES TERMINATED BY '\n' (
   statusCategory,
   statusDate,
   officialFileLocationCategory,
-  relatedDocumentData);
+  relatedDocumentData,
+  publicationNumber,
+  publicationDate,
+  patentNumber,
+  grantDate);
 
 INSERT INTO Applications (
   createdAt,
@@ -73,7 +81,11 @@ INSERT INTO Applications (
   statusCategory,
   statusDate,
   officialFileLocationCategory,
-  relatedDocumentData)
+  relatedDocumentData,
+  publicationNumber,
+  publicationDate,
+  patentNumber,
+  grantDate)
 SELECT 
   NOW(),
   NOW(),
@@ -107,7 +119,19 @@ SELECT
     ELSE statusDate
   END AS statusDate,
   officialFileLocationCategory,
-  relatedDocumentData
+  relatedDocumentData,
+  publicationNumber,
+  CASE 
+    WHEN publicationDate = '' THEN NULL
+    WHEN publicationDate IS NULL THEN NULL
+    ELSE publicationDate
+  END AS publicationDate,
+  patentNumber,
+  CASE 
+    WHEN grantDate = '' THEN NULL
+    WHEN grantDate IS NULL THEN NULL
+    ELSE grantDate
+  END AS grantDate
 FROM temp_Applications
 ON DUPLICATE KEY UPDATE 
   updatedAt = NOW(),
@@ -130,6 +154,10 @@ ON DUPLICATE KEY UPDATE
   statusCategory = VALUES(statusCategory),
   statusDate = VALUES(statusDate),
   officialFileLocationCategory = VALUES(officialFileLocationCategory),
-  relatedDocumentData = VALUES(relatedDocumentData);
+  relatedDocumentData = VALUES(relatedDocumentData),
+  publicationNumber = VALUES(publicationNumber),
+  publicationDate = VALUES(publicationDate),
+  patentNumber = VALUES(patentNumber),
+  grantDate = VALUES(grantDate);
 
 DROP TABLE temp_Applications;
