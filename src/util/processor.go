@@ -25,6 +25,8 @@ func extractTitle(record *RawPatentRecords) string {
 	// Remove line breaks
 	titleTextProcessed := strings.Replace(titleText, "\n", " ", -1)
 	titleTextProcessed = strings.Replace(titleTextProcessed, "^^", " ", -1)
+  // Remove backslashes.
+  titleTextProcessed = strings.Replace(titleTextProcessed, "\\", "", -1)
 	return titleTextProcessed
 }
 
