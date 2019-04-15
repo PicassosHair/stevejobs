@@ -146,8 +146,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	result.WriteString(metadata.OfficialFileLocationCategory)
 	result.WriteString("^^")
 
-	result.WriteString(metadata.RelatedDocumentData)
-	result.WriteString("^^")
+	// RelatedDocumentData
 
 	result.WriteString(metadata.PatentPublicationIdentification.PublicationNumber)
 	result.WriteString("^^")

@@ -21,7 +21,6 @@ CREATE TABLE IF NOT EXISTS `temp_Applications` (
   `statusCategory` VARCHAR(120),
   `statusDate` VARCHAR(20),
   `officialFileLocationCategory` VARCHAR(20),
-  `relatedDocumentData` TEXT,
   `publicationNumber` VARCHAR(30),
   `publicationDate` VARCHAR(30),
   `patentNumber` VARCHAR(30),
@@ -53,7 +52,6 @@ LINES TERMINATED BY '\n' (
   statusCategory,
   statusDate,
   officialFileLocationCategory,
-  relatedDocumentData,
   publicationNumber,
   publicationDate,
   patentNumber,
@@ -81,7 +79,6 @@ INSERT INTO Applications (
   statusCategory,
   statusDate,
   officialFileLocationCategory,
-  relatedDocumentData,
   publicationNumber,
   publicationDate,
   patentNumber,
@@ -119,7 +116,6 @@ SELECT
     ELSE statusDate
   END AS statusDate,
   officialFileLocationCategory,
-  relatedDocumentData,
   publicationNumber,
   CASE 
     WHEN publicationDate = '' THEN NULL
@@ -154,7 +150,6 @@ ON DUPLICATE KEY UPDATE
   statusCategory = VALUES(statusCategory),
   statusDate = VALUES(statusDate),
   officialFileLocationCategory = VALUES(officialFileLocationCategory),
-  relatedDocumentData = VALUES(relatedDocumentData),
   publicationNumber = VALUES(publicationNumber),
   publicationDate = VALUES(publicationDate),
   patentNumber = VALUES(patentNumber),
