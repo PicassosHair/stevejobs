@@ -33,7 +33,7 @@ func extractTitle(record *RawPatentRecords) string {
 	}
 
 	// Remove line breaks
-	titleTextProcessed := escapeText(&titleContent)
+	titleTextProcessed := escapeText(&titleText)
 	return titleTextProcessed
 }
 
@@ -117,7 +117,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	for _, party := range parties {
 		// Examiner
 		if raw, ok := party["primaryExaminerOrAssistantExaminerOrAuthorizedOfficer"]; ok {
-			var examiner Examiner
+			var examiner []Contact
 			err := json.Unmarshal(*raw, &examiner)
 			if err == nil {
 				partyTexts[0] = extractContacts(&examiner)
