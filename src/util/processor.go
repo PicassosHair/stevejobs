@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"strings"
+  "unsafe"
 )
 
 // ExtractApplID gets applId from raw record.
