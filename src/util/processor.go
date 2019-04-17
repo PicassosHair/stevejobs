@@ -117,10 +117,11 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	for _, party := range parties {
 		// Examiner
 		if raw, ok := party["primaryExaminerOrAssistantExaminerOrAuthorizedOfficer"]; ok {
-			var examiners []Contact
-			err := json.Unmarshal(*raw, &examiners)
+			var examiner Examiner
+			err := json.Unmarshal(*raw, &examiner)
 			if err == nil {
-				partyTexts[0] = extractContacts(&examiners)
+        contacts := ([]Contact)(examiner)
+				partyTexts[0] = extractContacts(&contacts)
 			}
 		}
 		// Applicant
@@ -136,22 +137,18 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 		if raw, ok := party["inventorOrDeceasedInventor"]; ok {
 			var inventor Inventor
 			err := json.Unmarshal(*raw, &inventor)
-			if err == nil &&
-				len(inventor) > 0 &&
-				len(inventor[0].ContactOrPublicationContact) > 0 &&
-				len(inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName) > 0 {
-				partyTexts[2] = inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+			if err == nil && len(inventor) > 0 {
+        contacts := ([]Contact)(inventor[0].ContactOrPublicationContact)
+				partyTexts[2] = extractContacts(&contacts)
 			}
 		}
 		// Practitioner
 		if raw, ok := party["registeredPractitioner"]; ok {
 			var practitioner Practitioner
 			err := json.Unmarshal(*raw, &practitioner)
-			if err == nil &&
-				len(practitioner) > 0 &&
-				len(practitioner[0].ContactOrPublicationContact) > 0 &&
-				len(practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName) > 0 {
-				partyTexts[3] = practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+			if err == nil && len(practitioner) > 0 {
+        contacts := ([]Contact)(practitioner[0].ContactOrPublicationContact)
+				partyTexts[3] = extractContacts(&contacts)
 			}
 		}
 		// Identifier is left as blank for now.
