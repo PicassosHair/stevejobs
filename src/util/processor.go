@@ -38,9 +38,9 @@ func extractTitle(record *RawPatentRecords) string {
 }
 
 // extractContacts converts the contact array to a plain text, parts separated by "@".
-func extractContacts(contacts []Contact) string {
+func extractContacts(contacts *[]Contact) string {
   contactTexts := []string{}
-  for _, contact := range contacts {
+  for _, contact := range *contacts {
     var result bytes.Buffer
     hasName := len(contact.Name.PersonNameOrOrganizationNameOrEntityName) > 0
     // Full name.
