@@ -97,3 +97,24 @@ type Contact struct {
 	} `json:"geographicRegionName"`
 	CountryCode string `json:"countryCode"`
 }
+
+// Examiner defines some examiners.
+type Examiner []Contact
+
+// Applicant defines some applicants.
+type Applicant []struct {
+	ContactOrPublicationContact []Contact `json:"contactOrPublicationContact"`
+}
+
+// Inventor defines some inventors.
+type Inventor []struct {
+	ContactOrPublicationContact []Contact `json:"contactOrPublicationContact"`
+}
+
+// Practitioner defines some practitioners.
+type Practitioner []struct {
+	RegisteredPractitionerRegistrationNumber string    `json:"registeredPractitionerRegistrationNumber"`
+	RegisteredPractitionerCategory           string    `json:"registeredPractitionerCategory"`
+	ContactOrPublicationContact              []Contact `json:"contactOrPublicationContact"`
+	ActiveIndicator                          bool      `json:"activeIndicator"`
+}
