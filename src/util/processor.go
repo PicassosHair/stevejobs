@@ -13,6 +13,16 @@ func ExtractApplID(record *RawPatentRecords) string {
 	return applText
 }
 
+func escapeText(tt *string) string {
+  r := strings.NewReplacer(
+    "\n", " ", // line break.
+    "^^", " ", // field break.
+    "\\", "", // special chars.
+    "|", "", // sub field break.
+    "~", "") // atom field break.
+    return r.Replace(*tt)
+}
+
 // extractTitle gets title text without linebreaks.
 func extractTitle(record *RawPatentRecords) string {
 	titleContent := (*record)[0].PatentCaseMetadata.InventionTitle.Content
@@ -23,11 +33,66 @@ func extractTitle(record *RawPatentRecords) string {
 	}
 
 	// Remove line breaks
-	titleTextProcessed := strings.Replace(titleText, "\n", " ", -1)
-	titleTextProcessed = strings.Replace(titleTextProcessed, "^^", " ", -1)
-  // Remove backslashes.
-  titleTextProcessed = strings.Replace(titleTextProcessed, "\\", "", -1)
+	titleTextProcessed := escapeText(&titleContent)
 	return titleTextProcessed
+}
+
+// extractContacts converts the contact array to a plain text, parts separated by "@".
+func extractContacts(contacts []Contact) string {
+  contactTexts := []string{}
+  for _, contact := range contacts {
+    var result bytes.Buffer
+    hasName := len(contact.Name.PersonNameOrOrganizationNameOrEntityName) > 0
+    // Full name.
+    if hasName {
+      result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName)  
+    }
+    result.WriteString("|")
+
+    // First name, Middle name, Last name.
+    if hasName {
+      result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.FirstName)  
+    }
+    result.WriteString("|")
+
+    if hasName {
+      result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.MiddleName)  
+    }
+    result.WriteString("|")
+
+    if hasName {
+      result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName)  
+    }
+    result.WriteString("|")
+
+    if hasName {
+      result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.NameSuffix)  
+    }
+    result.WriteString("|")
+
+    // Phone number.
+    if len(contact.PhoneNumberBag.PhoneNumber) > 0 {
+      result.WriteString(contact.PhoneNumberBag.PhoneNumber[0].Value)
+    }
+    result.WriteString("|")
+
+    // City name.
+    result.WriteString(contact.CityName)
+    result.WriteString("|")
+
+    // Region.
+    result.WriteString(contact.GeographicRegionName.Value)
+    result.WriteString("|")
+
+    // Region category.
+    result.WriteString(contact.GeographicRegionName.GeographicRegionCategory)
+    result.WriteString("|")
+
+    // Country Code.
+    result.WriteString(contact.CountryCode)
+  }
+
+  return strings.Join(contactTexts[:], "~")
 }
 
 // ProcessApplication processes generated JSON record and generates a csv-like string for each application. TODO: parse all parties, not just the first one.
@@ -55,7 +120,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 			var examiner Examiner
 			err := json.Unmarshal(*raw, &examiner)
 			if err == nil {
-				partyTexts[0] = examiner[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName
+				partyTexts[0] = extractContacts(&examiner)
 			}
 		}
 		// Applicant
