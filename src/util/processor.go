@@ -18,7 +18,7 @@ func escapeText(tt *string) string {
     "\n", " ", // line break.
     "^^", " ", // field break.
     "\\", "", // special chars.
-    "|", "", // sub field break.
+    "|", "", // field line break - each field could be an array.
     "~", "") // atom field break.
     return r.Replace(*tt)
 }
@@ -117,44 +117,34 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	for _, party := range parties {
 		// Examiner
 		if raw, ok := party["primaryExaminerOrAssistantExaminerOrAuthorizedOfficer"]; ok {
-			var examiner []Contact
-			err := json.Unmarshal(*raw, &examiner)
+			var examiners []Contact
+			err := json.Unmarshal(*raw, &examiners)
 			if err == nil {
-				partyTexts[0] = extractContacts(&examiner)
+				partyTexts[0] = extractContacts(&examiners)
 			}
 		}
 		// Applicant
-		if raw, ok := party["applicant"]; ok {
-			var applicant Applicant
-			err := json.Unmarshal(*raw, &applicant)
-			if err == nil &&
-				len(applicant) > 0 &&
-				len(applicant[0].ContactOrPublicationContact) > 0 &&
-				len(applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName) > 0 {
-				partyTexts[1] = applicant[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
-
+		if raw, ok := party["applicant"]["contactOrPublicationContact"]; ok {
+			var applicants []Contact
+			err := json.Unmarshal(*raw, &applicants)
+			if err == nil {
+				partyTexts[1] = extractContacts(&applicants)
 			}
 		}
 		// Inventor
-		if raw, ok := party["inventorOrDeceasedInventor"]; ok {
-			var inventor Inventor
-			err := json.Unmarshal(*raw, &inventor)
-			if err == nil &&
-				len(inventor) > 0 &&
-				len(inventor[0].ContactOrPublicationContact) > 0 &&
-				len(inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName) > 0 {
-				partyTexts[2] = inventor[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+		if raw, ok := party["inventorOrDeceasedInventor"]["contactOrPublicationContact"]; ok {
+			var inventors []Contact
+			err := json.Unmarshal(*raw, &inventors)
+			if err == nil {
+				partyTexts[2] = extractContacts(&inventors)
 			}
 		}
 		// Practitioner
-		if raw, ok := party["registeredPractitioner"]; ok {
-			var practitioner Practitioner
-			err := json.Unmarshal(*raw, &practitioner)
-			if err == nil &&
-				len(practitioner) > 0 &&
-				len(practitioner[0].ContactOrPublicationContact) > 0 &&
-				len(practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName) > 0 {
-				partyTexts[3] = practitioner[0].ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName
+		if raw, ok := party["registeredPractitioner"]["contactOrPublicationContact"]; ok {
+			var practitioners []Contact
+			err := json.Unmarshal(*raw, &practitioners)
+			if err == nil {
+				partyTexts[3] = extractContacts(&practitioners)
 			}
 		}
 		// Identifier is left as blank for now.
@@ -176,11 +166,11 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	// priorityClaimBag
 	if len(metadata.PriorityClaimBag.PriorityClaim) > 0 {
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].ApplicationNumber.ApplicationNumberText)
-		result.WriteString(",")
+		result.WriteString("~")
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].FilingDate)
-		result.WriteString(",")
+		result.WriteString("~")
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].IPOfficeName)
-		result.WriteString(",")
+		result.WriteString("~")
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].SequenceNumber)
 	}
 	result.WriteString("^^")
@@ -188,9 +178,9 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 	// patentClassificationBag
 	if len(metadata.PatentClassificationBag.CpcClassificationBagOrIPCClassificationOrECLAClassificationBag) > 0 {
 		result.WriteString(metadata.PatentClassificationBag.CpcClassificationBagOrIPCClassificationOrECLAClassificationBag[0].IPOfficeCode)
-		result.WriteString(",")
+		result.WriteString("~")
 		result.WriteString(metadata.PatentClassificationBag.CpcClassificationBagOrIPCClassificationOrECLAClassificationBag[0].MainNationalClassification.NationalClass)
-		result.WriteString(",")
+		result.WriteString("~")
 		result.WriteString(metadata.PatentClassificationBag.CpcClassificationBagOrIPCClassificationOrECLAClassificationBag[0].MainNationalClassification.NationalSubclass)
 	}
 	result.WriteString("^^")
