@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"strings"
-  "unsafe"
 )
 
 // ExtractApplID gets applId from raw record.
@@ -129,8 +128,8 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 			var applicant Applicant
 			err := json.Unmarshal(*raw, &applicant)
 			if err == nil && len(applicant) > 0 {
-        contacts := (*[]Contact)(unsafe.Pointer(&(applicant.ContactOrPublicationContact)))
-				partyTexts[1] = extractContacts(contacts)
+        contacts := ([]Contact)(applicant[0].ContactOrPublicationContact)
+				partyTexts[1] = extractContacts(&contacts)
 			}
 		}
 		// Inventor
