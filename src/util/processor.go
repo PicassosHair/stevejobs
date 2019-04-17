@@ -129,7 +129,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 			var applicant Applicant
 			err := json.Unmarshal(*raw, &applicant)
 			if err == nil && len(applicant) > 0 {
-        contacts := (*[]Contact)(unsafe.Pointer(&applicant))
+        contacts := (*[]Contact)(unsafe.Pointer(&(applicant.ContactOrPublicationContact)))
 				partyTexts[1] = extractContacts(contacts)
 			}
 		}
