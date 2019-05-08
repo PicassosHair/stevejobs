@@ -38,7 +38,7 @@ if [ $? -eq 0 ]; then
     mv ${DATA_DIR}/raw.temp.zip ${DATA_DIR}/raw.${START_DATE}.zip
 
     # Remove zip files older than 3 days.
-    find ${DATA_DIR} -mtime +3 -name '*.zip' -delete
+    find ${DATA_DIR} -ctime +3 -name '*.zip' -delete
 else
     $SLACK error "Downloading failed."
 
