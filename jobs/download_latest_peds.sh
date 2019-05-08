@@ -26,11 +26,11 @@ ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS downloading started." \
     -body="PEDS data is now started downloading. Will let you know when it's done (or failed). Date: ${START_DATE}. Downloding from ${PEDS_BULK_URL}" \
     -recipient=${RECIPIENT}
 
-$SLACK info "Start downloading latest data. Date: ${START_DATE}. Save to a temp file."
+$SLACK info "Start downloading latest data. Start date: ${START_DATE}. Downloding from ${PEDS_BULK_URL}. Save to a temp file."
 wget --tries=3 --output-document=${DATA_DIR}/raw.temp.zip ${PEDS_BULK_URL}
 
 if [ $? -eq 0 ]; then
-    $SLACK success "Download complete!"
+    $SLACK success "Download complete! Saved file to ${DATA_DIR}/raw.${START_DATE}.zip"
 
     ${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS is downloaded." -body="New bulk data is downloaded." -recipient=${RECIPIENT}
 
