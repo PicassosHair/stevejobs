@@ -7,12 +7,13 @@ DATA_DIR=/data
 APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
 START_DATE=$(date +%Y%m%d)
+LAST_UPDATED_DATE=$(date --date="yesterday" +%Y%m%d)
 FULL_DOWNLOAD_DATE=$1
 SLACK=/usr/src/app/jobs/log_slack.sh
 
 PEDS_BULK_URL_DOMAIN="https://ped.uspto.gov/api/full-download"
 PEDS_BULK_URL_FULL="${PEDS_BULK_URL_DOMAIN}?fileName=2000-2019-pairbulk-full-${FULL_DOWNLOAD_DATE}-json"
-PEDS_BULK_URL_DELTA="${PEDS_BULK_URL_DOMAIN}?fileName=pairbulk-delta-${START_DATE}-json"
+PEDS_BULK_URL_DELTA="${PEDS_BULK_URL_DOMAIN}?fileName=pairbulk-delta-${LAST_UPDATED_DATE}-json"
 
 if [[ $# -eq 0 ]]; then
     $SLACK info "Download delta dataset."
