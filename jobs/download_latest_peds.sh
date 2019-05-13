@@ -18,7 +18,8 @@ elif [ "$1" = "false" ]
 then
     $SLACK info "Download delta dataset."
 else
-    $SLACK error "Invalid isFull option."
+    $SLACK error "Invalid isFull option. Stop."
+    exit 1
 fi
 
 LATEST_FILE_NAME=$(${APP_DIR}/bin/latest_file_name --isFull=$1)
@@ -26,7 +27,7 @@ LATEST_FILE_NAME=$(${APP_DIR}/bin/latest_file_name --isFull=$1)
 PEDS_BULK_URL="https://ped.uspto.gov/api/full-download?fileName=${LATEST_FILE_NAME}"
 
 ${APP_DIR}/bin/mail -subject="PEDS downloading started." \
-    -body="PEDS data is now started downloading. Will let you know when it's done (or failed). Date: ${START_DATE}. Downloding from ${PEDS_BULK_URL}" \
+    -body="PEDS data is now started downloading. Will let you know when it's done (or failed). Date: ${START_DATE}. Downloading from ${PEDS_BULK_URL}" \
     -recipient=${RECIPIENT}
 
 $SLACK info "Start downloading latest data. Start date: ${START_DATE}. Downloding from ${PEDS_BULK_URL}. Saving to a temp file."
