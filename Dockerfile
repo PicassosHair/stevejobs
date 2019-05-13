@@ -13,6 +13,7 @@ RUN go get github.com/mailgun/mailgun-go
 RUN go build -o ./bin/parser parser
 RUN go build -o ./bin/postdiff postdiff
 RUN go build -o ./bin/mail mail
+RUN go build -o ./bin/latest_file_name latest_file_name
 
 # Move bin to another image.
 FROM alpine

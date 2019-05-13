@@ -1,33 +1,35 @@
 #!/bin/bash
 # Download the latest data from https://ped.uspto.gov/peds/. There are two options:
-# 1) download all data - need to give $1 YYYYMMDD as full date.
-# 2) download delta data - script will gen date automatically.
+#   $1 - isFull: true or false
 
 DATA_DIR=/data
 APP_DIR=/usr/src/app
 RECIPIENT="liuhao1990@gmail.com,hinmeng@gmail.com"
 START_DATE=$(date +%Y%m%d)
-LAST_UPDATED_DATE=$(date --date="yesterday" +%Y%m%d)
-FULL_DOWNLOAD_DATE=$1
 SLACK=/usr/src/app/jobs/log_slack.sh
 
-PEDS_BULK_URL_DOMAIN="https://ped.uspto.gov/api/full-download"
-PEDS_BULK_URL_FULL="${PEDS_BULK_URL_DOMAIN}?fileName=2000-2019-pairbulk-full-${FULL_DOWNLOAD_DATE}-json"
-PEDS_BULK_URL_DELTA="${PEDS_BULK_URL_DOMAIN}?fileName=pairbulk-delta-${LAST_UPDATED_DATE}-json"
-
 if [[ $# -eq 0 ]]; then
-    $SLACK info "Download delta dataset."
-    PEDS_BULK_URL=${PEDS_BULK_URL_DELTA}
-else
+    $SLACK error "Missing isFull option. Enter true or false."
+    exit 1
+elif [ "$1" = "true" ]
+then
     $SLACK info "Download full dataset."
-    PEDS_BULK_URL=${PEDS_BULK_URL_FULL}
+elif [ "$1" = "false" ]
+then
+    $SLACK info "Download delta dataset."
+else
+    $SLACK error "Invalid isFull option."
 fi
 
-${APP_DIR}/bin/mail -subject="[PatHub Backend] PEDS downloading started." \
+LATEST_FILE_NAME=$(${APP_DIR}/bin/latest_file_name --isFull=$1)
+
+PEDS_BULK_URL="https://ped.uspto.gov/api/full-download?fileName=${LATEST_FILE_NAME}"
+
+${APP_DIR}/bin/mail -subject="PEDS downloading started." \
     -body="PEDS data is now started downloading. Will let you know when it's done (or failed). Date: ${START_DATE}. Downloding from ${PEDS_BULK_URL}" \
     -recipient=${RECIPIENT}
 
-$SLACK info "Start downloading latest data. Start date: ${START_DATE}. Downloding from ${PEDS_BULK_URL}. Save to a temp file."
+$SLACK info "Start downloading latest data. Start date: ${START_DATE}. Downloding from ${PEDS_BULK_URL}. Saving to a temp file."
 wget --tries=3 --output-document=${DATA_DIR}/raw.temp.zip ${PEDS_BULK_URL}
 
 if [ $? -eq 0 ]; then
