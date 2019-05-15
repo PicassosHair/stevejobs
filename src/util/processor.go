@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"strings"
-  "fmt"
+  "log"
 )
 
 // ExtractApplID gets applId from raw record.
@@ -133,17 +133,20 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 			if err == nil {
 				contacts := ([]Contact)(examiner)
 				partyTexts[0] = extractContacts(&contacts)
-			}
+			} else {
+        log.Fatal("Failed parse primaryExaminerOrAssistantExaminerOrAuthorizedOfficer.")
+      }
 		}
 		// Applicant
 		if raw, ok := party["applicant"]; ok {
-      fmt.Println("found applicant")
 			var applicant Applicant
 			err := json.Unmarshal(*raw, &applicant)
 			if err == nil && len(applicant) > 0 {
 				contacts := ([]Contact)(applicant[0].ContactOrPublicationContact)
 				partyTexts[1] = extractContacts(&contacts)
-			}
+			} else {
+        log.Fatal("Failed parse applicant.")
+      }
 		}
 		// Inventor
 		if raw, ok := party["inventorOrDeceasedInventor"]; ok {
@@ -152,7 +155,9 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 			if err == nil && len(inventor) > 0 {
 				contacts := ([]Contact)(inventor[0].ContactOrPublicationContact)
 				partyTexts[2] = extractContacts(&contacts)
-			}
+			} else {
+        log.Fatal("Failed parse inventorOrDeceasedInventor.")
+      }
 		}
 		// Practitioner
 		if raw, ok := party["registeredPractitioner"]; ok {
@@ -161,7 +166,9 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 			if err == nil && len(practitioner) > 0 {
 				contacts := ([]Contact)(practitioner[0].ContactOrPublicationContact)
 				partyTexts[3] = extractContacts(&contacts)
-			}
+			} else {
+        log.Fatal("Failed parse registeredPractitioner.")
+      }
 		}
 		// Identifier is left as blank for now.
 	}
