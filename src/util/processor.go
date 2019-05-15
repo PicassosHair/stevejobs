@@ -224,21 +224,19 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	return result
 }
 
-// ProcessCode processes generated JSON record and generate a string of transaction codes. Since the total amount of code is ~600, we will just use a map to dedup here.
+// ProcessCode processes generated JSON record and generate a string of transaction codes. Since the total amount of code is ~1000, we will just use a map to dedup here.
 func ProcessCode(record *RawPatentRecord, codeMap map[string]bool) bytes.Buffer {
 	var result bytes.Buffer
 	transactionData := (*record).ProsecutionHistoryDataBag.ProsecutionHistoryData
 	for _, event := range transactionData {
-		descText := event.EventDescriptionText
-		texts := strings.Split(descText, " , ")
-		if len(texts) != 2 {
-			continue
-		}
-		code := texts[1]
+		desc := event.EventDescriptionText
+		code := event.EventCode
 		if (codeMap)[code] {
 			continue
 		} else {
-			result.WriteString(strings.Join(texts, "^^"))
+			result.WriteString(desc)
+      result.WriteString("^^")
+      result.WriteString(code)
 			result.WriteString("^^")
 			result.WriteString("info")
 			result.WriteString("^^")
@@ -259,12 +257,9 @@ func ProcessTransaction(record *RawPatentRecord) bytes.Buffer {
 	applID := ExtractApplID(record)
 
 	for _, event := range transactionData {
-		descText := event.EventDescriptionText
-		texts := strings.Split(descText, " , ")
-		if len(texts) != 2 {
-			continue
-		}
-		result.WriteString(texts[1])
+		eventCode := event.EventCode
+		
+		result.WriteString(eventCode)
 		result.WriteString("^^")
 		result.WriteString(applID)
 		result.WriteString("^^")

@@ -62,7 +62,9 @@ type PatentCaseMetadata struct {
 // ProsecutionHistoryDataBag defines transaction histories.
 type ProsecutionHistoryDataBag struct {
 	ProsecutionHistoryData []struct {
-		EventDate, EventDescriptionText string
+		EventDate string `json:"eventDate"`
+    EventCode string `json:"eventCode"`
+    EventDescriptionText string `json:"eventDescriptionText"`
 	}
 }
 
