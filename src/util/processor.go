@@ -102,7 +102,7 @@ func extractContacts(contacts *[]Contact) string {
 		// Country Code.
 		result.WriteString(contact.CountryCode)
 
-    contactTexts = append(contactTexts, result)
+    contactTexts = append(contactTexts.String(), result)
 	}
 
 	return strings.Join(contactTexts[:], "~")
