@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"strings"
+  "fmt"
 )
 
 // ExtractApplID gets applId from raw record.
@@ -136,6 +137,7 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 		}
 		// Applicant
 		if raw, ok := party["applicant"]; ok {
+      fmt.Println("found applicant")
 			var applicant Applicant
 			err := json.Unmarshal(*raw, &applicant)
 			if err == nil && len(applicant) > 0 {
