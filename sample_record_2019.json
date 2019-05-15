@@ -1,0 +1,189 @@
+{
+  "patentCaseMetadata": {
+    "applicationNumberText": {
+      "value": "16237682",
+      "electronicText": "16237682"
+    },
+    "filingDate": "2019-01-01",
+    "applicationTypeCategory": "Utility",
+    "partyBag": {
+      "applicantBagOrInventorBagOrOwnerBag": [
+        {
+          "primaryExaminerOrAssistantExaminerOrAuthorizedOfficer": [
+            {
+              "name": {
+                "personNameOrOrganizationNameOrEntityName": [
+                  {
+                    "personFullName": "LE, JOHN H"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "applicant": [
+            {
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "organizationStandardName": {
+                          "content": [
+                            "National Tsing Hua University"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "cityName": "Hsinchu City",
+                  "geographicRegionName": {
+                    "value": "",
+                    "geographicRegionCategory": "STATE"
+                  },
+                  "countryCode": "TW"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inventorOrDeceasedInventor": [
+            {
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Hsien-Ting",
+                          "middleName": "",
+                          "lastName": "Chang"
+                        }
+                      }
+                    ]
+                  },
+                  "cityName": "Hsinchu City",
+                  "geographicRegionName": {
+                    "value": "",
+                    "geographicRegionCategory": "STATE"
+                  },
+                  "countryCode": "TW"
+                }
+              ]
+            },
+            {
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Jen-Yuan",
+                          "middleName": "",
+                          "lastName": "Chang"
+                        }
+                      }
+                    ]
+                  },
+                  "cityName": "Hsinchu City",
+                  "geographicRegionName": {
+                    "value": "",
+                    "geographicRegionCategory": "STATE"
+                  },
+                  "countryCode": "TW"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "partyIdentifierOrContact": [
+            {
+              "name": {
+                "personNameOrOrganizationNameOrEntityName": [
+                  {
+                    "personStructuredName": {
+                      "lastName": "Lin \u0026 Associates"
+                    }
+                  }
+                ]
+              },
+              "postalAddressBag": {
+                "postalAddress": [
+                  {
+                    "postalStructuredAddress": {
+                      "addressLineText": [
+                        {
+                          "value": "Intellectual Property, Inc."
+                        },
+                        {
+                          "value": "PO Box 2339"
+                        }
+                      ],
+                      "cityName": "Saratoga",
+                      "geographicRegionName": [
+                        {
+                          "value": "CA"
+                        }
+                      ],
+                      "countryCode": "US",
+                      "postalCode": "95070-0339"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "value": "33804"
+            }
+          ]
+        }
+      ]
+    },
+    "groupArtUnitNumber": {
+      "value": "2862",
+      "electronicText": "2862"
+    },
+    "applicationConfirmationNumber": "3871",
+    "applicantFileReference": "19101UDS",
+    "patentClassificationBag": {
+      "cpcClassificationBagOrIPCClassificationOrECLAClassificationBag": [
+        {
+          "ipOfficeCode": "US",
+          "mainNationalClassification": {
+            "nationalClass": "702",
+            "nationalSubclass": "094000"
+          }
+        }
+      ]
+    },
+    "businessEntityStatusCategory": "SMALL",
+    "firstInventorToFileIndicator": "true",
+    "inventionTitle": {
+      "content": [
+        "OBJECT POSE MEASUREMENT SYSTEM BASED ON MEMS IMU AND METHOD THEREOF"
+      ]
+    },
+    "officialFileLocationCategory": "ELECTRONIC",
+    "patentPublicationIdentification": {
+      "publicationNumber": "US20190133531A1",
+      "publicationDate": "2019-05-09"
+    },
+    "relatedDocumentData": {
+      "parentDocumentDataOrChildDocumentData": [
+        {
+          "descriptionText": "This application is a Division of",
+          "applicationNumberText": "15586342",
+          "filingDate": "2017-05-04",
+          "aiaIndicator": true,
+          "parentDocumentStatusCode": "Patented",
+          "patentNumber": "10299731"
+        }
+      ]
+    }
+  },
+  "st96Version": "V3_1",
+  "ipoVersion": "US_V8_0"
+}

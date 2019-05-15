@@ -37,38 +37,48 @@ func extractTitle(record *RawPatentRecord) string {
 	return titleTextProcessed
 }
 
-// extractContacts converts the contact array to a plain text, parts separated by "@".
+// extractContacts converts the contact array to a plain text, parts separated by "~".
 func extractContacts(contacts *[]Contact) string {
 	contactTexts := []string{}
 	for _, contact := range *contacts {
 		var result bytes.Buffer
-		hasName := len(contact.Name.PersonNameOrOrganizationNameOrEntityName) > 0
+    name := contact.Name.PersonNameOrOrganizationNameOrEntityName
+		hasName := len(name) > 0
 		// Full name.
 		if hasName {
-			result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName)
+			result.WriteString(name[0].PersonFullName)
 		}
 		result.WriteString("|")
 
 		// First name, Middle name, Last name.
 		if hasName {
-			result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.FirstName)
+			result.WriteString(name[0].PersonStructuredName.FirstName)
 		}
 		result.WriteString("|")
 
 		if hasName {
-			result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.MiddleName)
+			result.WriteString(name[0].PersonStructuredName.MiddleName)
 		}
 		result.WriteString("|")
 
 		if hasName {
-			result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName)
+			result.WriteString(name[0].PersonStructuredName.LastName)
 		}
 		result.WriteString("|")
 
 		if hasName {
-			result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.NameSuffix)
+			result.WriteString(name[0].PersonStructuredName.NameSuffix)
 		}
 		result.WriteString("|")
+
+    // Organization name.
+    if hasName {
+      hasOrgName := len(name[0].OrganizationStandardName.Content) > 0
+      if hasOrgName {
+        result.WriteString(name[0].OrganizationStandardName.Content[0])
+      }
+    }
+    result.WriteString("|")
 
 		// Phone number.
 		if len(contact.PhoneNumberBag.PhoneNumber) > 0 {

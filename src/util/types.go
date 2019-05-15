@@ -87,6 +87,9 @@ type EntityName struct {
 		LastName   string `json:"lastName"`
 		NameSuffix string `json:"nameSuffix"`
 	} `json:"personStructuredName"`
+  OrganizationStandardName struct {
+    Content []string `json:"content"`
+  } `json:"organizationStandardName"`
 }
 
 // Contact defines an entity's contact information.
