@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"strings"
   "log"
+  "fmt"
 )
 
 // ExtractApplID gets applId from raw record.
@@ -45,6 +46,7 @@ func extractContacts(contacts *[]Contact) string {
 		var result bytes.Buffer
     name := contact.Name.PersonNameOrOrganizationNameOrEntityName
 		hasName := len(name) > 0
+    fmt.Println("has name")
 		// Full name.
 		if hasName {
 			result.WriteString(name[0].PersonFullName)
@@ -172,6 +174,8 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 		}
 		// Identifier is left as blank for now.
 	}
+
+  fmt.Println(partyTexts)
 
 	result.WriteString(strings.Join(partyTexts[:], "^^"))
 	result.WriteString("^^")
