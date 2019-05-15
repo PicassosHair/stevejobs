@@ -7,25 +7,25 @@ import (
 )
 
 // ExtractApplID gets applId from raw record.
-func ExtractApplID(record *RawPatentRecords) string {
-	applText := (*record)[0].PatentCaseMetadata.ApplicationNumberText.Value
+func ExtractApplID(record *RawPatentRecord) string {
+	applText := (*record).PatentCaseMetadata.ApplicationNumberText.Value
 
 	return applText
 }
 
 func escapeText(tt *string) string {
-  r := strings.NewReplacer(
-    "\n", " ", // line break.
-    "^^", " ", // field break.
-    "\\", "", // special chars.
-    "|", "", // field line break - each field could be an array.
-    "~", "") // atom field break.
-    return r.Replace(*tt)
+	r := strings.NewReplacer(
+		"\n", " ", // line break.
+		"^^", " ", // field break.
+		"\\", "", // special chars.
+		"|", "", // field line break - each field could be an array.
+		"~", "") // atom field break.
+	return r.Replace(*tt)
 }
 
 // extractTitle gets title text without linebreaks.
-func extractTitle(record *RawPatentRecords) string {
-	titleContent := (*record)[0].PatentCaseMetadata.InventionTitle.Content
+func extractTitle(record *RawPatentRecord) string {
+	titleContent := (*record).PatentCaseMetadata.InventionTitle.Content
 	titleText := ""
 
 	if titleContent != nil {
@@ -39,66 +39,66 @@ func extractTitle(record *RawPatentRecords) string {
 
 // extractContacts converts the contact array to a plain text, parts separated by "@".
 func extractContacts(contacts *[]Contact) string {
-  contactTexts := []string{}
-  for _, contact := range *contacts {
-    var result bytes.Buffer
-    hasName := len(contact.Name.PersonNameOrOrganizationNameOrEntityName) > 0
-    // Full name.
-    if hasName {
-      result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName)  
-    }
-    result.WriteString("|")
+	contactTexts := []string{}
+	for _, contact := range *contacts {
+		var result bytes.Buffer
+		hasName := len(contact.Name.PersonNameOrOrganizationNameOrEntityName) > 0
+		// Full name.
+		if hasName {
+			result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonFullName)
+		}
+		result.WriteString("|")
 
-    // First name, Middle name, Last name.
-    if hasName {
-      result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.FirstName)  
-    }
-    result.WriteString("|")
+		// First name, Middle name, Last name.
+		if hasName {
+			result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.FirstName)
+		}
+		result.WriteString("|")
 
-    if hasName {
-      result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.MiddleName)  
-    }
-    result.WriteString("|")
+		if hasName {
+			result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.MiddleName)
+		}
+		result.WriteString("|")
 
-    if hasName {
-      result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName)  
-    }
-    result.WriteString("|")
+		if hasName {
+			result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.LastName)
+		}
+		result.WriteString("|")
 
-    if hasName {
-      result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.NameSuffix)  
-    }
-    result.WriteString("|")
+		if hasName {
+			result.WriteString(contact.Name.PersonNameOrOrganizationNameOrEntityName[0].PersonStructuredName.NameSuffix)
+		}
+		result.WriteString("|")
 
-    // Phone number.
-    if len(contact.PhoneNumberBag.PhoneNumber) > 0 {
-      result.WriteString(contact.PhoneNumberBag.PhoneNumber[0].Value)
-    }
-    result.WriteString("|")
+		// Phone number.
+		if len(contact.PhoneNumberBag.PhoneNumber) > 0 {
+			result.WriteString(contact.PhoneNumberBag.PhoneNumber[0].Value)
+		}
+		result.WriteString("|")
 
-    // City name.
-    result.WriteString(contact.CityName)
-    result.WriteString("|")
+		// City name.
+		result.WriteString(contact.CityName)
+		result.WriteString("|")
 
-    // Region.
-    result.WriteString(contact.GeographicRegionName.Value)
-    result.WriteString("|")
+		// Region.
+		result.WriteString(contact.GeographicRegionName.Value)
+		result.WriteString("|")
 
-    // Region category.
-    result.WriteString(contact.GeographicRegionName.GeographicRegionCategory)
-    result.WriteString("|")
+		// Region category.
+		result.WriteString(contact.GeographicRegionName.GeographicRegionCategory)
+		result.WriteString("|")
 
-    // Country Code.
-    result.WriteString(contact.CountryCode)
-  }
+		// Country Code.
+		result.WriteString(contact.CountryCode)
+	}
 
-  return strings.Join(contactTexts[:], "~")
+	return strings.Join(contactTexts[:], "~")
 }
 
 // ProcessApplication processes generated JSON record and generates a csv-like string for each application. TODO: parse all parties, not just the first one.
-func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
+func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	var result bytes.Buffer
-	metadata := (*record)[0].PatentCaseMetadata
+	metadata := (*record).PatentCaseMetadata
 
 	result.WriteString(ExtractApplID(record))
 	result.WriteString("^^")
@@ -120,7 +120,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 			var examiner Examiner
 			err := json.Unmarshal(*raw, &examiner)
 			if err == nil {
-        contacts := ([]Contact)(examiner)
+				contacts := ([]Contact)(examiner)
 				partyTexts[0] = extractContacts(&contacts)
 			}
 		}
@@ -129,7 +129,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 			var applicant Applicant
 			err := json.Unmarshal(*raw, &applicant)
 			if err == nil && len(applicant) > 0 {
-        contacts := ([]Contact)(applicant[0].ContactOrPublicationContact)
+				contacts := ([]Contact)(applicant[0].ContactOrPublicationContact)
 				partyTexts[1] = extractContacts(&contacts)
 			}
 		}
@@ -138,7 +138,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 			var inventor Inventor
 			err := json.Unmarshal(*raw, &inventor)
 			if err == nil && len(inventor) > 0 {
-        contacts := ([]Contact)(inventor[0].ContactOrPublicationContact)
+				contacts := ([]Contact)(inventor[0].ContactOrPublicationContact)
 				partyTexts[2] = extractContacts(&contacts)
 			}
 		}
@@ -147,7 +147,7 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 			var practitioner Practitioner
 			err := json.Unmarshal(*raw, &practitioner)
 			if err == nil && len(practitioner) > 0 {
-        contacts := ([]Contact)(practitioner[0].ContactOrPublicationContact)
+				contacts := ([]Contact)(practitioner[0].ContactOrPublicationContact)
 				partyTexts[3] = extractContacts(&contacts)
 			}
 		}
@@ -225,9 +225,9 @@ func ProcessApplication(record *RawPatentRecords) bytes.Buffer {
 }
 
 // ProcessCode processes generated JSON record and generate a string of transaction codes. Since the total amount of code is ~600, we will just use a map to dedup here.
-func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer {
+func ProcessCode(record *RawPatentRecord, codeMap map[string]bool) bytes.Buffer {
 	var result bytes.Buffer
-	transactionData := (*record)[0].ProsecutionHistoryDataBag.ProsecutionHistoryData
+	transactionData := (*record).ProsecutionHistoryDataBag.ProsecutionHistoryData
 	for _, event := range transactionData {
 		descText := event.EventDescriptionText
 		texts := strings.Split(descText, " , ")
@@ -253,9 +253,9 @@ func ProcessCode(record *RawPatentRecords, codeMap map[string]bool) bytes.Buffer
 }
 
 // ProcessTransaction processes the record and generates a string of transactions. Separated by linebreaks.
-func ProcessTransaction(record *RawPatentRecords) bytes.Buffer {
+func ProcessTransaction(record *RawPatentRecord) bytes.Buffer {
 	var result bytes.Buffer
-	transactionData := (*record)[0].ProsecutionHistoryDataBag.ProsecutionHistoryData
+	transactionData := (*record).ProsecutionHistoryDataBag.ProsecutionHistoryData
 	applID := ExtractApplID(record)
 
 	for _, event := range transactionData {

@@ -4,69 +4,76 @@ import (
 	"encoding/json"
 )
 
-// RawPatentRecords defines raw PEDS bulk data.
-// View sample_record to see its structure.
-type RawPatentRecords []struct {
-	PatentCaseMetadata struct {
-		ApplicationNumberText struct {
-			Value, ElectronicText string
-		} `json:"applicationNumberText"`
-		FilingDate              string
-		ApplicationTypeCategory string
-		PartyBag                struct {
-			// Could be primaryExaminerOrAssistantExaminerOrAuthorizedOfficer, applicant, inventorOrDeceasedInventor.
-			ApplicantBagOrInventorBagOrOwnerBag []map[string]*json.RawMessage
-		}
-		GroupArtUnitNumber struct {
-			Value, ElectronicText string
-		}
-		ApplicationConfirmationNumber, ApplicantFileReference string
-		PriorityClaimBag                                      struct {
-			PriorityClaim []struct {
-				IPOfficeName      string `json:"ipOfficeName"`
-				FilingDate        string `json:"filingDate"`
-				SequenceNumber    string `json:"sequenceNumber"`
-				ApplicationNumber struct {
-					ApplicationNumberText string
-				}
-			}
-		}
-		PatentClassificationBag struct {
-			CpcClassificationBagOrIPCClassificationOrECLAClassificationBag []struct {
-				IPOfficeCode               string `json:"ipOfficeName"`
-				MainNationalClassification struct {
-					NationalClass, NationalSubclass string
-				}
-			}
-		}
-		BusinessEntityStatusCategory, FirstInventorToFileIndicator string
-		InventionTitle                                             struct {
-			Content []string
-		}
-		ApplicationStatusCategory, ApplicationStatusDate, OfficialFileLocationCategory string `json:"officialFileLocationCategory"`
-    PatentPublicationIdentification struct {
-      PublicationNumber string `json:"publicationNumber"`
-      PublicationDate string `json:"publicationDate"`
-    } `json:"patentPublicationIdentification"`
-    PatentGrantIdentification struct {
-      PatentNumber string `json:"patentNumber"`
-      GrantDate string `json:"grantDate"`
-    } `json:"patentGrantIdentification"`
-		RelatedDocumentData                                                            struct {
-			ParentDocumentDataOrChildDocumentData []struct {
-				DescriptionText, ApplicationNumberText, FilingDate, ParentDocumentStatusCode, PatentNumber string
+// PatentCaseMetadata defines main meta data info.
+type PatentCaseMetadata struct {
+	ApplicationNumberText struct {
+		Value, ElectronicText string
+	} `json:"applicationNumberText"`
+	FilingDate              string
+	ApplicationTypeCategory string
+	PartyBag                struct {
+		// Could be primaryExaminerOrAssistantExaminerOrAuthorizedOfficer, applicant, inventorOrDeceasedInventor.
+		ApplicantBagOrInventorBagOrOwnerBag []map[string]*json.RawMessage
+	}
+	GroupArtUnitNumber struct {
+		Value, ElectronicText string
+	}
+	ApplicationConfirmationNumber, ApplicantFileReference string
+	PriorityClaimBag                                      struct {
+		PriorityClaim []struct {
+			IPOfficeName      string `json:"ipOfficeName"`
+			FilingDate        string `json:"filingDate"`
+			SequenceNumber    string `json:"sequenceNumber"`
+			ApplicationNumber struct {
+				ApplicationNumberText string
 			}
 		}
 	}
-
-	ProsecutionHistoryDataBag struct {
-		ProsecutionHistoryData []struct {
-			EventDate, EventDescriptionText string
+	PatentClassificationBag struct {
+		CpcClassificationBagOrIPCClassificationOrECLAClassificationBag []struct {
+			IPOfficeCode               string `json:"ipOfficeName"`
+			MainNationalClassification struct {
+				NationalClass, NationalSubclass string
+			}
 		}
-	} `json:"prosecutionHistoryDataBag"`
+	}
+	BusinessEntityStatusCategory, FirstInventorToFileIndicator string
+	InventionTitle                                             struct {
+		Content []string
+	}
+	ApplicationStatusCategory       string `json:"applicationStatusCategory"`
+	ApplicationStatusDate           string `json:"applicationStatusDate"`
+	OfficialFileLocationCategory    string `json:"officialFileLocationCategory"`
+	PatentPublicationIdentification struct {
+		PublicationNumber string `json:"publicationNumber"`
+		PublicationDate   string `json:"publicationDate"`
+	} `json:"patentPublicationIdentification"`
+	PatentGrantIdentification struct {
+		PatentNumber string `json:"patentNumber"`
+		GrantDate    string `json:"grantDate"`
+	} `json:"patentGrantIdentification"`
+	RelatedDocumentData struct {
+		ParentDocumentDataOrChildDocumentData []struct {
+			DescriptionText, ApplicationNumberText, FilingDate, ParentDocumentStatusCode, PatentNumber string
+		}
+	}
+}
+
+// ProsecutionHistoryDataBag defines transaction histories.
+type ProsecutionHistoryDataBag struct {
+	ProsecutionHistoryData []struct {
+		EventDate, EventDescriptionText string
+	}
+}
+
+// RawPatentRecord defines raw PEDS bulk data.
+// View sample_record.json.
+type RawPatentRecord struct {
+	PatentCaseMetadata        PatentCaseMetadata        `json:"patentCaseMetadata"`
+	ProsecutionHistoryDataBag ProsecutionHistoryDataBag `json:"prosecutionHistoryDataBag"`
 
 	St96Version string `json:"st96Version"`
-  IpoVersion string `json:"ipoVersion"`
+	IpoVersion  string `json:"ipoVersion"`
 }
 
 // EntityName defines a person or an entity name, full or structured.

@@ -1,492 +1,845 @@
-{
-  "patentRecordBag": {
-    "patentRecord": [
-      {
-        "patentCaseMetadata": {
-          "applicationNumberText": {
-            "value": "16314662",
-            "electronicText": "16314662"
-          },
-          "filingDate": "2019-01-01",
-          "applicationTypeCategory": "Utility",
-          "partyBag": {
-            "applicantBagOrInventorBagOrOwnerBag": [
-              {
-                "primaryExaminerOrAssistantExaminerOrAuthorizedOfficer": [
+{ "PatentBulkData" : [ {
+
+  "patentCaseMetadata": {
+    "applicationNumberText": {
+      "value": "13342109",
+      "electronicText": "13342109"
+    },
+    "filingDate": "2012-01-01",
+    "applicationTypeCategory": "Utility",
+    "partyBag": {
+      "applicantBagOrInventorBagOrOwnerBag": [
+        {
+          "primaryExaminerOrAssistantExaminerOrAuthorizedOfficer": [
+            {
+              "name": {
+                "personNameOrOrganizationNameOrEntityName": [
                   {
-                    "name": {
-                      "personNameOrOrganizationNameOrEntityName": [
-                        { "personFullName": "NGO, RICKY QUOC" }
-                      ]
-                    }
+                    "personFullName": "BREWSTER, WILLIAM M"
                   }
                 ]
-              },
-              {
-                "applicant": [
-                  {
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "",
-                                "middleName": "",
-                                "lastName": "SONY MOBILE COMMUNICATIONS INC."
-                              }
-                            }
-                          ]
-                        },
-                        "cityName": "Tokyo",
-                        "geographicRegionName": {
-                          "value": "",
-                          "geographicRegionCategory": "STATE"
-                        },
-                        "countryCode": "JP"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "inventorOrDeceasedInventor": [
-                  {
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "Takashi",
-                                "middleName": "",
-                                "lastName": "NAKAYAMA"
-                              }
-                            }
-                          ]
-                        },
-                        "cityName": "Chiba",
-                        "geographicRegionName": {
-                          "value": "",
-                          "geographicRegionCategory": "STATE"
-                        },
-                        "countryCode": "JP"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "registeredPractitioner": [
-                  {
-                    "registeredPractitionerRegistrationNumber": "56959",
-                    "registeredPractitionerCategory": "AGENT",
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "Andrew",
-                                "middleName": "",
-                                "lastName": "Harry",
-                                "nameSuffix": ""
-                              }
-                            }
-                          ]
-                        },
-                        "phoneNumberBag": {
-                          "phoneNumber": [{ "value": "703-413-3000" }]
-                        }
-                      }
-                    ],
-                    "activeIndicator": true
-                  },
-                  {
-                    "registeredPractitionerRegistrationNumber": "57766",
-                    "registeredPractitionerCategory": "ATTORNEY",
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "Aaron",
-                                "middleName": "",
-                                "lastName": "Perez-Daple",
-                                "nameSuffix": ""
-                              }
-                            }
-                          ]
-                        },
-                        "phoneNumberBag": {
-                          "phoneNumber": [{ "value": "312-285-6905" }]
-                        }
-                      }
-                    ],
-                    "activeIndicator": true
-                  },
-                  {
-                    "registeredPractitionerRegistrationNumber": "40073",
-                    "registeredPractitionerCategory": "ATTORNEY",
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "Bradley",
-                                "middleName": "",
-                                "lastName": "Lytle",
-                                "nameSuffix": ""
-                              }
-                            }
-                          ]
-                        },
-                        "phoneNumberBag": {
-                          "phoneNumber": [{ "value": "571-376-6333" }]
-                        }
-                      }
-                    ],
-                    "activeIndicator": true
-                  },
-                  {
-                    "registeredPractitionerRegistrationNumber": "60532",
-                    "registeredPractitionerCategory": "ATTORNEY",
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "Milena",
-                                "middleName": "",
-                                "lastName": "Sukovic",
-                                "nameSuffix": ""
-                              }
-                            }
-                          ]
-                        },
-                        "phoneNumberBag": {
-                          "phoneNumber": [{ "value": "312-285-6905" }]
-                        }
-                      }
-                    ],
-                    "activeIndicator": true
-                  },
-                  {
-                    "registeredPractitionerRegistrationNumber": "73616",
-                    "registeredPractitionerCategory": "AGENT",
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "Brian",
-                                "middleName": "",
-                                "lastName": "Fisher",
-                                "nameSuffix": "Jr."
-                              }
-                            }
-                          ]
-                        },
-                        "phoneNumberBag": {
-                          "phoneNumber": [{ "value": "571-376-6333" }]
-                        }
-                      }
-                    ],
-                    "activeIndicator": true
-                  },
-                  {
-                    "registeredPractitionerRegistrationNumber": "69541",
-                    "registeredPractitionerCategory": "ATTORNEY",
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "Noah",
-                                "middleName": "",
-                                "lastName": "Flaks",
-                                "nameSuffix": ""
-                              }
-                            }
-                          ]
-                        },
-                        "phoneNumberBag": {
-                          "phoneNumber": [{ "value": "571-376-6333" }]
-                        }
-                      }
-                    ],
-                    "activeIndicator": true
-                  },
-                  {
-                    "registeredPractitionerRegistrationNumber": "56944",
-                    "registeredPractitionerCategory": "ATTORNEY",
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "Derek",
-                                "middleName": "",
-                                "lastName": "Benke",
-                                "nameSuffix": ""
-                              }
-                            }
-                          ]
-                        },
-                        "phoneNumberBag": {
-                          "phoneNumber": [{ "value": "571-376-6306" }]
-                        }
-                      }
-                    ],
-                    "activeIndicator": true
-                  },
-                  {
-                    "registeredPractitionerRegistrationNumber": "54719",
-                    "registeredPractitionerCategory": "ATTORNEY",
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "Zachary",
-                                "middleName": "",
-                                "lastName": "Stern",
-                                "nameSuffix": ""
-                              }
-                            }
-                          ]
-                        },
-                        "phoneNumberBag": {
-                          "phoneNumber": [{ "value": "571-376-6340" }]
-                        }
-                      }
-                    ],
-                    "activeIndicator": true
-                  },
-                  {
-                    "registeredPractitionerRegistrationNumber": "47288",
-                    "registeredPractitionerCategory": "AGENT",
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "Catherine",
-                                "middleName": "",
-                                "lastName": "Lytle",
-                                "nameSuffix": ""
-                              }
-                            }
-                          ]
-                        },
-                        "phoneNumberBag": {
-                          "phoneNumber": [{ "value": "571-214-8959" }]
-                        }
-                      }
-                    ],
-                    "activeIndicator": true
-                  },
-                  {
-                    "registeredPractitionerRegistrationNumber": "34648",
-                    "registeredPractitionerCategory": "ATTORNEY",
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "James",
-                                "middleName": "",
-                                "lastName": "Kulbaski",
-                                "nameSuffix": ""
-                              }
-                            }
-                          ]
-                        },
-                        "phoneNumberBag": {
-                          "phoneNumber": [{ "value": "571-376-6333" }]
-                        }
-                      }
-                    ],
-                    "activeIndicator": true
-                  },
-                  {
-                    "registeredPractitionerRegistrationNumber": "54375",
-                    "registeredPractitionerCategory": "AGENT",
-                    "contactOrPublicationContact": [
-                      {
-                        "name": {
-                          "personNameOrOrganizationNameOrEntityName": [
-                            {
-                              "personStructuredName": {
-                                "firstName": "Michael",
-                                "middleName": "",
-                                "lastName": "Plotnick",
-                                "nameSuffix": ""
-                              }
-                            }
-                          ]
-                        },
-                        "phoneNumberBag": {
-                          "phoneNumber": [{ "value": "215-364-4176" }]
-                        }
-                      }
-                    ],
-                    "activeIndicator": true
-                  }
-                ]
-              },
-              {
-                "partyIdentifierOrContact": [
-                  {
-                    "name": {
-                      "personNameOrOrganizationNameOrEntityName": [
-                        {
-                          "personStructuredName": { "lastName": "XSENSUS LLP" }
-                        }
-                      ]
-                    },
-                    "postalAddressBag": {
-                      "postalAddress": [
-                        {
-                          "postalStructuredAddress": {
-                            "addressLineText": [
-                              { "value": "200 Daingerfield Road" },
-                              { "value": "Suite 201" }
-                            ],
-                            "cityName": "Alexandria",
-                            "geographicRegionName": [{ "value": "VA" }],
-                            "countryCode": "US",
-                            "postalCode": "22314"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  { "value": "154930" }
-                ]
               }
-            ]
-          },
-          "groupArtUnitNumber": { "value": "2464", "electronicText": "2464" },
-          "applicationConfirmationNumber": "6420",
-          "applicantFileReference": "11501US01",
-          "priorityClaimBag": {
-            "priorityClaim": [
-              {
-                "ipOfficeName": "JAPAN",
-                "applicationNumber": { "applicationNumberText": "2016-139586" },
-                "filingDate": "2016-07-14",
-                "sequenceNumber": "1"
-              }
-            ]
-          },
-          "patentClassificationBag": {
-            "cpcClassificationBagOrIPCClassificationOrECLAClassificationBag": [
-              {
-                "ipOfficeCode": "US",
-                "mainNationalClassification": {
-                  "nationalClass": "370",
-                  "nationalSubclass": "329000"
-                }
-              }
-            ]
-          },
-          "businessEntityStatusCategory": "UNDISCOUNTED",
-          "firstInventorToFileIndicator": "true",
-          "inventionTitle": {
-            "content": [
-              "INFORMATION PROCESSING DEVICE, COMMUNICATION DEVICE, INFORMATION PROCESSING METHOD, COMMUNICATION METHOD, AND PROGRAM"
-            ]
-          },
-          "applicationStatusCategory": "Application Dispatched from Preexam, Not Yet Docketed",
-          "applicationStatusDate": "2019-03-27",
-          "officialFileLocationCategory": "ELECTRONIC",
-          "relatedDocumentData": {
-            "parentDocumentDataOrChildDocumentData": [
-              {
-                "descriptionText": "This application is National Stage Entry of",
-                "applicationNumberText": "PCT/JP2017/019188",
-                "filingDate": "2017-05-23",
-                "parentDocumentStatusCode": "Published",
-                "patentNumber": ""
-              }
-            ]
-          }
-        },
-        "prosecutionHistoryDataBag": {
-          "prosecutionHistoryData": [
-            {
-              "eventDate": "2019-02-28",
-              "eventDescriptionText": "Email Notification , EML_NTR"
-            },
-            {
-              "eventDate": "2019-02-28",
-              "eventDescriptionText": "Email Notification , EML_NTR"
-            },
-            {
-              "eventDate": "2019-01-01",
-              "eventDescriptionText": "371 Completion Date , 371COMP"
-            },
-            {
-              "eventDate": "2019-02-27",
-              "eventDescriptionText": "Sent to Classification Contractor , PGPC"
-            },
-            {
-              "eventDate": "2019-02-27",
-              "eventDescriptionText": "FITF set to YES - revise initial setting , FTFS"
-            },
-            {
-              "eventDate": "2019-01-01",
-              "eventDescriptionText": "Patent Term Adjustment - Ready for Examination , PTA.RFE"
-            },
-            {
-              "eventDate": "2019-02-28",
-              "eventDescriptionText": "Notice of DO/EO Acceptance Mailed , M903"
-            },
-            {
-              "eventDate": "2019-02-28",
-              "eventDescriptionText": "Filing Receipt , FLRCPT.O"
-            },
-            {
-              "eventDate": "2019-01-01",
-              "eventDescriptionText": "PTO/SB/69-Authorize EPO Access to Search Results , SREXR141"
-            },
-            {
-              "eventDate": "2019-01-01",
-              "eventDescriptionText": "Applicants have given acceptable permission for participating foreign  , APPERMS"
-            },
-            {
-              "eventDate": "2019-01-07",
-              "eventDescriptionText": "Cleared by OIPE CSR , L194"
-            },
-            {
-              "eventDate": "2019-01-01",
-              "eventDescriptionText": "Information Disclosure Statement (IDS) Filed , WIDS"
-            },
-            {
-              "eventDate": "2019-01-01",
-              "eventDescriptionText": "ENTITY STATUS SET TO UNDISCOUNTED (INITIAL DEFAULT SETTING OR STATUS CHANGE) , BIG."
-            },
-            {
-              "eventDate": "2019-01-01",
-              "eventDescriptionText": "Initial Exam Team nn , IEXX"
             }
           ]
         },
-        "st96Version": "V3_0",
-        "ipoVersion": "US_V8_0_D8"
+        {
+          "inventorOrDeceasedInventor": [
+            {
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Chin-Sheng",
+                          "middleName": "",
+                          "lastName": "Yang"
+                        }
+                      }
+                    ]
+                  },
+                  "cityName": "Hsinchu City",
+                  "geographicRegionName": {
+                    "value": "",
+                    "geographicRegionCategory": "STATE"
+                  },
+                  "countryCode": "TW"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "registeredPractitioner": [
+            {
+              "registeredPractitionerRegistrationNumber": "41526",
+              "registeredPractitionerCategory": "AGENT",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Winston",
+                          "middleName": "",
+                          "lastName": "Hsu",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "302-729-1562"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "1",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "67314",
+              "registeredPractitionerCategory": "AGENT",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Roger",
+                          "middleName": "",
+                          "lastName": "Chen",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "886-927-877-517"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "2",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "66781",
+              "registeredPractitionerCategory": "AGENT",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Xuan",
+                          "middleName": "",
+                          "lastName": "Zhang",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "626-628-7931"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "3",
+              "activeIndicator": true
+            }
+          ]
+        },
+        {
+          "partyIdentifierOrContact": [
+            {
+              "name": {
+                "personNameOrOrganizationNameOrEntityName": [
+                  {
+                    "personStructuredName": {
+                      "lastName": "NORTH AMERICA INTELLECTUAL PROPERTY CORPORATION"
+                    }
+                  }
+                ]
+              },
+              "postalAddressBag": {
+                "postalAddress": [
+                  {
+                    "postalStructuredAddress": {
+                      "addressLineText": [
+                        {
+                          "value": "5F., No.389, Fuhe Rd., Yonghe Dist."
+                        }
+                      ],
+                      "cityName": "New Taipei City",
+                      "geographicRegionName": [
+                        {
+                          "value": "null"
+                        }
+                      ],
+                      "countryCode": "TW",
+                      "postalCode": "null"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "value": "27765"
+            }
+          ]
+        }
+      ]
+    },
+    "groupArtUnitNumber": {
+      "value": "3716",
+      "electronicText": "3716"
+    },
+    "applicationConfirmationNumber": "3171",
+    "applicantFileReference": "NAUP1037USA3",
+    "patentClassificationBag": {
+      "cpcClassificationBagOrIPCClassificationOrECLAClassificationBag": [
+        {
+          "ipOfficeCode": "US",
+          "mainNationalClassification": {
+            "nationalClass": "438",
+            "nationalSubclass": "381000"
+          }
+        }
+      ]
+    },
+    "businessEntityStatusCategory": "UNDISCOUNTED",
+    "firstInventorToFileIndicator": "false",
+    "inventionTitle": {
+      "content": [
+        "METAL CAPACITOR AND METHOD OF MAKING THE SAME INCLUDING DIELECTRIC LAYER OF DIFFERENT MECHANICAL STRENGTH AND DIELECTRIC CONSTANT REGIONS"
+      ]
+    },
+    "applicationStatusCategory": "Patented Case",
+    "applicationStatusDate": "2012-11-14",
+    "officialFileLocationCategory": "ELECTRONIC",
+    "patentPublicationIdentification": {
+      "publicationNumber": "US20120115301A1",
+      "publicationDate": "2012-05-10"
+    },
+    "patentGrantIdentification": {
+      "patentNumber": "8324048",
+      "grantDate": "2012-12-04"
+    },
+    "relatedDocumentData": {
+      "parentDocumentDataOrChildDocumentData": [
+        {
+          "descriptionText": "This application is a Continuation of",
+          "applicationNumberText": "12255652",
+          "filingDate": "2008-10-21",
+          "aiaIndicator": false,
+          "parentDocumentStatusCode": "Patented",
+          "patentNumber": "8114734"
+        }
+      ]
+    }
+  },
+  "prosecutionHistoryDataBag": {
+    "prosecutionHistoryData": [
+      {
+        "eventDate": "2012-12-04",
+        "eventCode": "PGM/",
+        "eventDescriptionText": "Recordation of Patent Grant Mailed"
+      },
+      {
+        "eventDate": "2012-11-15",
+        "eventCode": "EML_NTR",
+        "eventDescriptionText": "Email Notification"
+      },
+      {
+        "eventDate": "2012-11-14",
+        "eventCode": "WPIR",
+        "eventDescriptionText": "Issue Notification Mailed"
+      },
+      {
+        "eventDate": "2012-12-04",
+        "eventCode": "PTAC",
+        "eventDescriptionText": "Patent Issue Date Used in PTA Calculation"
+      },
+      {
+        "eventDate": "2012-11-06",
+        "eventCode": "D1935",
+        "eventDescriptionText": "Dispatch to FDC"
+      },
+      {
+        "eventDate": "2012-11-02",
+        "eventCode": "PILS",
+        "eventDescriptionText": "Application Is Considered Ready for Issue"
+      },
+      {
+        "eventDate": "2012-10-29",
+        "eventCode": "N084",
+        "eventDescriptionText": "Issue Fee Payment Verified"
+      },
+      {
+        "eventDate": "2012-10-29",
+        "eventCode": "IFEE",
+        "eventDescriptionText": "Issue Fee Payment Received"
+      },
+      {
+        "eventDate": "2012-10-11",
+        "eventCode": "ELC_RVW",
+        "eventDescriptionText": "Electronic Review"
+      },
+      {
+        "eventDate": "2012-10-11",
+        "eventCode": "EML_NTF",
+        "eventDescriptionText": "Email Notification"
+      },
+      {
+        "eventDate": "2012-10-11",
+        "eventCode": "MN/\u003d.",
+        "eventDescriptionText": "Mail Notice of Allowance"
+      },
+      {
+        "eventDate": "2012-10-07",
+        "eventCode": "N/\u003d.",
+        "eventDescriptionText": "Notice of Allowance Data Verification Completed"
+      },
+      {
+        "eventDate": "2012-09-24",
+        "eventCode": "EX.R",
+        "eventDescriptionText": "Reasons for Allowance"
+      },
+      {
+        "eventDate": "2012-09-24",
+        "eventCode": "EX.A",
+        "eventDescriptionText": "Examiner\u0027s Amendment Communication"
+      },
+      {
+        "eventDate": "2012-09-02",
+        "eventCode": "FWDX",
+        "eventDescriptionText": "Date Forwarded to Examiner"
+      },
+      {
+        "eventDate": "2012-08-10",
+        "eventCode": "A...",
+        "eventDescriptionText": "Response after Non-Final Action"
+      },
+      {
+        "eventDate": "2012-08-17",
+        "eventCode": "P574",
+        "eventDescriptionText": "PARALEGAL OR ELECTRONIC TERMINAL DISCLAIMER APPROVED "
+      },
+      {
+        "eventDate": "2012-08-10",
+        "eventCode": "DIST",
+        "eventDescriptionText": "Terminal Disclaimer Filed"
+      },
+      {
+        "eventDate": "2012-05-10",
+        "eventCode": "ELC_RVW",
+        "eventDescriptionText": "Electronic Review"
+      },
+      {
+        "eventDate": "2012-05-11",
+        "eventCode": "EML_NTR",
+        "eventDescriptionText": "Email Notification"
+      },
+      {
+        "eventDate": "2012-05-10",
+        "eventCode": "EML_NTF",
+        "eventDescriptionText": "Email Notification"
+      },
+      {
+        "eventDate": "2012-05-10",
+        "eventCode": "PG-ISSUE",
+        "eventDescriptionText": "PG-Pub Issue Notification"
+      },
+      {
+        "eventDate": "2012-05-10",
+        "eventCode": "MCTNF",
+        "eventDescriptionText": "Mail Non-Final Rejection"
+      },
+      {
+        "eventDate": "2012-05-05",
+        "eventCode": "CTNF",
+        "eventDescriptionText": "Non-Final Rejection"
+      },
+      {
+        "eventDate": "2012-01-01",
+        "eventCode": "IDSC",
+        "eventDescriptionText": "Information Disclosure Statement considered"
+      },
+      {
+        "eventDate": "2012-03-21",
+        "eventCode": "DOCK",
+        "eventDescriptionText": "Case Docketed to Examiner in GAU"
+      },
+      {
+        "eventDate": "2012-01-01",
+        "eventCode": "WIDS",
+        "eventDescriptionText": "Information Disclosure Statement (IDS) Filed"
+      },
+      {
+        "eventDate": "2012-01-01",
+        "eventCode": "RCAP",
+        "eventDescriptionText": "Reference capture on IDS"
+      },
+      {
+        "eventDate": "2012-01-01",
+        "eventCode": "M844",
+        "eventDescriptionText": "Information Disclosure Statement (IDS) Filed"
+      },
+      {
+        "eventDate": "2012-02-27",
+        "eventCode": "OIPE",
+        "eventDescriptionText": "Application Dispatched from OIPE"
+      },
+      {
+        "eventDate": "2012-02-03",
+        "eventCode": "COMP",
+        "eventDescriptionText": "Application Is Now Complete"
+      },
+      {
+        "eventDate": "2012-02-03",
+        "eventCode": "EML_NTR",
+        "eventDescriptionText": "Email Notification"
+      },
+      {
+        "eventDate": "2012-02-03",
+        "eventCode": "EML_NTR",
+        "eventDescriptionText": "Email Notification"
+      },
+      {
+        "eventDate": "2012-02-03",
+        "eventCode": "PA..",
+        "eventDescriptionText": "Change in Power of Attorney (May Include Associate POA)"
+      },
+      {
+        "eventDate": "2012-02-02",
+        "eventCode": "PGPC",
+        "eventDescriptionText": "Sent to Classification Contractor"
+      },
+      {
+        "eventDate": "2012-02-03",
+        "eventCode": "FLRCPT.O",
+        "eventDescriptionText": "Filing Receipt"
+      },
+      {
+        "eventDate": "2012-01-01",
+        "eventCode": "APPERMS",
+        "eventDescriptionText": "Applicants have given acceptable permission for participating foreign "
+      },
+      {
+        "eventDate": "2012-01-25",
+        "eventCode": "L194",
+        "eventDescriptionText": "Cleared by OIPE CSR"
+      },
+      {
+        "eventDate": "2012-01-17",
+        "eventCode": "SCAN",
+        "eventDescriptionText": "IFW Scan \u0026 PACR Auto Security Review"
+      },
+      {
+        "eventDate": "2012-01-01",
+        "eventCode": "IEXX",
+        "eventDescriptionText": "Initial Exam Team nn"
       }
     ]
   },
-  "st96Version": "V3_0",
-  "ipoVersion": "US_V8_0_D8"
-}
+  "patentTermData": {
+    "patentTermAdjustmentData": {
+      "aDelayQuantity": 0,
+      "bDelayQuantity": 0,
+      "cDelayQuantity": 0,
+      "overlappingDayQuantity": 0,
+      "nonOverlappingDayQuantity": 0,
+      "ipOfficeDayDelayQuantity": 0,
+      "applicantDayDelayQuantity": 0,
+      "adjustmentTotalQuantity": 0,
+      "patentTermAdjustmentHistoryDataBag": {
+        "patentTermAdjustmentHistoryData": [
+          {
+            "eventSequenceNumber": 51.5,
+            "eventDate": "2012-12-04",
+            "eventDescriptionText": "PTA 36 Months",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0.5
+          },
+          {
+            "eventSequenceNumber": 51,
+            "eventDate": "2012-12-04",
+            "eventDescriptionText": "Patent Issue Date Used in PTA Calculation",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 48,
+            "eventDate": "2012-11-06",
+            "eventDescriptionText": "Dispatch to FDC",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 47,
+            "eventDate": "2012-11-02",
+            "eventDescriptionText": "Application Is Considered Ready for Issue",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 46,
+            "eventDate": "2012-10-29",
+            "eventDescriptionText": "Issue Fee Payment Verified",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 45,
+            "eventDate": "2012-10-29",
+            "eventDescriptionText": "Issue Fee Payment Received",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 41,
+            "eventDate": "2012-10-11",
+            "eventDescriptionText": "Mail Notice of Allowance",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 36,
+            "eventDate": "2012-10-07",
+            "eventDescriptionText": "Notice of Allowance Data Verification Completed",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 32,
+            "eventDate": "2012-09-24",
+            "eventDescriptionText": "Reasons for Allowance",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 31,
+            "eventDate": "2012-09-24",
+            "eventDescriptionText": "Examiner\u0027s Amendment Communication",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 27,
+            "eventDate": "2012-09-02",
+            "eventDescriptionText": "Date Forwarded to Examiner",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 26,
+            "eventDate": "2012-08-10",
+            "eventDescriptionText": "Response after Non-Final Action",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 25,
+            "eventDate": "2012-08-17",
+            "eventDescriptionText": "PARALEGAL OR ELECTRONIC TERMINAL DISCLAIMER APPROVED ",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 24,
+            "eventDate": "2012-08-10",
+            "eventDescriptionText": "Terminal Disclaimer Filed",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 23,
+            "eventDate": "2012-05-10",
+            "eventDescriptionText": "Electronic Review",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 22,
+            "eventDate": "2012-05-11",
+            "eventDescriptionText": "Email Notification",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 21,
+            "eventDate": "2012-05-10",
+            "eventDescriptionText": "Email Notification",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 20,
+            "eventDate": "2012-05-10",
+            "eventDescriptionText": "PG-Pub Issue Notification",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 19,
+            "eventDate": "2012-05-10",
+            "eventDescriptionText": "Mail Non-Final Rejection",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 17,
+            "eventDate": "2012-05-05",
+            "eventDescriptionText": "Non-Final Rejection",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 16,
+            "eventDate": "2012-01-01",
+            "eventDescriptionText": "Information Disclosure Statement considered",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 15,
+            "eventDate": "2012-03-21",
+            "eventDescriptionText": "Case Docketed to Examiner in GAU",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 14,
+            "eventDate": "2012-01-01",
+            "eventDescriptionText": "Information Disclosure Statement (IDS) Filed",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 13,
+            "eventDate": "2012-01-01",
+            "eventDescriptionText": "Reference capture on IDS",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 12,
+            "eventDate": "2012-01-01",
+            "eventDescriptionText": "Information Disclosure Statement (IDS) Filed",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 11,
+            "eventDate": "2012-02-27",
+            "eventDescriptionText": "Application Dispatched from OIPE",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 10,
+            "eventDate": "2012-02-03",
+            "eventDescriptionText": "Application Is Now Complete",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 9,
+            "eventDate": "2012-02-03",
+            "eventDescriptionText": "Email Notification",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 8,
+            "eventDate": "2012-02-03",
+            "eventDescriptionText": "Email Notification",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 7,
+            "eventDate": "2012-02-03",
+            "eventDescriptionText": "Change in Power of Attorney (May Include Associate POA)",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 6,
+            "eventDate": "2012-02-02",
+            "eventDescriptionText": "Sent to Classification Contractor",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 5,
+            "eventDate": "2012-02-03",
+            "eventDescriptionText": "Filing Receipt",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 4,
+            "eventDate": "2012-01-01",
+            "eventDescriptionText": "Applicants have given acceptable permission for participating foreign ",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 3,
+            "eventDate": "2012-01-25",
+            "eventDescriptionText": "Cleared by OIPE CSR",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 2,
+            "eventDate": "2012-01-17",
+            "eventDescriptionText": "IFW Scan \u0026 PACR Auto Security Review",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 1,
+            "eventDate": "2012-01-01",
+            "eventDescriptionText": "Initial Exam Team nn",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          },
+          {
+            "eventSequenceNumber": 0.5,
+            "eventDate": "2012-01-01",
+            "eventDescriptionText": "Filing date",
+            "ipOfficeDayDelayQuantity": 0,
+            "applicantDayDelayQuantity": 0,
+            "originatingEventSequenceNumber": 0
+          }
+        ]
+      }
+    }
+  },
+  "assignmentDataBag": {
+    "assignmentData": [
+      {
+        "reelNumber": "27472",
+        "frameNumber": "324",
+        "documentReceivedDate": "01-03-2012",
+        "recordedDate": "01-03-2012",
+        "mailDate": "01-04-2012",
+        "pageTotalQuantity": 3,
+        "conveyanceText": "ASSIGNMENT OF ASSIGNORS INTEREST (SEE DOCUMENT FOR DETAILS).",
+        "assignorBag": {
+          "assignor": [
+            {
+              "executionDate": "10-20-2008",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "value": "YANG, CHIN-SHENG"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "assigneeBag": {
+          "assignee": [
+            {
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "value": "UNITED MICROELECTRONICS CORP."
+                      }
+                    ]
+                  },
+                  "postalAddressBag": {
+                    "postalAddress": [
+                      {
+                        "postalAddressText": [
+                          {
+                            "sequenceNumber": "1",
+                            "value": "NO.3, LI-HSIN ROAD 2, SCIENCE-BASED INDUSTRIAL PARK"
+                          },
+                          {
+                            "sequenceNumber": "2",
+                            "value": "HSIN-CHU CITY TAIWAN"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "correspondenceAddress": {
+          "partyIdentifierOrContact": [
+            {
+              "name": {
+                "personNameOrOrganizationNameOrEntityName": [
+                  {
+                    "value": "WINSTON HSU"
+                  }
+                ]
+              },
+              "postalAddressBag": {
+                "postalAddress": [
+                  {
+                    "postalAddressText": [
+                      {
+                        "sequenceNumber": "1",
+                        "value": "P.O.BOX 506"
+                      },
+                      {
+                        "sequenceNumber": "2",
+                        "value": "MERRIFIELD, VA 22116"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "sequenceNumber": "1"
+      }
+    ],
+    "assignmentTotalQuantity": 1
+  },
+  "st96Version": "V3_1",
+  "ipoVersion": "US_V8_0"
+}]}

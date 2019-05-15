@@ -75,45 +75,48 @@ func main() {
 				break
 			}
 		}
-		// Match one application.
-		if t == "patentRecord" {
-			for decoder.More() {
-				var rawRecord util.RawPatentRecords
-				err := decoder.Decode(&rawRecord)
-				if err != nil {
-					log.Fatal(err)
-				}
 
-				if !*debugMode {
-					applicationText := util.ProcessApplication(&rawRecord)
-					writeApplicationsFile.WriteString(applicationText.String())
+		// Get first open bracket, enter array.
+		tokenStr := fmt.Sprintf("%v", t)
+		if tokenStr == "[" {
+			break
+		}
+	}
+	for decoder.More() {
+		var rawRecord util.RawPatentRecord
+		err := decoder.Decode(&rawRecord)
+		if err != nil {
+			log.Fatal(err)
+		}
 
-					codeText := util.ProcessCode(&rawRecord, codeSet)
-					writeCodesFile.WriteString(codeText.String())
+		if !*debugMode {
+			applicationText := util.ProcessApplication(&rawRecord)
+			writeApplicationsFile.WriteString(applicationText.String())
 
-					transactionText := util.ProcessTransaction(&rawRecord)
-					writeTransactionFile.WriteString(transactionText.String())
-				} else {
-					applIDText := util.ExtractApplID(&rawRecord)
-					if *applID == applIDText {
-						tcText := util.ProcessTransaction(&rawRecord)
-						fmt.Println(tcText.String())
+			codeText := util.ProcessCode(&rawRecord, codeSet)
+			writeCodesFile.WriteString(codeText.String())
 
-						applicationText := util.ProcessApplication(&rawRecord)
-						fmt.Println(applicationText.String())
-					}
-				}
-			}
-			writeApplicationsFile.Sync()
-			writeCodesFile.Sync()
-			writeTransactionFile.Sync()
+			transactionText := util.ProcessTransaction(&rawRecord)
+			writeTransactionFile.WriteString(transactionText.String())
+		} else {
+			applIDText := util.ExtractApplID(&rawRecord)
+			if *applID == applIDText {
+				tcText := util.ProcessTransaction(&rawRecord)
+				fmt.Println(tcText.String())
 
-			// Log every 100000 applications
-			count++
-			if count%loggingThreshold == 0 {
-				fmt.Println(count, "...")
+				applicationText := util.ProcessApplication(&rawRecord)
+				fmt.Println(applicationText.String())
 			}
 		}
+	}
+	writeApplicationsFile.Sync()
+	writeCodesFile.Sync()
+	writeTransactionFile.Sync()
+
+	// Log every 100000 applications
+	count++
+	if count%loggingThreshold == 0 {
+		fmt.Println(count, "...")
 	}
 
 	duration := time.Since(startTime)
