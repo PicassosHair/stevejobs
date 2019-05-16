@@ -184,7 +184,7 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	result.WriteString(metadata.ApplicationConfirmationNumber)
 	result.WriteString("^^")
 
-	result.WriteString(metadata.ApplicantFileReference)
+	result.WriteString(escapeText(&metadata.ApplicantFileReference))
 	result.WriteString("^^")
 
 	// priorityClaimBag
