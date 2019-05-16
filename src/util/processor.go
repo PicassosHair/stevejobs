@@ -3,8 +3,8 @@ package util
 import (
 	"bytes"
 	"encoding/json"
+	"log"
 	"strings"
-  "log"
 )
 
 // ExtractApplID gets applId from raw record.
@@ -40,72 +40,71 @@ func extractTitle(record *RawPatentRecord) string {
 
 // extractContacts converts the contact array to a plain text, parts separated by "~".
 func extractContacts(contacts *[]Contact) string {
-	contactTexts := []string{}
-	for _, contact := range *contacts {
-		var result bytes.Buffer
-    name := contact.Name.PersonNameOrOrganizationNameOrEntityName
-		hasName := len(name) > 0
-		// Full name.
-		if hasName {
-			result.WriteString(name[0].PersonFullName)
-		}
-		result.WriteString("|")
-
-		// First name, Middle name, Last name.
-		if hasName {
-			result.WriteString(name[0].PersonStructuredName.FirstName)
-		}
-		result.WriteString("|")
-
-		if hasName {
-			result.WriteString(name[0].PersonStructuredName.MiddleName)
-		}
-		result.WriteString("|")
-
-		if hasName {
-			result.WriteString(name[0].PersonStructuredName.LastName)
-		}
-		result.WriteString("|")
-
-		if hasName {
-			result.WriteString(name[0].PersonStructuredName.NameSuffix)
-		}
-		result.WriteString("|")
-
-    // Organization name.
-    if hasName {
-      hasOrgName := len(name[0].OrganizationStandardName.Content) > 0
-      if hasOrgName {
-        result.WriteString(name[0].OrganizationStandardName.Content[0])
-      }
-    }
-    result.WriteString("|")
-
-		// Phone number.
-		if len(contact.PhoneNumberBag.PhoneNumber) > 0 {
-			result.WriteString(contact.PhoneNumberBag.PhoneNumber[0].Value)
-		}
-		result.WriteString("|")
-
-		// City name.
-		result.WriteString(contact.CityName)
-		result.WriteString("|")
-
-		// Region.
-		result.WriteString(contact.GeographicRegionName.Value)
-		result.WriteString("|")
-
-		// Region category.
-		result.WriteString(contact.GeographicRegionName.GeographicRegionCategory)
-		result.WriteString("|")
-
-		// Country Code.
-		result.WriteString(contact.CountryCode)
-
-    contactTexts = append(contactTexts, result.String())
+	if len(*contacts) == 0 {
+		return ""
 	}
+	contact := (*contacts)[0]
+	var result bytes.Buffer
+	name := contact.Name.PersonNameOrOrganizationNameOrEntityName
+	hasName := len(name) > 0
+	// Full name.
+	if hasName {
+		result.WriteString(name[0].PersonFullName)
+	}
+	result.WriteString("|")
 
-	return strings.Join(contactTexts[:], "~")
+	// First name, Middle name, Last name.
+	if hasName {
+		result.WriteString(name[0].PersonStructuredName.FirstName)
+	}
+	result.WriteString("|")
+
+	if hasName {
+		result.WriteString(name[0].PersonStructuredName.MiddleName)
+	}
+	result.WriteString("|")
+
+	if hasName {
+		result.WriteString(name[0].PersonStructuredName.LastName)
+	}
+	result.WriteString("|")
+
+	if hasName {
+		result.WriteString(name[0].PersonStructuredName.NameSuffix)
+	}
+	result.WriteString("|")
+
+	// Organization name.
+	if hasName {
+		hasOrgName := len(name[0].OrganizationStandardName.Content) > 0
+		if hasOrgName {
+			result.WriteString(name[0].OrganizationStandardName.Content[0])
+		}
+	}
+	result.WriteString("|")
+
+	// Phone number.
+	if len(contact.PhoneNumberBag.PhoneNumber) > 0 {
+		result.WriteString(contact.PhoneNumberBag.PhoneNumber[0].Value)
+	}
+	result.WriteString("|")
+
+	// City name.
+	result.WriteString(contact.CityName)
+	result.WriteString("|")
+
+	// Region.
+	result.WriteString(contact.GeographicRegionName.Value)
+	result.WriteString("|")
+
+	// Region category.
+	result.WriteString(contact.GeographicRegionName.GeographicRegionCategory)
+	result.WriteString("|")
+
+	// Country Code.
+	result.WriteString(contact.CountryCode)
+
+	return result.String()
 }
 
 // ProcessApplication processes generated JSON record and generates a csv-like string for each application. TODO: parse all parties, not just the first one.
@@ -136,8 +135,8 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 				contacts := ([]Contact)(examiner)
 				partyTexts[0] = extractContacts(&contacts)
 			} else {
-        log.Fatal("Failed parse primaryExaminerOrAssistantExaminerOrAuthorizedOfficer.")
-      }
+				log.Fatal("Failed parse primaryExaminerOrAssistantExaminerOrAuthorizedOfficer.")
+			}
 		}
 		// Applicant
 		if raw, ok := party["applicant"]; ok {
@@ -147,8 +146,8 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 				contacts := ([]Contact)(applicant[0].ContactOrPublicationContact)
 				partyTexts[1] = extractContacts(&contacts)
 			} else {
-        log.Fatal("Failed parse applicant.")
-      }
+				log.Fatal("Failed parse applicant.")
+			}
 		}
 		// Inventor
 		if raw, ok := party["inventorOrDeceasedInventor"]; ok {
@@ -158,8 +157,8 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 				contacts := ([]Contact)(inventor[0].ContactOrPublicationContact)
 				partyTexts[2] = extractContacts(&contacts)
 			} else {
-        log.Fatal("Failed parse inventorOrDeceasedInventor.")
-      }
+				log.Fatal("Failed parse inventorOrDeceasedInventor.")
+			}
 		}
 		// Practitioner
 		if raw, ok := party["registeredPractitioner"]; ok {
@@ -169,8 +168,8 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 				contacts := ([]Contact)(practitioner[0].ContactOrPublicationContact)
 				partyTexts[3] = extractContacts(&contacts)
 			} else {
-        log.Fatal("Failed parse registeredPractitioner.")
-      }
+				log.Fatal("Failed parse registeredPractitioner.")
+			}
 		}
 		// Identifier is left as blank for now.
 	}
@@ -256,8 +255,8 @@ func ProcessCode(record *RawPatentRecord, codeMap map[string]bool) bytes.Buffer 
 			continue
 		} else {
 			result.WriteString(desc)
-      result.WriteString("^^")
-      result.WriteString(code)
+			result.WriteString("^^")
+			result.WriteString(code)
 			result.WriteString("^^")
 			result.WriteString("info")
 			result.WriteString("^^")
@@ -279,7 +278,7 @@ func ProcessTransaction(record *RawPatentRecord) bytes.Buffer {
 
 	for _, event := range transactionData {
 		eventCode := event.EventCode
-		
+
 		result.WriteString(eventCode)
 		result.WriteString("^^")
 		result.WriteString(applID)
