@@ -38,8 +38,8 @@ func extractTitle(record *RawPatentRecord) string {
 	return titleTextProcessed
 }
 
-// extractContacts converts the contact array to a plain text, parts separated by "~".
-func extractContacts(contacts *[]Contact) string {
+// extractContact converts the contact array to a plain text with single contact.
+func extractContact(contacts *[]Contact) string {
 	if len(*contacts) == 0 {
 		return ""
 	}
@@ -133,7 +133,7 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 			err := json.Unmarshal(*raw, &examiner)
 			if err == nil {
 				contacts := ([]Contact)(examiner)
-				partyTexts[0] = extractContacts(&contacts)
+				partyTexts[0] = extractContact(&contacts)
 			} else {
 				log.Fatal("Failed parse primaryExaminerOrAssistantExaminerOrAuthorizedOfficer.")
 			}
@@ -144,7 +144,7 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 			err := json.Unmarshal(*raw, &applicant)
 			if err == nil && len(applicant) > 0 {
 				contacts := ([]Contact)(applicant[0].ContactOrPublicationContact)
-				partyTexts[1] = extractContacts(&contacts)
+				partyTexts[1] = extractContact(&contacts)
 			} else {
 				log.Fatal("Failed parse applicant.")
 			}
@@ -154,8 +154,12 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 			var inventor Inventor
 			err := json.Unmarshal(*raw, &inventor)
 			if err == nil && len(inventor) > 0 {
-				contacts := ([]Contact)(inventor[0].ContactOrPublicationContact)
-				partyTexts[2] = extractContacts(&contacts)
+        var inventorTexts []string
+        for _, contactWrapper := range inventor {
+          contact := ([]Contact)(contactWrapper.ContactOrPublicationContact)
+          inventorTexts = append(inventorTexts, extractContact(&contact))
+        }
+				partyTexts[2] = strings.Join(inventorTexts, "~")
 			} else {
 				log.Fatal("Failed parse inventorOrDeceasedInventor.")
 			}
@@ -166,7 +170,7 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 			err := json.Unmarshal(*raw, &practitioner)
 			if err == nil && len(practitioner) > 0 {
 				contacts := ([]Contact)(practitioner[0].ContactOrPublicationContact)
-				partyTexts[3] = extractContacts(&contacts)
+				partyTexts[3] = extractContact(&contacts)
 			} else {
 				log.Fatal("Failed parse registeredPractitioner.")
 			}
