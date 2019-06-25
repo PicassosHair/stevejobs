@@ -116,8 +116,9 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	result.WriteString("^^")
 
 	result.WriteString(metadata.FilingDate)
-  // EST 12:00PM, UTC 17:00PM.
-  result.WriteString(" 17:00:00")
+  if event.FilingDate && len(event.FilingDate) > 0 {
+    result.WriteString(" 17:00:00")
+  }
 	result.WriteString("^^")
 
 	result.WriteString(metadata.ApplicationTypeCategory)
@@ -198,7 +199,10 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].ApplicationNumber.ApplicationNumberText)
 		result.WriteString("~")
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].FilingDate)
-    result.WriteString(" 17:00:00")
+    if metadata.PriorityClaimBag.PriorityClaim[0].FilingDate &&
+      len(metadata.PriorityClaimBag.PriorityClaim[0].FilingDate) > 0 {
+      result.WriteString(" 17:00:00")
+    }
 		result.WriteString("~")
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].IPOfficeName)
 		result.WriteString("~")
@@ -229,7 +233,9 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	result.WriteString("^^")
 
 	result.WriteString(metadata.ApplicationStatusDate)
-  result.WriteString(" 17:00:00")
+  if event.ApplicationStatusDate && len(event.ApplicationStatusDate) > 0 {
+    result.WriteString(" 17:00:00")
+  }
 	result.WriteString("^^")
 
 	result.WriteString(metadata.OfficialFileLocationCategory)
@@ -240,16 +246,23 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	result.WriteString(metadata.PatentPublicationIdentification.PublicationNumber)
 	result.WriteString("^^")
 
+  // TODO: create a func and make this less repeatable.
 	result.WriteString(metadata.PatentPublicationIdentification.PublicationDate)
-  result.WriteString(" 17:00:00")
+  if metadata.PatentPublicationIdentification.PublicationDate &&
+    len(metadata.PatentPublicationIdentification.PublicationDate) > 0 {
+    result.WriteString(" 17:00:00")
+  }
 	result.WriteString("^^")
 
 	result.WriteString(metadata.PatentGrantIdentification.PatentNumber)
 	result.WriteString("^^")
 
 	result.WriteString(metadata.PatentGrantIdentification.GrantDate)
-  result.WriteString(" 17:00:00")
-  
+  if metadata.PatentGrantIdentification.GrantDate &&
+    len(metadata.PatentGrantIdentification.GrantDate) > 0 {
+    result.WriteString(" 17:00:00")
+  }
+
 	result.WriteString("\n")
 	return result
 }
@@ -294,7 +307,9 @@ func ProcessTransaction(record *RawPatentRecord) bytes.Buffer {
 		result.WriteString(applID)
 		result.WriteString("^^")
 		result.WriteString(event.EventDate)
-    result.WriteString(" 17:00:00")
+    if event.EventDate && len(event.EventDate) > 0 {
+      result.WriteString(" 17:00:00")
+    }
 		result.WriteString("\n")
 	}
 
