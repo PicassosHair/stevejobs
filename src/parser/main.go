@@ -117,7 +117,7 @@ func main() {
 	count++
 	if count%loggingThreshold == 0 {
 		fmt.Println(count, "...")
-    util.LogSlack("info", fmt.Sprintf("Parsed %s applications", count))
+    util.LogSlack("info", fmt.Sprintf("Parsed %d applications", count))
 	}
 
 	duration := time.Since(startTime)
