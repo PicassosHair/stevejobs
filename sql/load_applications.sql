@@ -132,7 +132,7 @@ FROM temp_Applications
 ON DUPLICATE KEY UPDATE 
   updatedAt = NOW(),
   title = VALUES(title),
-  filingDate = VALUES(filingDate),
+  filingDate = CONCAT(VALUES(filingDate), ' 13:00:00'),
   typeCategory = VALUES(typeCategory),
   examiner = VALUES(examiner),
   applicant = VALUES(applicant),
@@ -148,11 +148,11 @@ ON DUPLICATE KEY UPDATE
   firstInventorToFileIndicator = VALUES(firstInventorToFileIndicator),
   title = VALUES(title),
   statusCategory = VALUES(statusCategory),
-  statusDate = VALUES(statusDate),
+  statusDate = CONCAT(VALUES(statusDate), ' 13:00:00'),
   officialFileLocationCategory = VALUES(officialFileLocationCategory),
   publicationNumber = VALUES(publicationNumber),
-  publicationDate = VALUES(publicationDate),
+  publicationDate = CONCAT(VALUES(publicationDate), ' 13:00:00'),
   patentNumber = VALUES(patentNumber),
-  grantDate = VALUES(grantDate);
+  grantDate = CONCAT(VALUES(grantDate), ' 13:00:00');
 
 DROP TABLE temp_Applications;
