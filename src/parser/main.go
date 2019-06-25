@@ -122,5 +122,5 @@ func main() {
 
 	duration := time.Since(startTime)
 	fmt.Printf("Done, used %v seconds.\n", duration.Seconds())
-  util.LogSlack("success", fmt.Sprintf("Done, used %v seconds, total parsed %s applications.", duration.Seconds(), count))
+  util.LogSlack("success", fmt.Sprintf("Done, used %d seconds, total parsed %d applications.", duration.Seconds(), count))
 }
