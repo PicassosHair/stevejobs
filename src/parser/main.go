@@ -108,17 +108,17 @@ func main() {
 				fmt.Println(applicationText.String())
 			}
 		}
+    
+    // Log every 100000 applications
+    count++
+    if count%loggingThreshold == 0 {
+      fmt.Println(count, "...")
+      util.LogSlack("info", fmt.Sprintf("Parsed %d applications", count))
+    }
 	}
 	writeApplicationsFile.Sync()
 	writeCodesFile.Sync()
 	writeTransactionFile.Sync()
-
-	// Log every 100000 applications
-	count++
-	if count%loggingThreshold == 0 {
-		fmt.Println(count, "...")
-    util.LogSlack("info", fmt.Sprintf("Parsed %d applications", count))
-	}
 
 	duration := time.Since(startTime)
 	fmt.Printf("Done, used %.2f seconds.\n", duration.Seconds())
