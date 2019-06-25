@@ -116,7 +116,7 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	result.WriteString("^^")
 
 	result.WriteString(metadata.FilingDate)
-  result.WriteString("T08:00:00+05:00")
+  result.WriteString("T12:00:00+05:00")
 	result.WriteString("^^")
 
 	result.WriteString(metadata.ApplicationTypeCategory)
@@ -197,7 +197,7 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].ApplicationNumber.ApplicationNumberText)
 		result.WriteString("~")
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].FilingDate)
-    result.WriteString("T08:00:00+05:00")
+    result.WriteString("T12:00:00+05:00")
 		result.WriteString("~")
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].IPOfficeName)
 		result.WriteString("~")
@@ -228,7 +228,7 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	result.WriteString("^^")
 
 	result.WriteString(metadata.ApplicationStatusDate)
-  result.WriteString("T08:00:00+05:00")
+  result.WriteString("T12:00:00+05:00")
 	result.WriteString("^^")
 
 	result.WriteString(metadata.OfficialFileLocationCategory)
@@ -240,14 +240,14 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	result.WriteString("^^")
 
 	result.WriteString(metadata.PatentPublicationIdentification.PublicationDate)
-  result.WriteString("T08:00:00+05:00")
+  result.WriteString("T12:00:00+05:00")
 	result.WriteString("^^")
 
 	result.WriteString(metadata.PatentGrantIdentification.PatentNumber)
 	result.WriteString("^^")
 
 	result.WriteString(metadata.PatentGrantIdentification.GrantDate)
-  result.WriteString("T08:00:00+05:00")
+  result.WriteString("T12:00:00+05:00")
   
 	result.WriteString("\n")
 	return result
@@ -293,7 +293,7 @@ func ProcessTransaction(record *RawPatentRecord) bytes.Buffer {
 		result.WriteString(applID)
 		result.WriteString("^^")
 		result.WriteString(event.EventDate)
-    result.WriteString("T08:00:00+05:00")
+    result.WriteString("T12:00:00+05:00")
 		result.WriteString("\n")
 	}
 
