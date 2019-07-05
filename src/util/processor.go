@@ -116,9 +116,9 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	result.WriteString("^^")
 
 	result.WriteString(metadata.FilingDate)
-  if len(metadata.FilingDate) > 0 {
-    result.WriteString(" 17:00:00")
-  }
+	if len(metadata.FilingDate) > 0 {
+		result.WriteString(" 17:00:00")
+	}
 	result.WriteString("^^")
 
 	result.WriteString(metadata.ApplicationTypeCategory)
@@ -157,11 +157,11 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 			var inventor Inventor
 			err := json.Unmarshal(*raw, &inventor)
 			if err == nil && len(inventor) > 0 {
-        var inventorTexts []string
-        for _, contactWrapper := range inventor {
-          contact := ([]Contact)(contactWrapper.ContactOrPublicationContact)
-          inventorTexts = append(inventorTexts, extractContact(&contact))
-        }
+				var inventorTexts []string
+				for _, contactWrapper := range inventor {
+					contact := ([]Contact)(contactWrapper.ContactOrPublicationContact)
+					inventorTexts = append(inventorTexts, extractContact(&contact))
+				}
 				partyTexts[2] = strings.Join(inventorTexts, "~")
 			} else {
 				log.Fatal("Failed parse inventorOrDeceasedInventor.")
@@ -199,9 +199,9 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].ApplicationNumber.ApplicationNumberText)
 		result.WriteString("~")
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].FilingDate)
-    if len(metadata.PriorityClaimBag.PriorityClaim[0].FilingDate) > 0 {
-      result.WriteString(" 17:00:00")
-    }
+		if len(metadata.PriorityClaimBag.PriorityClaim[0].FilingDate) > 0 {
+			result.WriteString(" 17:00:00")
+		}
 		result.WriteString("~")
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].IPOfficeName)
 		result.WriteString("~")
@@ -232,9 +232,9 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	result.WriteString("^^")
 
 	result.WriteString(metadata.ApplicationStatusDate)
-  if len(metadata.ApplicationStatusDate) > 0 {
-    result.WriteString(" 17:00:00")
-  }
+	if len(metadata.ApplicationStatusDate) > 0 {
+		result.WriteString(" 17:00:00")
+	}
 	result.WriteString("^^")
 
 	result.WriteString(metadata.OfficialFileLocationCategory)
@@ -245,20 +245,20 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	result.WriteString(metadata.PatentPublicationIdentification.PublicationNumber)
 	result.WriteString("^^")
 
-  // TODO: create a func and make this less repeatable.
+	// TODO: create a func and make this less repeatable.
 	result.WriteString(metadata.PatentPublicationIdentification.PublicationDate)
-  if len(metadata.PatentPublicationIdentification.PublicationDate) > 0 {
-    result.WriteString(" 17:00:00")
-  }
+	if len(metadata.PatentPublicationIdentification.PublicationDate) > 0 {
+		result.WriteString(" 17:00:00")
+	}
 	result.WriteString("^^")
 
 	result.WriteString(metadata.PatentGrantIdentification.PatentNumber)
 	result.WriteString("^^")
 
 	result.WriteString(metadata.PatentGrantIdentification.GrantDate)
-  if len(metadata.PatentGrantIdentification.GrantDate) > 0 {
-    result.WriteString(" 17:00:00")
-  }
+	if len(metadata.PatentGrantIdentification.GrantDate) > 0 {
+		result.WriteString(" 17:00:00")
+	}
 
 	result.WriteString("\n")
 	return result
@@ -304,9 +304,9 @@ func ProcessTransaction(record *RawPatentRecord) bytes.Buffer {
 		result.WriteString(applID)
 		result.WriteString("^^")
 		result.WriteString(event.EventDate)
-    if len(event.EventDate) > 0 {
-      result.WriteString(" 17:00:00")
-    }
+		if len(event.EventDate) > 0 {
+			result.WriteString(" 17:00:00")
+		}
 		result.WriteString("\n")
 	}
 
