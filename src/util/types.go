@@ -54,17 +54,22 @@ type PatentCaseMetadata struct {
 	} `json:"patentGrantIdentification"`
 	RelatedDocumentData struct {
 		ParentDocumentDataOrChildDocumentData []struct {
-			DescriptionText, ApplicationNumberText, FilingDate, ParentDocumentStatusCode, PatentNumber string
-		}
-	}
+			DescriptionText          string `json:"descriptionText"`
+			ApplicationNumberText    string `json:"applicationNumberText"`
+			FilingDate               string `json:"filingDate"`
+			AiaIndicator             bool   `json:"aiaIndicator"`
+			ParentDocumentStatusCode string `json:"parentDocumentStatusCode"`
+			PatentNumber             string `json:"patentNumber"`
+		} `json:"parentDocumentDataOrChildDocumentData"`
+	} `json:"relatedDocumentData"`
 }
 
 // ProsecutionHistoryDataBag defines transaction histories.
 type ProsecutionHistoryDataBag struct {
 	ProsecutionHistoryData []struct {
-		EventDate string `json:"eventDate"`
-    EventCode string `json:"eventCode"`
-    EventDescriptionText string `json:"eventDescriptionText"`
+		EventDate            string `json:"eventDate"`
+		EventCode            string `json:"eventCode"`
+		EventDescriptionText string `json:"eventDescriptionText"`
 	}
 }
 
@@ -87,9 +92,9 @@ type EntityName struct {
 		LastName   string `json:"lastName"`
 		NameSuffix string `json:"nameSuffix"`
 	} `json:"personStructuredName"`
-  OrganizationStandardName struct {
-    Content []string `json:"content"`
-  } `json:"organizationStandardName"`
+	OrganizationStandardName struct {
+		Content []string `json:"content"`
+	} `json:"organizationStandardName"`
 }
 
 // Contact defines an entity's contact information.
