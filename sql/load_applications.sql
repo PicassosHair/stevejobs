@@ -119,6 +119,7 @@ SELECT
     ELSE statusDate
   END AS statusDate,
   officialFileLocationCategory,
+  relatedDocumentData,
   publicationNumber,
   CASE 
     WHEN publicationDate = '' THEN NULL
