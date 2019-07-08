@@ -1,867 +1,758 @@
 {
   "patentCaseMetadata": {
-      "applicationNumberText": {
-          "value": "16244621",
-          "electronicText": "16244621"
-      },
-      "filingDate": "2019-01-10",
-      "applicationTypeCategory": "Utility",
-      "partyBag": {
-          "applicantBagOrInventorBagOrOwnerBag": [
-              {
-                  "primaryExaminerOrAssistantExaminerOrAuthorizedOfficer": [
-                      {
-                          "name": {
-                              "personNameOrOrganizationNameOrEntityName": [
-                                  {
-                                      "personFullName": "SMITH, NICHOLAS A"
-                                  }
-                              ]
-                          }
-                      }
-                  ]
-              },
-              {
-                  "applicant": [
-                      {
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "organizationStandardName": {
-                                                  "content": [
-                                                      "Lam Research Corporation"
-                                                  ]
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "cityName": "Fremont",
-                                  "geographicRegionName": {
-                                      "value": "CA",
-                                      "geographicRegionCategory": "STATE"
-                                  },
-                                  "countryCode": "US"
-                              }
-                          ]
-                      }
-                  ]
-              },
-              {
-                  "inventorOrDeceasedInventor": [
-                      {
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Zhian",
-                                                  "middleName": "",
-                                                  "lastName": "He"
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "cityName": "Lake Oswego",
-                                  "geographicRegionName": {
-                                      "value": "OR",
-                                      "geographicRegionCategory": "STATE"
-                                  },
-                                  "countryCode": "US"
-                              }
-                          ]
-                      },
-                      {
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Ashwin",
-                                                  "middleName": "",
-                                                  "lastName": "Ramesh"
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "cityName": "Beaverton",
-                                  "geographicRegionName": {
-                                      "value": "OR",
-                                      "geographicRegionCategory": "STATE"
-                                  },
-                                  "countryCode": "US"
-                              }
-                          ]
-                      },
-                      {
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Shantinath",
-                                                  "middleName": "",
-                                                  "lastName": "Ghongadi"
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "cityName": "Tigard",
-                                  "geographicRegionName": {
-                                      "value": "OR",
-                                      "geographicRegionCategory": "STATE"
-                                  },
-                                  "countryCode": "US"
-                              }
-                          ]
-                      }
-                  ]
-              },
-              {
-                  "registeredPractitioner": [
-                      {
-                          "registeredPractitionerRegistrationNumber": "31314",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Jeffrey",
-                                                  "middleName": "",
-                                                  "lastName": "Weaver",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "510-663-1100"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "2",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "34040",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Todd",
-                                                  "middleName": "",
-                                                  "lastName": "Walters",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "703-836-6620"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "5",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "35799",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Bruce",
-                                                  "middleName": "",
-                                                  "lastName": "Gray",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "202-659-6973"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "7",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "39315",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Horace",
-                                                  "middleName": "",
-                                                  "lastName": "Ng",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "510-572-0200"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "9",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "39489",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "James",
-                                                  "middleName": "",
-                                                  "lastName": "Austin",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "510-663-1100"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "12",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "41840",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Douglas",
-                                                  "middleName": "",
-                                                  "lastName": "Hodder",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "651-275-9833"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "14",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "45418",
-                          "registeredPractitionerCategory": "AGENT",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Jeff",
-                                                  "middleName": "",
-                                                  "lastName": "Limon",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "541-220-0591"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "15",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "50581",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Denise",
-                                                  "middleName": "",
-                                                  "lastName": "Bergin",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "510-663-1100"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "17",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "52004",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Sheila",
-                                                  "middleName": "",
-                                                  "lastName": "Martinez-Lemke",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "510-663-1100"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "18",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "58024",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Christian",
-                                                  "middleName": "",
-                                                  "lastName": "Scholz",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "510-663-1100"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "20",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "58181",
-                          "registeredPractitionerCategory": "AGENT",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Anna",
-                                                  "middleName": "",
-                                                  "lastName": "Gavrilova",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "510-663-1100"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "21",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "59305",
-                          "registeredPractitionerCategory": "AGENT",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Michael",
-                                                  "middleName": "",
-                                                  "lastName": "Ho",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "510-663-1100"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "23",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "63685",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Eugene",
-                                                  "middleName": "",
-                                                  "lastName": "Chiu",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "650-470-4973"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "24",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "68927",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Andrew",
-                                                  "middleName": "",
-                                                  "lastName": "Wu",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "814-422-5155"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "26",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "70667",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Amanda",
-                                                  "middleName": "",
-                                                  "lastName": "Kesich",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "510-663-1100"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "27",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "72793",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Jinping",
-                                                  "middleName": "",
-                                                  "lastName": "Yang",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "510-572-4780"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "29",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "72642",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Patricia",
-                                                  "middleName": "",
-                                                  "lastName": "Tsai",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "510-663-1100"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "30",
-                          "activeIndicator": true
-                      },
-                      {
-                          "registeredPractitionerRegistrationNumber": "73075",
-                          "registeredPractitionerCategory": "ATTORNEY",
-                          "contactOrPublicationContact": [
-                              {
-                                  "name": {
-                                      "personNameOrOrganizationNameOrEntityName": [
-                                          {
-                                              "personStructuredName": {
-                                                  "firstName": "Ryan",
-                                                  "middleName": "",
-                                                  "lastName": "Otis",
-                                                  "nameSuffix": ""
-                                              }
-                                          }
-                                      ]
-                                  },
-                                  "phoneNumberBag": {
-                                      "phoneNumber": [
-                                          {
-                                              "value": "510-663-1100"
-                                          }
-                                      ]
-                                  }
-                              }
-                          ],
-                          "sequenceNumber": "32",
-                          "activeIndicator": true
-                      }
-                  ]
-              },
-              {
-                  "partyIdentifierOrContact": [
-                      {
-                          "name": {
-                              "personNameOrOrganizationNameOrEntityName": [
-                                  {
-                                      "personStructuredName": {
-                                          "lastName": "Weaver Austin Villeneuve & Sampson - LAMR/NOVL"
-                                      }
-                                  }
-                              ]
-                          },
-                          "postalAddressBag": {
-                              "postalAddress": [
-                                  {
-                                      "postalStructuredAddress": {
-                                          "addressLineText": [
-                                              {
-                                                  "value": "P.O. BOX 70250"
-                                              }
-                                          ],
-                                          "cityName": "OAKLAND",
-                                          "geographicRegionName": [
-                                              {
-                                                  "value": "CA"
-                                              }
-                                          ],
-                                          "countryCode": "US",
-                                          "postalCode": "94612-0250"
-                                      }
-                                  }
-                              ]
-                          }
-                      },
-                      {
-                          "value": "83422"
-                      }
-                  ]
-              }
-          ]
-      },
-      "groupArtUnitNumber": {
-          "value": "1794",
-          "electronicText": "1794"
-      },
-      "applicationConfirmationNumber": "9720",
-      "applicantFileReference": "LAMRP166D1C1/3564-4US",
-      "patentClassificationBag": {
-          "cpcClassificationBagOrIPCClassificationOrECLAClassificationBag": [
-              {
-                  "ipOfficeCode": "US",
-                  "mainNationalClassification": {
-                      "nationalClass": "204",
-                      "nationalSubclass": "230100"
+    "applicationNumberText": {
+      "value": "16244622",
+      "electronicText": "16244622"
+    },
+    "filingDate": "2019-01-10",
+    "applicationTypeCategory": "Utility",
+    "partyBag": {
+      "applicantBagOrInventorBagOrOwnerBag": [
+        {
+          "primaryExaminerOrAssistantExaminerOrAuthorizedOfficer": [
+            {
+              "name": {
+                "personNameOrOrganizationNameOrEntityName": [
+                  {
+                    "personFullName": "HWANG, JOON H"
                   }
+                ]
               }
+            }
           ]
-      },
-      "businessEntityStatusCategory": "UNDISCOUNTED",
-      "firstInventorToFileIndicator": "true",
-      "inventionTitle": {
-          "content": [
-              "CONTROL OF CURRENT DENSITY IN AN ELECTROPLATING APPARATUS"
+        },
+        {
+          "applicant": [
+            {
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "organizationStandardName": {
+                          "content": [
+                            "RICOH COMPANY, LTD."
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "cityName": "Tokyo",
+                  "geographicRegionName": {
+                    "value": "",
+                    "geographicRegionCategory": "STATE"
+                  },
+                  "countryCode": "JP"
+                }
+              ]
+            }
           ]
-      },
-      "applicationStatusCategory": "Docketed New Case - Ready for Examination",
-      "applicationStatusDate": "2019-06-03",
-      "officialFileLocationCategory": "ELECTRONIC",
-      "patentPublicationIdentification": {
-          "publicationNumber": "US20190145018A1",
-          "publicationDate": "2019-05-16"
-      },
-      "relatedDocumentData": {
-          "parentDocumentDataOrChildDocumentData": [
-              {
-                  "descriptionText": "This application is a Continuation of",
-                  "applicationNumberText": "15984119",
-                  "filingDate": "2018-05-18",
-                  "aiaIndicator": true,
-                  "parentDocumentStatusCode": "Patented",
-                  "patentNumber": "10214828"
+        },
+        {
+          "inventorOrDeceasedInventor": [
+            {
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Yoshinaga",
+                          "middleName": "",
+                          "lastName": "KATO"
+                        }
+                      }
+                    ]
+                  },
+                  "cityName": "Kanagawa",
+                  "geographicRegionName": {
+                    "value": "",
+                    "geographicRegionCategory": "STATE"
+                  },
+                  "countryCode": "JP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "registeredPractitioner": [
+            {
+              "registeredPractitionerRegistrationNumber": "34648",
+              "registeredPractitionerCategory": "ATTORNEY",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "James",
+                          "middleName": "",
+                          "lastName": "Kulbaski",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "571-376-6333"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "2",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "40073",
+              "registeredPractitionerCategory": "ATTORNEY",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Bradley",
+                          "middleName": "",
+                          "lastName": "Lytle",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "571-376-6333"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "3",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "47288",
+              "registeredPractitionerCategory": "AGENT",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Catherine",
+                          "middleName": "",
+                          "lastName": "Lytle",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "571-214-8959"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "6",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "54719",
+              "registeredPractitionerCategory": "ATTORNEY",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Zachary",
+                          "middleName": "",
+                          "lastName": "Stern",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "571-376-6340"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "7",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "56959",
+              "registeredPractitionerCategory": "AGENT",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Andrew",
+                          "middleName": "",
+                          "lastName": "Harry",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "571-376-6301"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "10",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "56944",
+              "registeredPractitionerCategory": "ATTORNEY",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Derek",
+                          "middleName": "",
+                          "lastName": "Benke",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "571-376-6306"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "11",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "57766",
+              "registeredPractitionerCategory": "ATTORNEY",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Aaron",
+                          "middleName": "",
+                          "lastName": "Perez-Daple",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "312-285-6905"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "13",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "54375",
+              "registeredPractitionerCategory": "AGENT",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Michael",
+                          "middleName": "",
+                          "lastName": "Plotnick",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "215-364-4176"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "14",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "60532",
+              "registeredPractitionerCategory": "ATTORNEY",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Milena",
+                          "middleName": "",
+                          "lastName": "Sukovic",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "312-285-6905"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "16",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "69541",
+              "registeredPractitionerCategory": "ATTORNEY",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Noah",
+                          "middleName": "",
+                          "lastName": "Flaks",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "571-376-6333"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "17",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "L0986",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Masahito",
+                          "middleName": "",
+                          "lastName": "Yokoyama",
+                          "nameSuffix": ""
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "703-413-3000"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "20",
+              "activeIndicator": true
+            },
+            {
+              "registeredPractitionerRegistrationNumber": "73616",
+              "registeredPractitionerCategory": "AGENT",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "personStructuredName": {
+                          "firstName": "Brian",
+                          "middleName": "",
+                          "lastName": "Fisher",
+                          "nameSuffix": "Jr."
+                        }
+                      }
+                    ]
+                  },
+                  "phoneNumberBag": {
+                    "phoneNumber": [
+                      {
+                        "value": "571-376-6333"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "sequenceNumber": "21",
+              "activeIndicator": true
+            }
+          ]
+        },
+        {
+          "partyIdentifierOrContact": [
+            {
+              "name": {
+                "personNameOrOrganizationNameOrEntityName": [
+                  {
+                    "personStructuredName": {
+                      "lastName": "XSENSUS LLP"
+                    }
+                  }
+                ]
               },
-              {
-                  "descriptionText": "This application is a Division of",
-                  "applicationNumberText": "14664652",
-                  "filingDate": "2015-03-20",
-                  "aiaIndicator": true,
-                  "parentDocumentStatusCode": "Patented",
-                  "patentNumber": "10011917"
-              },
-              {
-                  "descriptionText": "This application is a Continuation in part of",
-                  "applicationNumberText": "13907265",
-                  "filingDate": "2013-05-31",
-                  "aiaIndicator": false,
-                  "parentDocumentStatusCode": "Patented",
-                  "patentNumber": "9309604"
-              },
-              {
-                  "descriptionText": "This application is a Division of",
-                  "applicationNumberText": "12481503",
-                  "filingDate": "2009-06-09",
-                  "aiaIndicator": false,
-                  "parentDocumentStatusCode": "Patented",
-                  "patentNumber": "8475636"
-              },
-              {
-                  "descriptionText": "This application is a Continuation in part of",
-                  "applicationNumberText": "12291356",
-                  "filingDate": "2008-11-07",
-                  "aiaIndicator": false,
-                  "parentDocumentStatusCode": "Patented",
-                  "patentNumber": "8308931"
+              "postalAddressBag": {
+                "postalAddress": [
+                  {
+                    "postalStructuredAddress": {
+                      "addressLineText": [
+                        {
+                          "value": "200 Daingerfield Road"
+                        },
+                        {
+                          "value": "Suite 201"
+                        }
+                      ],
+                      "cityName": "Alexandria",
+                      "geographicRegionName": [
+                        {
+                          "value": "VA"
+                        }
+                      ],
+                      "countryCode": "US",
+                      "postalCode": "22314"
+                    }
+                  }
+                ]
               }
+            },
+            {
+              "value": "154930"
+            }
           ]
-      }
+        }
+      ]
+    },
+    "groupArtUnitNumber": {
+      "value": "2447",
+      "electronicText": "2447"
+    },
+    "applicationConfirmationNumber": "7842",
+    "applicantFileReference": "12313US01CON",
+    "priorityClaimBag": {
+      "priorityClaim": [
+        {
+          "ipOfficeName": "JAPAN",
+          "applicationNumber": {
+            "applicationNumberText": "2016-142078"
+          },
+          "filingDate": "2016-07-20",
+          "sequenceNumber": "1"
+        }
+      ]
+    },
+    "patentClassificationBag": {
+      "cpcClassificationBagOrIPCClassificationOrECLAClassificationBag": [
+        {
+          "ipOfficeCode": "US",
+          "mainNationalClassification": {
+            "nationalClass": "709",
+            "nationalSubclass": "206000"
+          }
+        }
+      ]
+    },
+    "businessEntityStatusCategory": "UNDISCOUNTED",
+    "firstInventorToFileIndicator": "true",
+    "inventionTitle": {
+      "content": [
+        "SHARED TERMINAL, COMMUNICATION SYSTEM, IMAGE TRANSMISSION METHOD, AND RECORDING MEDIUM"
+      ]
+    },
+    "applicationStatusCategory": "Docketed New Case - Ready for Examination",
+    "applicationStatusDate": "2019-03-08",
+    "officialFileLocationCategory": "ELECTRONIC",
+    "patentPublicationIdentification": {
+      "publicationNumber": "US20190146745A1",
+      "publicationDate": "2019-05-16"
+    },
+    "relatedDocumentData": {
+      "parentDocumentDataOrChildDocumentData": [
+        {
+          "descriptionText": "This application is a Continuation of",
+          "applicationNumberText": "PCT/JP2017/025805",
+          "filingDate": "2017-07-14",
+          "parentDocumentStatusCode": "-",
+          "patentNumber": ""
+        }
+      ]
+    }
   },
   "prosecutionHistoryDataBag": {
-      "prosecutionHistoryData": [
-          {
-              "eventDate": "2019-06-03",
-              "eventCode": "DOCK",
-              "eventDescriptionText": "Case Docketed to Examiner in GAU"
-          },
-          {
-              "eventDate": "2019-05-17",
-              "eventCode": "EML_NTR",
-              "eventDescriptionText": "Email Notification"
-          },
-          {
-              "eventDate": "2019-05-16",
-              "eventCode": "CCRDY",
-              "eventDescriptionText": "Application ready for PDX access by participating foreign offices"
-          },
-          {
-              "eventDate": "2019-05-16",
-              "eventCode": "PG-ISSUE",
-              "eventDescriptionText": "PG-Pub Issue Notification"
-          },
-          {
-              "eventDate": "2019-01-10",
-              "eventCode": "M844",
-              "eventDescriptionText": "Information Disclosure Statement (IDS) Filed"
-          },
-          {
-              "eventDate": "2019-02-05",
-              "eventCode": "EML_NTR",
-              "eventDescriptionText": "Email Notification"
-          },
-          {
-              "eventDate": "2019-02-04",
-              "eventCode": "OIPE",
-              "eventDescriptionText": "Application Dispatched from OIPE"
-          },
-          {
-              "eventDate": "2019-02-04",
-              "eventCode": "FTFS",
-              "eventDescriptionText": "FITF set to YES - revise initial setting"
-          },
-          {
-              "eventDate": "2019-01-10",
-              "eventCode": "PTA.RFE",
-              "eventDescriptionText": "Patent Term Adjustment - Ready for Examination"
-          },
-          {
-              "eventDate": "2019-02-05",
-              "eventCode": "COMP",
-              "eventDescriptionText": "Application Is Now Complete"
-          },
-          {
-              "eventDate": "2019-02-05",
-              "eventCode": "FLRCPT.O",
-              "eventDescriptionText": "Filing Receipt"
-          },
-          {
-              "eventDate": "2019-01-10",
-              "eventCode": "SREXR141",
-              "eventDescriptionText": "PTO/SB/69-Authorize EPO Access to Search Results"
-          },
-          {
-              "eventDate": "2019-01-10",
-              "eventCode": "APPERMS",
-              "eventDescriptionText": "Applicants have given acceptable permission for participating foreign "
-          },
-          {
-              "eventDate": "2019-01-17",
-              "eventCode": "L194",
-              "eventDescriptionText": "Cleared by OIPE CSR"
-          },
-          {
-              "eventDate": "2019-01-13",
-              "eventCode": "SCAN",
-              "eventDescriptionText": "IFW Scan & PACR Auto Security Review"
-          },
-          {
-              "eventDate": "2019-01-10",
-              "eventCode": "WIDS",
-              "eventDescriptionText": "Information Disclosure Statement (IDS) Filed"
-          },
-          {
-              "eventDate": "2019-01-10",
-              "eventCode": "BIG.",
-              "eventDescriptionText": "ENTITY STATUS SET TO UNDISCOUNTED (INITIAL DEFAULT SETTING OR STATUS CHANGE)"
-          },
-          {
-              "eventDate": "2019-01-10",
-              "eventCode": "R155X",
-              "eventDescriptionText": "1.55/1.78 Indicator set"
-          },
-          {
-              "eventDate": "2019-01-10",
-              "eventCode": "IEXX",
-              "eventDescriptionText": "Initial Exam Team nn"
-          }
-      ]
+    "prosecutionHistoryData": [
+      {
+        "eventDate": "2019-05-17",
+        "eventCode": "EML_NTR",
+        "eventDescriptionText": "Email Notification"
+      },
+      {
+        "eventDate": "2019-05-16",
+        "eventCode": "CCRDY",
+        "eventDescriptionText": "Application ready for PDX access by participating foreign offices"
+      },
+      {
+        "eventDate": "2019-05-16",
+        "eventCode": "PG-ISSUE",
+        "eventDescriptionText": "PG-Pub Issue Notification"
+      },
+      {
+        "eventDate": "2019-03-14",
+        "eventCode": "EML_NTR",
+        "eventDescriptionText": "Email Notification"
+      },
+      {
+        "eventDate": "2019-03-14",
+        "eventCode": "EML_NTR",
+        "eventDescriptionText": "Email Notification"
+      },
+      {
+        "eventDate": "2019-03-14",
+        "eventCode": "FLRCPT.C",
+        "eventDescriptionText": "Filing Receipt - Corrected"
+      },
+      {
+        "eventDate": "2019-03-14",
+        "eventCode": "PA..",
+        "eventDescriptionText": "Change in Power of Attorney (May Include Associate POA)"
+      },
+      {
+        "eventDate": "2019-03-13",
+        "eventCode": "C.AD",
+        "eventDescriptionText": "Correspondence Address Change"
+      },
+      {
+        "eventDate": "2019-03-12",
+        "eventCode": "PD.RECVD",
+        "eventDescriptionText": "Priority document has successfully retrieved via PDX/DAS"
+      },
+      {
+        "eventDate": "2019-03-08",
+        "eventCode": "DOCK",
+        "eventDescriptionText": "Case Docketed to Examiner in GAU"
+      },
+      {
+        "eventDate": "2019-01-10",
+        "eventCode": "M844",
+        "eventDescriptionText": "Information Disclosure Statement (IDS) Filed"
+      },
+      {
+        "eventDate": "2019-03-06",
+        "eventCode": "OIPE",
+        "eventDescriptionText": "Application Dispatched from OIPE"
+      },
+      {
+        "eventDate": "2019-02-05",
+        "eventCode": "EML_NTR",
+        "eventDescriptionText": "Email Notification"
+      },
+      {
+        "eventDate": "2019-02-04",
+        "eventCode": "PGPC",
+        "eventDescriptionText": "Sent to Classification Contractor"
+      },
+      {
+        "eventDate": "2019-02-04",
+        "eventCode": "FTFS",
+        "eventDescriptionText": "FITF set to YES - revise initial setting"
+      },
+      {
+        "eventDate": "2019-01-10",
+        "eventCode": "PTA.RFE",
+        "eventDescriptionText": "Patent Term Adjustment - Ready for Examination"
+      },
+      {
+        "eventDate": "2019-02-05",
+        "eventCode": "COMP",
+        "eventDescriptionText": "Application Is Now Complete"
+      },
+      {
+        "eventDate": "2019-02-05",
+        "eventCode": "FLRCPT.O",
+        "eventDescriptionText": "Filing Receipt"
+      },
+      {
+        "eventDate": "2019-01-10",
+        "eventCode": "PDREQUST",
+        "eventDescriptionText": "Request from applicant for the USPTO to retrieve the Priority Document"
+      },
+      {
+        "eventDate": "2019-01-10",
+        "eventCode": "SREXR141",
+        "eventDescriptionText": "PTO/SB/69-Authorize EPO Access to Search Results"
+      },
+      {
+        "eventDate": "2019-01-10",
+        "eventCode": "APPERMS",
+        "eventDescriptionText": "Applicants have given acceptable permission for participating foreign "
+      },
+      {
+        "eventDate": "2019-01-17",
+        "eventCode": "L194",
+        "eventDescriptionText": "Cleared by OIPE CSR"
+      },
+      {
+        "eventDate": "2019-01-13",
+        "eventCode": "SCAN",
+        "eventDescriptionText": "IFW Scan & PACR Auto Security Review"
+      },
+      {
+        "eventDate": "2019-01-10",
+        "eventCode": "WIDS",
+        "eventDescriptionText": "Information Disclosure Statement (IDS) Filed"
+      },
+      {
+        "eventDate": "2019-01-10",
+        "eventCode": "BIG.",
+        "eventDescriptionText": "ENTITY STATUS SET TO UNDISCOUNTED (INITIAL DEFAULT SETTING OR STATUS CHANGE)"
+      },
+      {
+        "eventDate": "2019-01-10",
+        "eventCode": "IEXX",
+        "eventDescriptionText": "Initial Exam Team nn"
+      }
+    ]
+  },
+  "assignmentDataBag": {
+    "assignmentData": [
+      {
+        "reelNumber": "47956",
+        "frameNumber": "873",
+        "documentReceivedDate": "2019-01-10",
+        "recordedDate": "2019-01-10",
+        "mailDate": "2019-01-11",
+        "pageTotalQuantity": 2,
+        "conveyanceText": "ASSIGNMENT OF ASSIGNORS INTEREST (SEE DOCUMENT FOR DETAILS).",
+        "assignorBag": {
+          "assignor": [
+            {
+              "executionDate": "2018-12-18",
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "value": "KATO, YOSHINAGA"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "assigneeBag": {
+          "assignee": [
+            {
+              "contactOrPublicationContact": [
+                {
+                  "name": {
+                    "personNameOrOrganizationNameOrEntityName": [
+                      {
+                        "value": "RICOH COMPANY, LTD."
+                      }
+                    ]
+                  },
+                  "postalAddressBag": {
+                    "postalAddress": [
+                      {
+                        "postalAddressText": [
+                          {
+                            "sequenceNumber": "1",
+                            "value": "3-6, NAKAMAGOME 1-CHOME, OHTA-KU"
+                          },
+                          {
+                            "sequenceNumber": "2",
+                            "value": "TOKYO JAPAN 143-8555"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "correspondenceAddress": {
+          "partyIdentifierOrContact": [
+            {
+              "name": {
+                "personNameOrOrganizationNameOrEntityName": [
+                  {
+                    "value": "OBLON, ET AL."
+                  }
+                ]
+              },
+              "postalAddressBag": {
+                "postalAddress": [
+                  {
+                    "postalAddressText": [
+                      {
+                        "sequenceNumber": "1",
+                        "value": "1940 DUKE STREET"
+                      },
+                      {
+                        "sequenceNumber": "2",
+                        "value": "ALEXANDRIA, VA 22314"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "sequenceNumber": "1"
+      }
+    ],
+    "assignmentTotalQuantity": 1
   },
   "st96Version": "V3_1",
   "ipoVersion": "US_V8_0"
