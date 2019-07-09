@@ -9,12 +9,13 @@ import (
 )
 
 const (
-	// First level. Separating each application.
+	// First level. Separating each field.
 	fieldDelimiter = "^^"
 	// Second level. Each field could be an array of items.
-	itemDelimiter = "|"
+	groupDelimiter  = "|"
+	recordDelimiter = "~"
 	// The smallest item to separated.
-	atomDelimiter = "~"
+	unitDelimiter = "`"
 )
 
 // ExtractApplID gets applId from raw record.
@@ -29,8 +30,9 @@ func escapeText(tt *string) string {
 		"\n", " ", // line break.
 		fieldDelimiter, " ",
 		"\\", "", // special chars.
-		itemDelimiter, "",
-		atomDelimiter, "")
+		groupDelimiter, "",
+		recordDelimiter, "",
+		unitDelimiter, "")
 	return r.Replace(*tt)
 }
 
@@ -61,28 +63,28 @@ func extractContact(contacts *[]Contact) string {
 	if hasName {
 		result.WriteString(name[0].PersonFullName)
 	}
-	result.WriteString(itemDelimiter)
+	result.WriteString(groupDelimiter)
 
 	// First name, Middle name, Last name.
 	if hasName {
 		result.WriteString(name[0].PersonStructuredName.FirstName)
 	}
-	result.WriteString(itemDelimiter)
+	result.WriteString(groupDelimiter)
 
 	if hasName {
 		result.WriteString(name[0].PersonStructuredName.MiddleName)
 	}
-	result.WriteString(itemDelimiter)
+	result.WriteString(groupDelimiter)
 
 	if hasName {
 		result.WriteString(name[0].PersonStructuredName.LastName)
 	}
-	result.WriteString(itemDelimiter)
+	result.WriteString(groupDelimiter)
 
 	if hasName {
 		result.WriteString(name[0].PersonStructuredName.NameSuffix)
 	}
-	result.WriteString(itemDelimiter)
+	result.WriteString(groupDelimiter)
 
 	// Organization name.
 	if hasName {
@@ -91,25 +93,25 @@ func extractContact(contacts *[]Contact) string {
 			result.WriteString(name[0].OrganizationStandardName.Content[0])
 		}
 	}
-	result.WriteString(itemDelimiter)
+	result.WriteString(groupDelimiter)
 
 	// Phone number.
 	if len(contact.PhoneNumberBag.PhoneNumber) > 0 {
 		result.WriteString(contact.PhoneNumberBag.PhoneNumber[0].Value)
 	}
-	result.WriteString(itemDelimiter)
+	result.WriteString(groupDelimiter)
 
 	// City name.
 	result.WriteString(contact.CityName)
-	result.WriteString(itemDelimiter)
+	result.WriteString(groupDelimiter)
 
 	// Region.
 	result.WriteString(contact.GeographicRegionName.Value)
-	result.WriteString(itemDelimiter)
+	result.WriteString(groupDelimiter)
 
 	// Region category.
 	result.WriteString(contact.GeographicRegionName.GeographicRegionCategory)
-	result.WriteString(itemDelimiter)
+	result.WriteString(groupDelimiter)
 
 	// Country Code.
 	result.WriteString(contact.CountryCode)
@@ -127,10 +129,37 @@ func extractRelatedDocumentData(record *RawPatentRecord) string {
 
 	for _, applData := range relatedData {
 		applInfo := []string{applData.DescriptionText, applData.ApplicationNumberText, applData.FilingDate, strconv.FormatBool(applData.AiaIndicator), applData.ParentDocumentStatusCode, applData.PatentNumber}
-		result = append(result, strings.Join(applInfo, atomDelimiter))
+		result = append(result, strings.Join(applInfo, recordDelimiter))
 	}
 
-	return strings.Join(result, itemDelimiter)
+	return strings.Join(result, groupDelimiter)
+}
+
+// extractAssignmentData extract assignment data from record and converts to a formatted string.
+// Its format is as follows:
+// reelNumber~frameNumber~documentReceivedDate~recordedDate~mailDate~Assignor1^Assignor2~Assignee1|
+func extractAssignmentData(record *RawPatentRecord) string {
+	assignmentDataBag := (*record).AssignmentDataBag
+	var result []string
+
+	for _, assignment := range assignmentDataBag.AssignmentData {
+		assignmentTexts := []string{assignment.ReelNumber, assignment.FrameNumber, assignment.DocumentReceivedDate, assignment.RecordedDate, assignment.MailDate}
+		assignorTexts := []string{}
+		for _, assignor := range assignment.AssignorBag.Assignor {
+			assignorTexts = append(assignorTexts, assignor.ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].Value)
+		}
+		assignmentTexts = append(assignmentTexts, strings.Join(assignorTexts, unitDelimiter))
+
+		assigneeTexts := []string{}
+		for _, assignee := range assignment.AssigneeBag.Assignee {
+			assigneeTexts = append(assigneeTexts, assignee.ContactOrPublicationContact[0].Name.PersonNameOrOrganizationNameOrEntityName[0].Value)
+		}
+		assignmentTexts = append(assignmentTexts, strings.Join(assigneeTexts, unitDelimiter))
+
+		result = append(result, strings.Join(assignmentTexts, recordDelimiter))
+	}
+
+	return strings.Join(result, groupDelimiter)
 }
 
 // ProcessApplication processes generated JSON record and generates a csv-like string for each application. TODO: parse all parties, not just the first one.
@@ -188,7 +217,7 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 					contact := ([]Contact)(contactWrapper.ContactOrPublicationContact)
 					inventorTexts = append(inventorTexts, extractContact(&contact))
 				}
-				partyTexts[2] = strings.Join(inventorTexts, atomDelimiter)
+				partyTexts[2] = strings.Join(inventorTexts, recordDelimiter)
 			} else {
 				log.Fatal("Failed parse inventorOrDeceasedInventor.")
 			}
@@ -223,14 +252,14 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	// priorityClaimBag
 	if len(metadata.PriorityClaimBag.PriorityClaim) > 0 {
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].ApplicationNumber.ApplicationNumberText)
-		result.WriteString(atomDelimiter)
+		result.WriteString(recordDelimiter)
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].FilingDate)
 		if len(metadata.PriorityClaimBag.PriorityClaim[0].FilingDate) > 0 {
 			result.WriteString(" 17:00:00")
 		}
-		result.WriteString(atomDelimiter)
+		result.WriteString(recordDelimiter)
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].IPOfficeName)
-		result.WriteString(atomDelimiter)
+		result.WriteString(recordDelimiter)
 		result.WriteString(metadata.PriorityClaimBag.PriorityClaim[0].SequenceNumber)
 	}
 	result.WriteString(fieldDelimiter)
@@ -238,9 +267,9 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	// patentClassificationBag
 	if len(metadata.PatentClassificationBag.CpcClassificationBagOrIPCClassificationOrECLAClassificationBag) > 0 {
 		result.WriteString(metadata.PatentClassificationBag.CpcClassificationBagOrIPCClassificationOrECLAClassificationBag[0].IPOfficeCode)
-		result.WriteString(atomDelimiter)
+		result.WriteString(recordDelimiter)
 		result.WriteString(metadata.PatentClassificationBag.CpcClassificationBagOrIPCClassificationOrECLAClassificationBag[0].MainNationalClassification.NationalClass)
-		result.WriteString(atomDelimiter)
+		result.WriteString(recordDelimiter)
 		result.WriteString(metadata.PatentClassificationBag.CpcClassificationBagOrIPCClassificationOrECLAClassificationBag[0].MainNationalClassification.NationalSubclass)
 	}
 	result.WriteString(fieldDelimiter)
@@ -287,6 +316,10 @@ func ProcessApplication(record *RawPatentRecord) bytes.Buffer {
 	if len(metadata.PatentGrantIdentification.GrantDate) > 0 {
 		result.WriteString(" 17:00:00")
 	}
+	result.WriteString(fieldDelimiter)
+
+	// Parse Assignment data.
+	result.WriteString(extractAssignmentData(record))
 
 	result.WriteString("\n")
 	return result

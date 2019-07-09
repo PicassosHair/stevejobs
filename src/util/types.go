@@ -75,8 +75,8 @@ type ProsecutionHistoryDataBag struct {
 
 // AssignmentContact defines either assignee or assignor.
 type AssignmentContact struct {
-	ExecutionDate               string  `json:"executionDate"`
-	ContactOrPublicationContact Contact `json:"contactOrPublicationContact"`
+	ExecutionDate               string    `json:"executionDate"`
+	ContactOrPublicationContact []Contact `json:"contactOrPublicationContact"`
 }
 
 // Assignment defines each assignment.
@@ -126,6 +126,9 @@ type EntityName struct {
 	OrganizationStandardName struct {
 		Content []string `json:"content"`
 	} `json:"organizationStandardName"`
+
+	// This only appears at AssignmentData.
+	Value string `json:"value"`
 }
 
 // Contact defines an entity's contact information.
@@ -144,15 +147,16 @@ type Contact struct {
 		GeographicRegionCategory string `json:"geographicRegionCategory"`
 	} `json:"geographicRegionName"`
 	CountryCode string `json:"countryCode"`
+
 	// Disable for now.
-	// PostalAddressBag struct {
-	//   PostalAddress []struct {
-	//     PostalAddressText []struct {
-	//       SequenceNumber string `json:"sequenceNumber"`
-	//       Value string `json:"value"`
-	//     } `json:"postalAddressText"`
-	//   } `json:"postalAddress"`
-	// } `json:"postalAddressBag"`
+	PostalAddressBag struct {
+		PostalAddress []struct {
+			PostalAddressText []struct {
+				SequenceNumber string `json:"sequenceNumber"`
+				Value          string `json:"value"`
+			} `json:"postalAddressText"`
+		} `json:"postalAddress"`
+	} `json:"-"`
 }
 
 // Examiner defines some examiners.
