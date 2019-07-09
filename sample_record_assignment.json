@@ -1,0 +1,1007 @@
+{
+    "patentCaseMetadata": {
+        "applicationNumberText": {
+            "value": "14244619",
+            "electronicText": "14244619"
+        },
+        "filingDate": "2014-04-03",
+        "applicationTypeCategory": "Utility",
+        "partyBag": {
+            "applicantBagOrInventorBagOrOwnerBag": [
+                {
+                    "primaryExaminerOrAssistantExaminerOrAuthorizedOfficer": [
+                        {
+                            "name": {
+                                "personNameOrOrganizationNameOrEntityName": [
+                                    {
+                                        "personFullName": "JACOB, WILLIAM J"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "applicant": [
+                        {
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "organizationStandardName": {
+                                                    "content": [
+                                                        "Blackhawk Network, Inc."
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "cityName": "Pleasanton",
+                                    "geographicRegionName": {
+                                        "value": "CA",
+                                        "geographicRegionCategory": "STATE"
+                                    },
+                                    "countryCode": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "inventorOrDeceasedInventor": [
+                        {
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "personStructuredName": {
+                                                    "firstName": "Patrick",
+                                                    "middleName": "Ryan",
+                                                    "lastName": "Flanagan"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "cityName": "Pleasanton",
+                                    "geographicRegionName": {
+                                        "value": "CA",
+                                        "geographicRegionCategory": "STATE"
+                                    },
+                                    "countryCode": "US"
+                                }
+                            ]
+                        },
+                        {
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "personStructuredName": {
+                                                    "firstName": "Rajesh",
+                                                    "middleName": "",
+                                                    "lastName": "Ponnam"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "cityName": "San Ramon",
+                                    "geographicRegionName": {
+                                        "value": "CA",
+                                        "geographicRegionCategory": "STATE"
+                                    },
+                                    "countryCode": "US"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "registeredPractitioner": [
+                        {
+                            "registeredPractitionerRegistrationNumber": "44229",
+                            "registeredPractitionerCategory": "ATTORNEY",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "personStructuredName": {
+                                                    "firstName": "James",
+                                                    "middleName": "",
+                                                    "lastName": "McDonald",
+                                                    "nameSuffix": ""
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "phoneNumberBag": {
+                                        "phoneNumber": [
+                                            {
+                                                "value": "212-309-6719"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "sequenceNumber": "1",
+                            "activeIndicator": true
+                        },
+                        {
+                            "registeredPractitionerRegistrationNumber": "66822",
+                            "registeredPractitionerCategory": "ATTORNEY",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "personStructuredName": {
+                                                    "firstName": "Jerry",
+                                                    "middleName": "",
+                                                    "lastName": "Harris",
+                                                    "nameSuffix": "Jr."
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "phoneNumberBag": {
+                                        "phoneNumber": [
+                                            {
+                                                "value": "214-692-6200"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "sequenceNumber": "2",
+                            "activeIndicator": true
+                        }
+                    ]
+                },
+                {
+                    "partyIdentifierOrContact": [
+                        {
+                            "name": {
+                                "personNameOrOrganizationNameOrEntityName": [
+                                    {
+                                        "personStructuredName": {
+                                            "lastName": "Blackhawk Network, Inc."
+                                        }
+                                    }
+                                ]
+                            },
+                            "postalAddressBag": {
+                                "postalAddress": [
+                                    {
+                                        "postalStructuredAddress": {
+                                            "addressLineText": [
+                                                {
+                                                    "value": "3131 McKinney Avenue"
+                                                },
+                                                {
+                                                    "value": "Suite 100"
+                                                }
+                                            ],
+                                            "cityName": "Dallas",
+                                            "geographicRegionName": [
+                                                {
+                                                    "value": "TX"
+                                                }
+                                            ],
+                                            "countryCode": "US",
+                                            "postalCode": "75204"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "value": "15608"
+                        }
+                    ]
+                }
+            ]
+        },
+        "groupArtUnitNumber": {
+            "value": "3696",
+            "electronicText": "3696"
+        },
+        "applicationConfirmationNumber": "8394",
+        "applicantFileReference": "4556.18001",
+        "patentClassificationBag": {
+            "cpcClassificationBagOrIPCClassificationOrECLAClassificationBag": [
+                {
+                    "ipOfficeCode": "US",
+                    "mainNationalClassification": {
+                        "nationalClass": "705",
+                        "nationalSubclass": "039000"
+                    }
+                }
+            ]
+        },
+        "businessEntityStatusCategory": "UNDISCOUNTED",
+        "firstInventorToFileIndicator": "true",
+        "inventionTitle": {
+            "content": [
+                "Electronic Financial Service Risk Evaluation"
+            ]
+        },
+        "applicationStatusCategory": "Docketed New Case - Ready for Examination",
+        "applicationStatusDate": "2019-03-12",
+        "officialFileLocationCategory": "ELECTRONIC",
+        "patentPublicationIdentification": {
+            "publicationNumber": "US20140304148A1",
+            "publicationDate": "2014-10-09"
+        },
+        "relatedDocumentData": {
+            "parentDocumentDataOrChildDocumentData": [
+                {
+                    "descriptionText": "This application Claims Priority from Provisional Application",
+                    "applicationNumberText": "61808025",
+                    "filingDate": "2013-04-03",
+                    "parentDocumentStatusCode": "Expired",
+                    "patentNumber": ""
+                }
+            ]
+        }
+    },
+    "prosecutionHistoryDataBag": {
+        "prosecutionHistoryData": [
+            {
+                "eventDate": "2019-03-12",
+                "eventCode": "FWDX",
+                "eventDescriptionText": "Date Forwarded to Examiner"
+            },
+            {
+                "eventDate": "2019-02-28",
+                "eventCode": "RCEX",
+                "eventDescriptionText": "Request for Continued Examination (RCE)"
+            },
+            {
+                "eventDate": "2019-03-12",
+                "eventCode": "ABN9",
+                "eventDescriptionText": "Disposal for a RCE / CPA / R129"
+            },
+            {
+                "eventDate": "2019-02-28",
+                "eventCode": "XT/G",
+                "eventDescriptionText": "Request for Extension of Time - Granted"
+            },
+            {
+                "eventDate": "2019-02-28",
+                "eventCode": "BRCE",
+                "eventDescriptionText": "Workflow - Request for RCE - Begin"
+            },
+            {
+                "eventDate": "2019-01-30",
+                "eventCode": "MCTAV",
+                "eventDescriptionText": "Mail Advisory Action (PTOL - 303)"
+            },
+            {
+                "eventDate": "2019-01-29",
+                "eventCode": "CTAV",
+                "eventDescriptionText": "Advisory Action (PTOL-303)"
+            },
+            {
+                "eventDate": "2019-01-03",
+                "eventCode": "FWDX",
+                "eventDescriptionText": "Date Forwarded to Examiner"
+            },
+            {
+                "eventDate": "2018-12-31",
+                "eventCode": "A.NE",
+                "eventDescriptionText": "Response after Final Action"
+            },
+            {
+                "eventDate": "2018-10-29",
+                "eventCode": "MCTFR",
+                "eventDescriptionText": "Mail Final Rejection (PTOL - 326)"
+            },
+            {
+                "eventDate": "2018-10-28",
+                "eventCode": "CTFR",
+                "eventDescriptionText": "Final Rejection"
+            },
+            {
+                "eventDate": "2018-07-28",
+                "eventCode": "FWDX",
+                "eventDescriptionText": "Date Forwarded to Examiner"
+            },
+            {
+                "eventDate": "2018-06-29",
+                "eventCode": "A...",
+                "eventDescriptionText": "Response after Non-Final Action"
+            },
+            {
+                "eventDate": "2018-03-29",
+                "eventCode": "MCTNF",
+                "eventDescriptionText": "Mail Non-Final Rejection"
+            },
+            {
+                "eventDate": "2018-03-28",
+                "eventCode": "CTNF",
+                "eventDescriptionText": "Non-Final Rejection"
+            },
+            {
+                "eventDate": "2018-01-16",
+                "eventCode": "FWDX",
+                "eventDescriptionText": "Date Forwarded to Examiner"
+            },
+            {
+                "eventDate": "2017-12-22",
+                "eventCode": "RCEX",
+                "eventDescriptionText": "Request for Continued Examination (RCE)"
+            },
+            {
+                "eventDate": "2018-01-16",
+                "eventCode": "ABN9",
+                "eventDescriptionText": "Disposal for a RCE / CPA / R129"
+            },
+            {
+                "eventDate": "2017-12-22",
+                "eventCode": "BRCE",
+                "eventDescriptionText": "Workflow - Request for RCE - Begin"
+            },
+            {
+                "eventDate": "2017-12-19",
+                "eventCode": "MCTAV",
+                "eventDescriptionText": "Mail Advisory Action (PTOL - 303)"
+            },
+            {
+                "eventDate": "2017-12-11",
+                "eventCode": "CTAV",
+                "eventDescriptionText": "Advisory Action (PTOL-303)"
+            },
+            {
+                "eventDate": "2017-12-04",
+                "eventCode": "FWDX",
+                "eventDescriptionText": "Date Forwarded to Examiner"
+            },
+            {
+                "eventDate": "2017-11-27",
+                "eventCode": "A.NE",
+                "eventDescriptionText": "Response after Final Action"
+            },
+            {
+                "eventDate": "2017-09-26",
+                "eventCode": "MCTFR",
+                "eventDescriptionText": "Mail Final Rejection (PTOL - 326)"
+            },
+            {
+                "eventDate": "2017-09-22",
+                "eventCode": "CTFR",
+                "eventDescriptionText": "Final Rejection"
+            },
+            {
+                "eventDate": "2017-07-20",
+                "eventCode": "FWDX",
+                "eventDescriptionText": "Date Forwarded to Examiner"
+            },
+            {
+                "eventDate": "2017-06-23",
+                "eventCode": "A...",
+                "eventDescriptionText": "Response after Non-Final Action"
+            },
+            {
+                "eventDate": "2017-03-23",
+                "eventCode": "MCTNF",
+                "eventDescriptionText": "Mail Non-Final Rejection"
+            },
+            {
+                "eventDate": "2017-03-20",
+                "eventCode": "CTNF",
+                "eventDescriptionText": "Non-Final Rejection"
+            },
+            {
+                "eventDate": "2016-09-19",
+                "eventCode": "FWDX",
+                "eventDescriptionText": "Date Forwarded to Examiner"
+            },
+            {
+                "eventDate": "2016-09-16",
+                "eventCode": "RCEX",
+                "eventDescriptionText": "Request for Continued Examination (RCE)"
+            },
+            {
+                "eventDate": "2016-09-19",
+                "eventCode": "ABN9",
+                "eventDescriptionText": "Disposal for a RCE / CPA / R129"
+            },
+            {
+                "eventDate": "2016-09-16",
+                "eventCode": "BRCE",
+                "eventDescriptionText": "Workflow - Request for RCE - Begin"
+            },
+            {
+                "eventDate": "2016-08-30",
+                "eventCode": "MCTAV",
+                "eventDescriptionText": "Mail Advisory Action (PTOL - 303)"
+            },
+            {
+                "eventDate": "2016-08-29",
+                "eventCode": "CTAV",
+                "eventDescriptionText": "Advisory Action (PTOL-303)"
+            },
+            {
+                "eventDate": "2016-08-18",
+                "eventCode": "FWDX",
+                "eventDescriptionText": "Date Forwarded to Examiner"
+            },
+            {
+                "eventDate": "2016-08-17",
+                "eventCode": "A.NE",
+                "eventDescriptionText": "Response after Final Action"
+            },
+            {
+                "eventDate": "2016-06-16",
+                "eventCode": "MCTFR",
+                "eventDescriptionText": "Mail Final Rejection (PTOL - 326)"
+            },
+            {
+                "eventDate": "2016-06-15",
+                "eventCode": "CTFR",
+                "eventDescriptionText": "Final Rejection"
+            },
+            {
+                "eventDate": "2016-03-06",
+                "eventCode": "FWDX",
+                "eventDescriptionText": "Date Forwarded to Examiner"
+            },
+            {
+                "eventDate": "2016-02-23",
+                "eventCode": "A...",
+                "eventDescriptionText": "Response after Non-Final Action"
+            },
+            {
+                "eventDate": "2016-02-23",
+                "eventCode": "XT/G",
+                "eventDescriptionText": "Request for Extension of Time - Granted"
+            },
+            {
+                "eventDate": "2015-09-23",
+                "eventCode": "MCTNF",
+                "eventDescriptionText": "Mail Non-Final Rejection"
+            },
+            {
+                "eventDate": "2015-09-21",
+                "eventCode": "CTNF",
+                "eventDescriptionText": "Non-Final Rejection"
+            },
+            {
+                "eventDate": "2015-09-20",
+                "eventCode": "IDSC",
+                "eventDescriptionText": "Information Disclosure Statement considered"
+            },
+            {
+                "eventDate": "2015-08-31",
+                "eventCode": "CCRDY",
+                "eventDescriptionText": "Application ready for PDX access by participating foreign offices"
+            },
+            {
+                "eventDate": "2015-07-30",
+                "eventCode": "DOCK",
+                "eventDescriptionText": "Case Docketed to Examiner in GAU"
+            },
+            {
+                "eventDate": "2014-10-09",
+                "eventCode": "PG-ISSUE",
+                "eventDescriptionText": "PG-Pub Issue Notification"
+            },
+            {
+                "eventDate": "2014-05-21",
+                "eventCode": "EIDS.",
+                "eventDescriptionText": "Electronic Information Disclosure Statement"
+            },
+            {
+                "eventDate": "2014-05-21",
+                "eventCode": "WIDS",
+                "eventDescriptionText": "Information Disclosure Statement (IDS) Filed"
+            },
+            {
+                "eventDate": "2014-05-01",
+                "eventCode": "DOCK",
+                "eventDescriptionText": "Case Docketed to Examiner in GAU"
+            },
+            {
+                "eventDate": "2014-04-30",
+                "eventCode": "OIPE",
+                "eventDescriptionText": "Application Dispatched from OIPE"
+            },
+            {
+                "eventDate": "2014-04-30",
+                "eventCode": "FTFS",
+                "eventDescriptionText": "FITF set to YES - revise initial setting"
+            },
+            {
+                "eventDate": "2014-04-25",
+                "eventCode": "PGPC",
+                "eventDescriptionText": "Sent to Classification Contractor"
+            },
+            {
+                "eventDate": "2014-04-22",
+                "eventCode": "PTA.RFE",
+                "eventDescriptionText": "Patent Term Adjustment - Ready for Examination"
+            },
+            {
+                "eventDate": "2014-04-25",
+                "eventCode": "COMP",
+                "eventDescriptionText": "Application Is Now Complete"
+            },
+            {
+                "eventDate": "2014-04-25",
+                "eventCode": "FLRCPT.O",
+                "eventDescriptionText": "Filing Receipt"
+            },
+            {
+                "eventDate": "2014-04-03",
+                "eventCode": "APPERMS",
+                "eventDescriptionText": "Applicants have given acceptable permission for participating foreign "
+            },
+            {
+                "eventDate": "2014-04-08",
+                "eventCode": "L194",
+                "eventDescriptionText": "Cleared by OIPE CSR"
+            },
+            {
+                "eventDate": "2014-04-03",
+                "eventCode": "SCAN",
+                "eventDescriptionText": "IFW Scan & PACR Auto Security Review"
+            },
+            {
+                "eventDate": "2014-04-03",
+                "eventCode": "BIG.",
+                "eventDescriptionText": "ENTITY STATUS SET TO UNDISCOUNTED (INITIAL DEFAULT SETTING OR STATUS CHANGE)"
+            },
+            {
+                "eventDate": "2014-04-03",
+                "eventCode": "IEXX",
+                "eventDescriptionText": "Initial Exam Team nn"
+            }
+        ]
+    },
+    "assignmentDataBag": {
+        "assignmentData": [
+            {
+                "reelNumber": "32728",
+                "frameNumber": "391",
+                "documentReceivedDate": "2014-04-22",
+                "recordedDate": "2014-04-22",
+                "mailDate": "2014-04-23",
+                "pageTotalQuantity": 4,
+                "conveyanceText": "ASSIGNMENT OF ASSIGNORS INTEREST (SEE DOCUMENT FOR DETAILS).",
+                "assignorBag": {
+                    "assignor": [
+                        {
+                            "executionDate": "2014-04-14",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "FLANAGAN, PATRICK RYAN"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "executionDate": "2014-04-08",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "PONNAM, RAJESH"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "assigneeBag": {
+                    "assignee": [
+                        {
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "BLACKHAWK NETWORK, INC."
+                                            }
+                                        ]
+                                    },
+                                    "postalAddressBag": {
+                                        "postalAddress": [
+                                            {
+                                                "postalAddressText": [
+                                                    {
+                                                        "sequenceNumber": "1",
+                                                        "value": "5918 STONERIDGE MALL ROAD"
+                                                    },
+                                                    {
+                                                        "sequenceNumber": "2",
+                                                        "value": "PLEASANTON CALIFORNIA 94588"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "correspondenceAddress": {
+                    "partyIdentifierOrContact": [
+                        {
+                            "name": {
+                                "personNameOrOrganizationNameOrEntityName": [
+                                    {
+                                        "value": "JERRY C. HARRIS, JR."
+                                    }
+                                ]
+                            },
+                            "postalAddressBag": {
+                                "postalAddress": [
+                                    {
+                                        "postalAddressText": [
+                                            {
+                                                "sequenceNumber": "1",
+                                                "value": "5601 GRANITE PARKWAY, SUITE 500"
+                                            },
+                                            {
+                                                "sequenceNumber": "2",
+                                                "value": "PLANO, TX 75024"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "sequenceNumber": "1"
+            },
+            {
+                "reelNumber": "46393",
+                "frameNumber": "670",
+                "documentReceivedDate": "2018-06-20",
+                "recordedDate": "2018-06-20",
+                "mailDate": "2018-07-20",
+                "pageTotalQuantity": 18,
+                "conveyanceText": "SECOND LIEN SECURITY AGREEMENT",
+                "assignorBag": {
+                    "assignor": [
+                        {
+                            "executionDate": "2018-06-15",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "BLACKHAWK ENGAGEMENT SOLUTIONS (DE), INC."
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "executionDate": "2018-06-15",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "BLACKHAWK NETWORK, INC."
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "executionDate": "2018-06-15",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "EWI HOLDINGS, INC."
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "executionDate": "2018-06-15",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "CARDLAB, INC."
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "executionDate": "2018-06-15",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "CARDPOOL, INC."
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "executionDate": "2018-06-15",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "CASHSTAR INC."
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "assigneeBag": {
+                    "assignee": [
+                        {
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "JPMORGAN CHASE BANK, N.A."
+                                            }
+                                        ]
+                                    },
+                                    "postalAddressBag": {
+                                        "postalAddress": [
+                                            {
+                                                "postalAddressText": [
+                                                    {
+                                                        "sequenceNumber": "1",
+                                                        "value": "CIB DMO WLO, MAIL CODE NY1-C413, 4 CMC"
+                                                    },
+                                                    {
+                                                        "sequenceNumber": "2",
+                                                        "value": "BROOKLYN NEW YORK 11245"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "correspondenceAddress": {
+                    "partyIdentifierOrContact": [
+                        {
+                            "name": {
+                                "personNameOrOrganizationNameOrEntityName": [
+                                    {
+                                        "value": "CT CORPORATION"
+                                    }
+                                ]
+                            },
+                            "postalAddressBag": {
+                                "postalAddress": [
+                                    {
+                                        "postalAddressText": [
+                                            {
+                                                "sequenceNumber": "1",
+                                                "value": "4400 EASTON COMMONS WAY"
+                                            },
+                                            {
+                                                "sequenceNumber": "2",
+                                                "value": "SUITE 125"
+                                            },
+                                            {
+                                                "sequenceNumber": "3",
+                                                "value": "COLUMBUS, OH 43219"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "sequenceNumber": "23"
+            },
+            {
+                "reelNumber": "47377",
+                "frameNumber": "11",
+                "documentReceivedDate": "2018-06-19",
+                "recordedDate": "2018-06-19",
+                "mailDate": "2018-11-02",
+                "pageTotalQuantity": 20,
+                "conveyanceText": "FIRST LIEN SECURITY AGREEMENT",
+                "assignorBag": {
+                    "assignor": [
+                        {
+                            "executionDate": "2018-06-15",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "BLACKHAWK ENGAGEMENT SOLUTIONS (DE), INC."
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "executionDate": "2018-06-15",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "BLACKHAWK NETWORK, INC."
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "executionDate": "2018-06-15",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "EWI HOLDINGS, INC."
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "executionDate": "2018-06-15",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "CARDLAB, INC."
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "executionDate": "2018-06-15",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "CARDPOOL, INC."
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "executionDate": "2018-06-15",
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "CASHSTAR INC."
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "assigneeBag": {
+                    "assignee": [
+                        {
+                            "contactOrPublicationContact": [
+                                {
+                                    "name": {
+                                        "personNameOrOrganizationNameOrEntityName": [
+                                            {
+                                                "value": "BANK OF AMERICA, N.A."
+                                            }
+                                        ]
+                                    },
+                                    "postalAddressBag": {
+                                        "postalAddress": [
+                                            {
+                                                "postalAddressText": [
+                                                    {
+                                                        "sequenceNumber": "1",
+                                                        "value": "101 N. TRYON STREET, 5TH FLOOR"
+                                                    },
+                                                    {
+                                                        "sequenceNumber": "2",
+                                                        "value": "C/O MAC LEGAL, MAIL CODE: NC1-001-05-45"
+                                                    },
+                                                    {
+                                                        "sequenceNumber": "3",
+                                                        "value": "CHARLOTTE NORTH CAROLINA 28255-0001"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "correspondenceAddress": {
+                    "partyIdentifierOrContact": [
+                        {
+                            "name": {
+                                "personNameOrOrganizationNameOrEntityName": [
+                                    {
+                                        "value": "CT CORPORATION"
+                                    }
+                                ]
+                            },
+                            "postalAddressBag": {
+                                "postalAddress": [
+                                    {
+                                        "postalAddressText": [
+                                            {
+                                                "sequenceNumber": "1",
+                                                "value": "4400 EASTON COMMONS WAY"
+                                            },
+                                            {
+                                                "sequenceNumber": "2",
+                                                "value": "SUITE 125"
+                                            },
+                                            {
+                                                "sequenceNumber": "3",
+                                                "value": "COLUMBUS, OH 43219"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "sequenceNumber": "23"
+            }
+        ],
+        "assignmentTotalQuantity": 3
+    },
+    "st96Version": "V3_1",
+    "ipoVersion": "US_V8_0"
+}

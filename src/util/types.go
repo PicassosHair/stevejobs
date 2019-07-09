@@ -73,31 +73,34 @@ type ProsecutionHistoryDataBag struct {
 	}
 }
 
+// AssignmentContact defines either assignee or assignor.
 type AssignmentContact struct {
-  ExecutionDate string `json:"executionDate"`
-  ContactOrPublicationContact Contact `json:"contactOrPublicationContact"`
+	ExecutionDate               string  `json:"executionDate"`
+	ContactOrPublicationContact Contact `json:"contactOrPublicationContact"`
 }
 
+// Assignment defines each assignment.
 type Assignment struct {
-  ReelNumber string `json:"reelNumber"`
-  FrameNumber string `json:"frameNumber"`
-  DocumentReceivedDate string `json:"documentReceivedDate"`
-  RecordedDate string `json:"recordedDate"`
-  MailDate string `json:"mailDate"`
-  PageTotalQuantity int `json:"pageTotalQuantity"`
-  ConveyanceText string `json:"conveyanceText"`
-  AssignorBag struct {
-    Assignor []AssignmentContact `json:"assignor"`
-  } `json:"assignorBag"`
-  AssigneeBag struct {
-    Assignee []AssignmentContact `json:"assignee"`
-  } `json:"assigneeBag"`
-  CorrespondenceAddress  `json:"correspondenceAddress"`
+	ReelNumber           string `json:"reelNumber"`
+	FrameNumber          string `json:"frameNumber"`
+	DocumentReceivedDate string `json:"documentReceivedDate"`
+	RecordedDate         string `json:"recordedDate"`
+	MailDate             string `json:"mailDate"`
+	PageTotalQuantity    int    `json:"pageTotalQuantity"`
+	ConveyanceText       string `json:"conveyanceText"`
+	AssignorBag          struct {
+		Assignor []AssignmentContact `json:"assignor"`
+	} `json:"assignorBag"`
+	AssigneeBag struct {
+		Assignee []AssignmentContact `json:"assignee"`
+	} `json:"assigneeBag"`
+	// CorrespondenceAddress struct {...}  `json:"correspondenceAddress"`
 }
 
+// AssignmentDataBag contains assignment information.
 type AssignmentDataBag struct {
-  AssignmentData []Assignment `json:"assignmentData"`
-  AssignmentTotalQuantity int `json:"assignmentTotalQuantity"`
+	AssignmentData          []Assignment `json:"assignmentData"`
+	AssignmentTotalQuantity int          `json:"assignmentTotalQuantity"`
 }
 
 // RawPatentRecord defines raw PEDS bulk data.
@@ -105,7 +108,7 @@ type AssignmentDataBag struct {
 type RawPatentRecord struct {
 	PatentCaseMetadata        PatentCaseMetadata        `json:"patentCaseMetadata"`
 	ProsecutionHistoryDataBag ProsecutionHistoryDataBag `json:"prosecutionHistoryDataBag"`
-  AssignmentDataBag AssignmentDataBag `json:"assignmentDataBag"`
+	AssignmentDataBag         AssignmentDataBag         `json:"assignmentDataBag"`
 
 	St96Version string `json:"st96Version"`
 	IpoVersion  string `json:"ipoVersion"`
@@ -141,15 +144,15 @@ type Contact struct {
 		GeographicRegionCategory string `json:"geographicRegionCategory"`
 	} `json:"geographicRegionName"`
 	CountryCode string `json:"countryCode"`
-  // Disable for now.
-  // PostalAddressBag struct {
-  //   PostalAddress []struct {
-  //     PostalAddressText []struct {
-  //       SequenceNumber string `json:"sequenceNumber"`
-  //       Value string `json:"value"`
-  //     } `json:"postalAddressText"`
-  //   } `json:"postalAddress"`
-  // } `json:"postalAddressBag"`
+	// Disable for now.
+	// PostalAddressBag struct {
+	//   PostalAddress []struct {
+	//     PostalAddressText []struct {
+	//       SequenceNumber string `json:"sequenceNumber"`
+	//       Value string `json:"value"`
+	//     } `json:"postalAddressText"`
+	//   } `json:"postalAddress"`
+	// } `json:"postalAddressBag"`
 }
 
 // Examiner defines some examiners.
