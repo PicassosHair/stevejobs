@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `temp_Applications` (
   `publicationDate` VARCHAR(30),
   `patentNumber` VARCHAR(30),
   `grantDate` VARCHAR(30),
-  `assignmentData` TEXT
+  `assignment` TEXT
 ) ENGINE=InnoDB;
 
 -- Pump the csv-like file to the temp table.
@@ -59,7 +59,7 @@ LINES TERMINATED BY '\n' (
   publicationDate,
   patentNumber,
   grantDate,
-  assignmentData);
+  assignment);
 
 INSERT INTO Applications (
   createdAt,
@@ -88,7 +88,7 @@ INSERT INTO Applications (
   publicationDate,
   patentNumber,
   grantDate,
-  assignmentData)
+  assignment)
 SELECT 
   NOW(),
   NOW(),
@@ -135,7 +135,7 @@ SELECT
     WHEN grantDate IS NULL THEN NULL
     ELSE grantDate
   END AS grantDate,
-  assignmentData
+  assignment
 FROM temp_Applications
 ON DUPLICATE KEY UPDATE 
   updatedAt = NOW(),
@@ -163,6 +163,6 @@ ON DUPLICATE KEY UPDATE
   publicationDate = VALUES(publicationDate),
   patentNumber = VALUES(patentNumber),
   grantDate = VALUES(grantDate),
-  assignmentData = VALUES(assignmentData);
+  assignment = VALUES(assignment);
 
 DROP TABLE temp_Applications;
